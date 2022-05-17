@@ -83,6 +83,29 @@
               }
             ]
           },
+          "sdPublisher": {
+            "description": "Original publisher of the Dataset metadata. Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The sdPublisher property helps make such practices more explicit.",
+            "owl:cardinality": "many",
+            "anyOf": [{
+                "$ref": "#/definitions/person"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
+              },
+              {
+                "$ref": "#/definitions/organization"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
+              }
+            ]
+          },
           "distribution": {
             "description": "DataDownload objects, which contain the URL link to download the raw, analyzed, and summary data associated with the dataset as well as associated metadata for the file.",
             "owl:cardinality": "many",
