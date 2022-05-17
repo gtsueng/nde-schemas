@@ -557,57 +557,6 @@
       ]
     },
     {
-      "@id": "niaid:species",
-      "@type": "rdf:Property",
-      "rdfs:comment": "Species(es) for which the computational tool was designed",
-      "rdfs:label": "species",
-      "schema:domainIncludes": [{
-        "@id": "niaid:ComputationalTool"
-      }],
-      "schema:rangeIncludes": [{
-        "@id": "schema:Text"
-      }]
-    },
-    {
-      "@id": "niaid:infectiousAgent",
-      "@type": "rdf:Property",
-      "rdfs:comment": "Infectious agent(s) / pathogen(s) which are the focus of the computational tool (e.g. SARS-CoV-2)",
-      "rdfs:label": "infectiousAgent",
-      "schema:domainIncludes": [{
-        "@id": "niaid:ComputationalTool"
-      }],
-      "schema:rangeIncludes": [{
-        "@id": "schema:Text"
-      }]
-    },
-    {
-      "@id": "niaid:healthCondition",
-      "@type": "rdf:Property",
-      "rdfs:comment": "The infectious disease(s) / health condition(s) which are the focus of the computational tool (e.g. COVID-19, coronavirus)",
-      "rdfs:label": "healthCondition",
-      "schema:domainIncludes": [{
-        "@id": "niaid:ComputationalTool"
-      }],
-      "schema:rangeIncludes": [{
-        "@id": "schema:Text"
-      }]
-    },
-    {
-      "@id": "niaid:funding",
-      "@type": "rdf:Property",
-      "rdfs:comment": "Funding that supports (sponsors) the development or maintenance of this computational tool through some kind of financial contribution",
-      "rdfs:label": "funding",
-      "schema:domainIncludes": [{
-        "@id": "niaid:ComputationalTool"
-      }],
-      "schema:rangeIncludes": [{
-        "@id": "niaid:MonetaryGrant"
-      }],
-      "schema:sameAs": {
-        "@id": "schema:funding"
-      }
-    },
-    {
       "@id": "niaid:funder",
       "@type": "rdf:Property",
       "rdfs:comment": "An organization that supports (sponsors) the development or maintenance of this computational tool through some kind of financial contribution.",
