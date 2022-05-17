@@ -729,37 +729,6 @@
       }]
     },
     {
-      "@id": "niaid:ScholarlyArticle",
-      "@type": "rdfs:Class",
-      "rdfs:comment": "A scholarly article in which the dataset or computational tool is cited.",
-      "rdfs:label": "ScholarlyArticle",
-      "rdfs:subClassOf": {
-        "@id": "schema:ScholarlyArticle"
-      },
-      "schema:isPartOf": {
-        "@id": "https://discovery.biothings.io/view/niaid/"
-      },
-      "$validation": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "url"
-        ],
-        "recommended": [
-          "name"
-        ]
-      }
-    },
-    {
       "@id": "niaid:funding",
       "@type": "rdf:Property",
       "rdfs:comment": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
