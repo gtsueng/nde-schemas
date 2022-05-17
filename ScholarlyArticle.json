@@ -24,9 +24,27 @@
         "type": "object",
         "properties": {
           "name": {
+            "description": "Name of the scholarly article",
+            "type": "string"
+          },
+          "doi": {
+            "description": "Digital Object Identifier (DOI) for the article",
+            "type": "string"
+          },
+          "pmid": {
+            "description": "PubMed ID (PMID) for the article",
+            "type": "string"
+          },
+          "pmcid": {
+            "description": "PubMed Central (PMC) ID for the article",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the article",
             "type": "string"
           },
           "url": {
+            "description": "URL where the article can be found",
             "type": "string",
             "format": "uri"
           }

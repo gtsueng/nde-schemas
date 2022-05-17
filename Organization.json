@@ -24,9 +24,11 @@
         "type": "object",
         "properties": {
           "name": {
+            "description": "Name of the organization",
             "type": "string"
           },
           "parentOrganization": {
+            "description": "Name of the parent organization",
             "type": "string"
           }
         },

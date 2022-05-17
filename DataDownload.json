@@ -24,10 +24,12 @@
         "type": "object",
         "properties": {
           "dateModified": {
+            "description": "date when the data download / file has been modified",
             "type": "string",
             "format": "date"
           },
           "contentUrl": {
+            "description": "Location (URL) from which the data can be downloaded",
             "type": "string",
             "format": "uri"
           }

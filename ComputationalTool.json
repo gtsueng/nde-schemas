@@ -73,6 +73,7 @@
             "format": "uri"
           },
           "dateModified": {
+            "description": "date when the computational tool has been modified",
             "owl:cardinality": "one",
             "owl:cardinality": "one",
             "type": "string",
