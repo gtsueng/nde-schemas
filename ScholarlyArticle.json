@@ -11,7 +11,7 @@
     {
       "@id": "niaid:ScholarlyArticle",
       "@type": "rdfs:Class",
-      "rdfs:comment": "A scholarly article in which the dataset or computational tool is cited!!!!!!!!",
+      "rdfs:comment": "A scholarly article in which the dataset or computational tool is cited.",
       "rdfs:label": "ScholarlyArticle",
       "rdfs:subClassOf": {
         "@id": "schema:ScholarlyArticle"
