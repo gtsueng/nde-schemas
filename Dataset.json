@@ -557,36 +557,6 @@
       }]
     },
     {
-      "@id": "niaid:DataDownload",
-      "@type": "rdfs:Class",
-      "rdfs:comment": "A dataset in downloadable form.",
-      "rdfs:label": "DataDownload",
-      "rdfs:subClassOf": {
-        "@id": "schema:DataDownload"
-      },
-      "schema:isPartOf": {
-        "@id": "https://discovery.biothings.io/view/niaid/"
-      },
-      "$validation": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "type": "object",
-        "properties": {
-          "dateModified": {
-            "type": "string",
-            "format": "date"
-          },
-          "contentUrl": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "dateModified",
-          "contentUrl"
-        ]
-      }
-    },
-    {
       "@id": "niaid:funding",
       "@type": "rdf:Property",
       "rdfs:comment": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
