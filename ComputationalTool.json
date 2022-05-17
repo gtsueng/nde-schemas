@@ -596,42 +596,6 @@
       "schema:sameAs": {
         "@id": "schema:funder"
       }
-    },
-    {
-      "@id": "niaid:MonetaryGrant",
-      "@type": "rdfs:Class",
-      "rdfs:comment": "Funding that supports (sponsors) the development or maintenance of this computational tool through some kind of financial contribution",
-      "rdfs:label": "MonetaryGrant",
-      "rdfs:subClassOf": {
-        "@id": "schema:MonetaryGrant"
-      },
-      "schema:isPartOf": {
-        "@id": "https://discovery.biothings.io/view/niaid/"
-      }
-    },
-    {
-      "@id": "niaid:Organization",
-      "@type": "rdfs:Class",
-      "rdfs:comment": "An organization associated with a creator or funder of a computational tool",
-      "rdfs:label": "Organization",
-      "rdfs:subClassOf": {
-        "@id": "schema:Organization"
-      },
-      "schema:isPartOf": {
-        "@id": "https://discovery.biothings.io/view/niaid/"
-      }
-    },
-    {
-      "@id": "niaid:ScholarlyArticle",
-      "@type": "rdfs:Class",
-      "rdfs:comment": "A scholarly article in which the computational tool is cited.",
-      "rdfs:label": "ScholarlyArticle",
-      "rdfs:subClassOf": {
-        "@id": "schema:ScholarlyArticle"
-      },
-      "schema:isPartOf": {
-        "@id": "https://discovery.biothings.io/view/niaid/"
-      }
     }
   ]
 }
