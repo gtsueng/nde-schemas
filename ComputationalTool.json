@@ -329,6 +329,7 @@
           "softwareHelp"
         ],
         "optional": [
+          "sdPublisher",
           "species",
           "infectiousAgent",
           "healthCondition"

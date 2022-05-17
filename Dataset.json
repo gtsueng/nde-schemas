@@ -242,7 +242,9 @@
           "healthCondition",
           "spatialCoverage",
           "temporalCoverage"
-
+        ],
+        "optional": [
+          "sdPublisher"
         ],
         "definitions": {
           "person": {
