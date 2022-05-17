@@ -8,55 +8,56 @@
   },
   "@id": "https://discovery.biothings.io/view/niaid/",
   "@graph": [{
-    "@id": "niaid:ScholarlyArticle",
-    "@type": "rdfs:Class",
-    "rdfs:comment": "A scholarly article in which the dataset or computational tool is cited.",
-    "rdfs:label": "ScholarlyArticle",
-    "rdfs:subClassOf": {
-      "@id": "schema:ScholarlyArticle"
-    },
-    "schema:isPartOf": {
-      "@id": "https://discovery.biothings.io/view/niaid/"
-    },
-    "$validation": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Name of the scholarly article",
-          "type": "string"
-        },
-        "doi": {
-          "description": "Digital Object Identifier (DOI) for the article",
-          "type": "string"
-        },
-        "pmid": {
-          "description": "PubMed ID (PMID) for the article",
-          "type": "string"
-        },
-        "pmcid": {
-          "description": "PubMed Central (PMC) ID for the article",
-          "type": "string"
-        },
-        "name": {
-          "description": "Name of the article",
-          "type": "string"
-        },
-        "url": {
-          "description": "URL where the article can be found",
-          "type": "string",
-          "format": "uri"
-        }
+      "@id": "niaid:ScholarlyArticle",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A scholarly article in which the dataset or computational tool is cited.",
+      "rdfs:label": "ScholarlyArticle",
+      "rdfs:subClassOf": {
+        "@id": "schema:ScholarlyArticle"
       },
-      "required": [
-        "url"
-      ],
-      "recommended": [
-        "name",
-        "doi",
-        "pmid",
-        "pmcid"
-      ]
+      "schema:isPartOf": {
+        "@id": "https://discovery.biothings.io/view/niaid/"
+      },
+      "$validation": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Name of the scholarly article",
+            "type": "string"
+          },
+          "doi": {
+            "description": "Digital Object Identifier (DOI) for the article",
+            "type": "string"
+          },
+          "pmid": {
+            "description": "PubMed ID (PMID) for the article",
+            "type": "string"
+          },
+          "pmcid": {
+            "description": "PubMed Central (PMC) ID for the article",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name of the article",
+            "type": "string"
+          },
+          "url": {
+            "description": "URL where the article can be found",
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "recommended": [
+          "name",
+          "doi",
+          "pmid",
+          "pmcid"
+        ]
+      }
     },
     {
       "@id": "niaid:doi",
@@ -96,5 +97,5 @@
         "@id": "schema:Text"
       }]
     }
-  }]
+  ]
 }
