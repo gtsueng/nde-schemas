@@ -7,8 +7,7 @@
     "niaid": "https://discovery.biothings.io/view/niaid/"
   },
   "@id": "https://discovery.biothings.io/view/niaid/",
-  "@graph": [
-    {
+  "@graph": [{
       "@id": "niaid:AdministrativeArea",
       "@type": "rdfs:Class",
       "rdfs:comment": "Geospatial location information.",
@@ -26,8 +25,7 @@
           "locationType": {
             "description": "Categorization of how the location relates to the dataset or computational tool",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string",
                 "enum": [
                   "residence",
@@ -81,8 +79,7 @@
           "alternateName": {
             "description": "An alias for the location.",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -122,11 +119,9 @@
       "@type": "rdf:Property",
       "rdfs:comment": "Categorization of how the location relates to the dataset or computational tool",
       "rdfs:label": "locationType",
-      "schema:domainIncludes": [
-        {
-          "@id": "niaid:AdministrativeArea"
-        }
-      ],
+      "schema:domainIncludes": [{
+        "@id": "niaid:AdministrativeArea"
+      }],
       "schema:rangeIncludes": [{
         "@id": "schema:Text"
       }]
@@ -136,11 +131,9 @@
       "@type": "rdf:Property",
       "rdfs:comment": "Descriptive categorization of the level of Administrative Area",
       "rdfs:label": "administrativeType",
-      "schema:domainIncludes": [
-        {
-          "@id": "niaid:AdministrativeArea"
-        }
-      ],
+      "schema:domainIncludes": [{
+        "@id": "niaid:AdministrativeArea"
+      }],
       "schema:rangeIncludes": [{
         "@id": "schema:Text"
       }]
