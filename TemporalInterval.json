@@ -74,10 +74,8 @@
             "type": "string"
           }
         },
-        "required": [
-          "temporalType"
-        ],
         "recommended": [
+          "temporalType",
           "startDate",
           "endDate",
           "duration"

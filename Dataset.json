@@ -533,10 +533,7 @@
                 "description": "A time interval in ISO 8601 duration format.",
                 "type": "string"
               }
-            },
-            "required": [
-              "temporalType"
-            ]
+            }
           }
         }
       }
