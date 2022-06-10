@@ -524,6 +524,10 @@
                 "type": "string",
                 "format": "date"
               },
+              "name": {
+                "description": "String describing the temporal interval",
+                "type": "string"
+              },
               "endDate": {
                 "description": "An end date.",
                 "type": "string",
