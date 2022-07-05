@@ -430,7 +430,7 @@
           },
           "pathogenControlledVocabulary": {
             "description": "collection of vocabulary terms defined in ontologies",
-            "@type": "CreativeWork",
+            "@type": "DefinedTerm",
             "type": "string",
             "vocabulary": {
               "ontology": ["ncbitaxon"],
@@ -440,7 +440,7 @@
           },
           "speciesControlledVocabulary": {
             "description": "collection of vocabulary terms defined in ontologies",
-            "@type": "CreativeWork",
+            "@type": "DefinedTerm",
             "type": "string",
             "vocabulary": {
               "ontology": ["ncbitaxon"],
@@ -450,7 +450,7 @@
           },
           "diseaseControlledVocabulary": {
             "description": "collection of vocabulary terms defined in ontologies",
-            "@type": "CreativeWork",
+            "@type": "DefinedTerm",
             "type": "string",
             "vocabulary": {
               "ontology": ["mondo"],

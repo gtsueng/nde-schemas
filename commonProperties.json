@@ -23,6 +23,9 @@
       ],
       "schema:rangeIncludes": [{
         "@id": "schema:Text"
+      },
+      {
+        "@id": "schema:DefinedTerm"
       }]
     },
     {
@@ -39,6 +42,9 @@
       ],
       "schema:rangeIncludes": [{
         "@id": "schema:Text"
+      },
+      {
+        "@id": "schema:DefinedTerm"
       }]
     },
     {
@@ -74,6 +80,9 @@
       ],
       "schema:rangeIncludes": [{
         "@id": "schema:Text"
+      },
+      {
+        "@id": "schema:DefinedTerm"
       }]
     }
   ]
