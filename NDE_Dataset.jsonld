@@ -13,7 +13,7 @@
       "rdfs:comment": "A body of structured information describing some topic(s) of interest.",
       "rdfs:label": "Dataset",
       "rdfs:subClassOf": {
-        "@id": "schema:Dataset"
+        "@id": "niaid:Dataset"
       },
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1063,7 +1063,7 @@
     {
       "@id": "nde:isRelatedTo",
       "@type": "rdf:Property",
-      "rdfs:comment": "Datasets which are related to the given Dataset, based on curated links.",
+      "rdfs:comment": "Datasets which are related to the given Dataset",
       "rdfs:label": "isRelatedTo",
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
