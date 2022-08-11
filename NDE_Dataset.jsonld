@@ -4,11 +4,11 @@
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "niaid": "https://discovery.biothings.io/view/niaid/",
-    "NDE": "https://discovery.biothings.io/view/NDE/"
+    "nde": "https://discovery.biothings.io/view/nde/"
   },
   "@graph": [
     {
-      "@id": "NDE:Dataset",
+      "@id": "nde:Dataset",
       "@type": "rdfs:Class",
       "rdfs:comment": "A body of structured information describing some topic(s) of interest.",
       "rdfs:label": "Dataset",
@@ -977,12 +977,12 @@
       }
     },
     {
-      "@id": "NDE:citedBy",
+      "@id": "nde:citedBy",
       "@type": "rdf:Property",
       "rdfs:comment": "Publications that cite the dataset.",
       "rdfs:label": "citedBy",
       "schema:domainIncludes": {
-        "@id": "NDE:Dataset"
+        "@id": "nde:Dataset"
       },
       "schema:rangeIncludes": [
         {
@@ -991,12 +991,12 @@
       ]
     },
     {
-      "@id": "NDE:date",
+      "@id": "nde:date",
       "@type": "rdf:Property",
       "rdfs:comment": "Date the Dataset has changed: most recent date of dateModified, datePublished, and dateCreated.",
       "rdfs:label": "date",
       "schema:domainIncludes": {
-        "@id": "NDE:Dataset"
+        "@id": "nde:Dataset"
       },
       "schema:rangeIncludes": [
         {
@@ -1005,12 +1005,12 @@
       ]
     },
     {
-      "@id": "NDE:doi",
+      "@id": "nde:doi",
       "@type": "rdf:Property",
       "rdfs:comment": "Digital Object Identifier (DOI) of the Dataset",
       "rdfs:label": "doi",
       "schema:domainIncludes": {
-        "@id": "NDE:Dataset"
+        "@id": "nde:Dataset"
       },
       "schema:rangeIncludes": [
         {
@@ -1019,12 +1019,12 @@
       ]
     },
     {
-      "@id": "NDE:nctid",
+      "@id": "nde:nctid",
       "@type": "rdf:Property",
       "rdfs:comment": "ClinicalTrials.gov identifier, for Datasets associated with Clinical Trials",
       "rdfs:label": "nctid",
       "schema:domainIncludes": {
-        "@id": "NDE:Dataset"
+        "@id": "nde:Dataset"
       },
       "schema:rangeIncludes": [
         {
@@ -1033,12 +1033,12 @@
       ]
     },
     {
-      "@id": "NDE:topicCategory",
+      "@id": "nde:topicCategory",
       "@type": "rdf:Property",
       "rdfs:comment": "Topic(s) covered by the Dataset",
       "rdfs:label": "topicCategory",
       "schema:domainIncludes": {
-        "@id": "NDE:Dataset"
+        "@id": "nde:Dataset"
       },
       "schema:rangeIncludes": [
         {
@@ -1047,12 +1047,12 @@
       ]
     },
     {
-      "@id": "NDE:isSimilarTo",
+      "@id": "nde:isSimilarTo",
       "@type": "rdf:Property",
       "rdfs:comment": "Datasets which are similar to the dataset, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
       "rdfs:label": "isSimilarTo",
       "schema:domainIncludes": {
-        "@id": "NDE:Dataset"
+        "@id": "nde:Dataset"
       },
       "schema:rangeIncludes": [
         {
@@ -1061,12 +1061,12 @@
       ]
     },
     {
-      "@id": "NDE:isRelatedTo",
+      "@id": "nde:isRelatedTo",
       "@type": "rdf:Property",
       "rdfs:comment": "Datasets which are related to the given Dataset",
       "rdfs:label": "isRelatedTo",
       "schema:domainIncludes": {
-        "@id": "NDE:Dataset"
+        "@id": "nde:Dataset"
       },
       "schema:rangeIncludes": [
         {
