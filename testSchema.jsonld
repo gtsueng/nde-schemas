@@ -3,14 +3,13 @@
     "schema": "http://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "niaid": "https://discovery.biothings.io/view/niaid/",
-    "test": "https://discovery.biothings.io/view/test/"
+    "test3": "https://discovery.biothings.io/view/test3/"
   },
   "@graph": [
     {
-      "@id": "test:TestDataset",
+      "@id": "test3:TestDataset",
       "@type": "rdfs:Class",
-      "rdfs:comment": "test dataset schema ",
+      "rdfs:comment": "another test test test test",
       "rdfs:label": "TestDataset",
       "rdfs:subClassOf": {
         "@id": "niaid:Dataset"
@@ -20,7 +19,7 @@
         "type": "object",
         "properties": {
           "test": {
-            "description": "test"
+            "description": "Publications that cite the dataset."
           },
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
@@ -891,16 +890,16 @@
       }
     },
     {
-      "@id": "test:test",
+      "@id": "test3:test",
       "@type": "rdf:Property",
-      "rdfs:comment": "test",
+      "rdfs:comment": "Publications that cite the dataset.",
       "rdfs:label": "test",
       "schema:domainIncludes": {
-        "@id": "test:TestDataset"
+        "@id": "test3:TestDataset"
       },
       "schema:rangeIncludes": [
         {
-          "@id": "schema:Clip"
+          "@id": "schema:City"
         }
       ]
     }
