@@ -20,7 +20,7 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
-          "doi2": {
+          "doi": {
             "description": "Digital object identifier (DOI) for the Dataset",
             "owl:cardinality": "one",
             "type": "string"
@@ -880,7 +880,7 @@
           "name"
         ],
         "recommended": [
-          "doi2",
+          "doi",
           "infectiousAgent",
           "healthCondition",
           "species",
@@ -930,21 +930,8 @@
         "rdfs:comment": "Digital Object Identifier (DOI) for the Dataset. Note: the DOI should be a permanent identifier for the Dataset itself, not any publications associated with the Dataset.",
         "rdfs:label": "doi",
         "schema:domainIncludes": {
+          "@id": "nde:Dataset",
           "@id": "nde:ComputationalTool"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          }
-        ]
-      },
-      {
-        "@id": "nde:doi2",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Digital Object Identifier (DOI) for the Dataset. Note: the DOI should be a permanent identifier for the Dataset itself, not any publications associated with the Dataset.",
-        "rdfs:label": "doi2",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset"
         },
         "schema:rangeIncludes": [
           {
