@@ -23,7 +23,7 @@
           "doi": {
             "description": "Digital object identifier (DOI) for the Dataset",
             "owl:cardinality": "one",
-            "type": "string"
+            "oneOf": [{"type": "string"}]
           },
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
@@ -1048,7 +1048,7 @@
           "doi": {
             "description": "Digital object identifier (DOI) for the ComputationalTool",
             "owl:cardinality": "one",
-            "type": "string"
+            "oneOf": [{"type": "string"}]
           },
           "includedInDataCatalog": {
             "description": "Repository or source which contains the ComputationalTool",
