@@ -880,6 +880,7 @@
           "name"
         ],
         "recommended": [
+          "doi",
           "infectiousAgent",
           "healthCondition",
           "species",
