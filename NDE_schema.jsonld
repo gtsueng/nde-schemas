@@ -37,7 +37,7 @@
               "owl:cardinality": "many"
             },
             "date": {
-              "description": "Date the Dataset has changed: most recent date of dateModified, datePublished, and dateCreated.",
+              "description": "Date the Dataset/ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
               "format": "date",
               "type": "string",
               "owl:cardinality": "one"
@@ -1124,7 +1124,8 @@
         "rdfs:comment": "Publications that cite the dataset.",
         "rdfs:label": "citedBy",
         "schema:domainIncludes": {
-          "@id": "nde:Dataset"
+          "@id": "nde:Dataset",
+          "@id": "nde:ComputationalTool"
         },
         "schema:rangeIncludes": [
           {
@@ -1135,10 +1136,11 @@
       {
         "@id": "nde:date",
         "@type": "rdf:Property",
-        "rdfs:comment": "Date the Dataset has changed: most recent date of dateModified, datePublished, and dateCreated.",
+        "rdfs:comment": "Date the Dataset/ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
         "rdfs:label": "date",
         "schema:domainIncludes": {
-          "@id": "nde:Dataset"
+          "@id": "nde:Dataset",
+          "@id": "nde:ComputationalTool"
         },
         "schema:rangeIncludes": [
           {
@@ -1152,7 +1154,8 @@
         "rdfs:comment": "Digital Object Identifier (DOI) for the Dataset. Note: the DOI should be a permanent identifier for the Dataset itself, not any publications associated with the Dataset.",
         "rdfs:label": "doi",
         "schema:domainIncludes": {
-          "@id": "nde:Dataset"
+          "@id": "nde:Dataset",
+          "@id": "nde:ComputationalTool"
         },
         "schema:rangeIncludes": [
           {
@@ -1177,10 +1180,11 @@
       {
         "@id": "nde:topicCategory",
         "@type": "rdf:Property",
-        "rdfs:comment": "Topic of the Dataset. This topic may be assigned by a human curator or through automated algorithms.",
+        "rdfs:comment": "Topic of the Dataset/ComputationalTool. This topic may be assigned by a human curator or through automated algorithms.",
         "rdfs:label": "topicCategory",
         "schema:domainIncludes": {
-          "@id": "nde:Dataset"
+          "@id": "nde:Dataset",
+          "@id": "nde:ComputationalTool"
         },
         "schema:rangeIncludes": [
           {
@@ -1194,7 +1198,8 @@
         "rdfs:comment": "Datasets which are related to the given Dataset; often datasets involved in the same study",
         "rdfs:label": "isRelatedTo",
         "schema:domainIncludes": {
-          "@id": "nde:Dataset"
+          "@id": "nde:Dataset",
+          "@id": "nde:ComputationalTool"
         },
         "schema:rangeIncludes": [
           {
@@ -1208,7 +1213,8 @@
         "rdfs:comment": "Datasets which are similar to the dataset, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
         "rdfs:label": "isSimilarTo",
         "schema:domainIncludes": {
-          "@id": "nde:Dataset"
+          "@id": "nde:Dataset",
+          "@id": "nde:ComputationalTool"
         },
         "schema:rangeIncludes": [
           {
@@ -2250,48 +2256,6 @@
       }
     },
     {
-      "@id": "nde:citedBy",
-      "@type": "rdf:Property",
-      "rdfs:comment": "Publications that cite the computational tool.",
-      "rdfs:label": "citedBy",
-      "schema:domainIncludes": {
-        "@id": "nde:ComputationalTool"
-      },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:ScholarlyArticle"
-        }
-      ]
-    },
-    {
-      "@id": "nde:date",
-      "@type": "rdf:Property",
-      "rdfs:comment": "Date the ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
-      "rdfs:label": "date",
-      "schema:domainIncludes": {
-        "@id": "nde:ComputationalTool"
-      },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Date"
-        }
-      ]
-    },
-    {
-      "@id": "nde:doi",
-      "@type": "rdf:Property",
-      "rdfs:comment": "Digital object identifier (DOI) for the ComputationalTool",
-      "rdfs:label": "doi",
-      "schema:domainIncludes": {
-        "@id": "nde:ComputationalTool"
-      },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
-        }
-      ]
-    },
-    {
       "@id": "nde:includedInDataCatalog",
       "@type": "rdf:Property",
       "rdfs:comment": "Repository or source which contains the ComputationalTool",
@@ -2316,48 +2280,6 @@
       "schema:rangeIncludes": [
         {
           "@id": "nde:ComputationalTool"
-        }
-      ]
-    },
-    {
-      "@id": "nde:isRelatedTo",
-      "@type": "rdf:Property",
-      "rdfs:comment": "ComputationalTools which are related to the given ComputationalTool",
-      "rdfs:label": "isRelatedTo",
-      "schema:domainIncludes": {
-        "@id": "nde:ComputationalTool"
-      },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:ComputationalTool"
-        }
-      ]
-    },
-    {
-      "@id": "nde:isSimilarTo",
-      "@type": "rdf:Property",
-      "rdfs:comment": "ComputationalTools which are similar to the computational tool, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
-      "rdfs:label": "isSimilarTo",
-      "schema:domainIncludes": {
-        "@id": "nde:ComputationalTool"
-      },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:ComputationalTool"
-        }
-      ]
-    },
-    {
-      "@id": "nde:topicCategory",
-      "@type": "rdf:Property",
-      "rdfs:comment": "Topic of the ComputationalTool. This topic may be assigned by a human curator or through automated algorithms.",
-      "rdfs:label": "topicCategory",
-      "schema:domainIncludes": {
-        "@id": "nde:ComputationalTool"
-      },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
         }
       ]
     }
