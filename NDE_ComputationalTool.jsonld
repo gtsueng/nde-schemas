@@ -7,8 +7,7 @@
     "niaid": "https://discovery.biothings.io/view/niaid/",
     "nde": "https://discovery.biothings.io/view/nde/"
   },
-  "@graph": [
-    {
+  "@graph": [{
       "@id": "nde:ComputationalTool",
       "@type": "rdfs:Class",
       "rdfs:comment": "ComputationalTools (software, workflows, computational tools, code) contained in the NIAID Data Ecosystem. The NIAID Data Ecosystem is a secure environment to find, access and analyze immune-mediated and infectious disease data and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
@@ -23,8 +22,7 @@
           "citedBy": {
             "description": "A citation to the dataset",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "$ref": "#/definitions/citation"
               },
               {
@@ -68,8 +66,7 @@
           },
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -107,8 +104,7 @@
           },
           "healthCondition": {
             "description": "The infectious disease(s) / health condition(s) which are the focus of the dataset or computational tool (e.g. COVID-19, coronavirus)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -144,8 +140,7 @@
           },
           "funding": {
             "description": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "MonetaryGrant",
                 "description": "Funding that supports (sponsors) the collection of this computational tool through some kind of financial contribution",
                 "properties": {
@@ -155,8 +150,7 @@
                   },
                   "funder": {
                     "description": "An organization associated with a creator or funder of a computational tool",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "@type": "Organization",
                         "description": "Information about a single funder",
                         "properties": {
@@ -223,8 +217,7 @@
                     },
                     "funder": {
                       "description": "An organization associated with a creator or funder of a computational tool",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "@type": "Organization",
                           "description": "Information about a single funder",
                           "properties": {
@@ -287,8 +280,7 @@
           },
           "species": {
             "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -326,8 +318,7 @@
           },
           "codeRepository": {
             "description": "Link to the source code repository of the tool.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "format": "uri",
                 "type": "string"
               },
@@ -343,8 +334,7 @@
           },
           "programmingLanguage": {
             "description": "The main programming language(s) used to build or execute the tool. Please use terms from the ‘Programming language’ table in the Bio.Tools documentation",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -366,8 +356,7 @@
           },
           "applicationCategory": {
             "description": "Type of software application, e.g. 'Game, Multimedia'.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "type": "string"
               },
               {
@@ -392,8 +381,7 @@
           },
           "applicationSubCategory": {
             "description": "Subcategory of the application, e.g. 'Arcade Game'.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "DefinedTerm",
                 "strict": false,
                 "type": "object",
@@ -452,14 +440,12 @@
           "applicationSuite": {
             "description": "The name of the application suite to which the application belongs (e.g. Excel belongs to Office).",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "type": "string"
               }
-            ]
+            }]
           },
           "downloadUrl": {
             "description": "If the file can be downloaded, URL to download the binary.",
@@ -467,8 +453,7 @@
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "DefinedTerm",
                 "strict": false,
                 "type": "object",
@@ -549,8 +534,7 @@
           },
           "softwareHelp": {
             "description": "Software application help.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "properties": {
                   "url": {
@@ -582,8 +566,7 @@
           },
           "softwareVersion": {
             "description": "Version of the software instance.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -622,8 +605,7 @@
           "author": {
             "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
             "owl:cardinality": "many",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -754,8 +736,7 @@
           },
           "citation": {
             "description": "A citation to the dataset",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "$ref": "#/definitions/citation"
               },
               {
@@ -770,22 +751,19 @@
           "conditionsOfAccess": {
             "description": "Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\\n\\nFor example \"Available by appointment from the Reading Room\" or \"Accessible only from logged-in accounts \". ",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "Closed",
-                  "Open",
-                  "Restricted",
-                  "Embargoed"
-                ]
-              }
-            ]
+            "oneOf": [{
+              "type": "string",
+              "enum": [
+                "Closed",
+                "Open",
+                "Restricted",
+                "Embargoed"
+              ]
+            }]
           },
           "contributor": {
             "description": "A secondary contributor to the CreativeWork or Event.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -918,8 +896,7 @@
           "creator": {
             "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
             "owl:cardinality": "many",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -1098,14 +1075,12 @@
           },
           "keywords": {
             "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "type": "string"
               }
-            ]
+            }]
           },
           "license": {
             "description": "A license document that applies to this content, typically indicated by URL.",
@@ -1115,8 +1090,7 @@
           },
           "sdPublisher": {
             "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -1190,8 +1164,7 @@
           },
           "identifier": {
             "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -1286,6 +1259,133 @@
           "sameAs"
         ],
         "definitions": {
+          "person": {
+            "@type": "Person",
+            "description": "Reusable person definition",
+            "properties": {
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "optional": [
+                  "sameAs",
+                  "url"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "familyName": {
+                "type": "string"
+              },
+              "givenName": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "recommended": [
+              "familyName",
+              "givenName ",
+              "identifier "
+            ],
+            "optional": [
+              "affiliation",
+              "email",
+              "role",
+              "title",
+              "url"
+            ],
+            "type": "object"
+          },
+          "organization": {
+            "@type": "Organization",
+            "description": "Reusable organization definition",
+            "properties": {
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "optional": [
+                  "sameAs",
+                  "url"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "recommended": [
+              "identifier "
+            ],
+            "optional": [
+              "affiliation",
+              "email",
+              "role",
+              "title",
+              "url"
+            ],
+            "type": "object"
+          },
           "citation": {
             "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
             "@type": "Thing",
@@ -1293,8 +1393,7 @@
             "properties": {
               "author": {
                 "description": "Author(s) of the referenced resource",
-                "oneOf": [
-                  {
+                "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
                   {
@@ -1396,11 +1495,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:ScholarlyArticle"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:ScholarlyArticle"
+      }]
     },
     {
       "@id": "nde:date",
@@ -1410,11 +1507,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Date"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Date"
+      }]
     },
     {
       "@id": "nde:doi",
@@ -1424,11 +1519,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
     },
     {
       "@id": "nde:includedInDataCatalog",
@@ -1438,11 +1531,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:DataCatalog"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:DataCatalog"
+      }]
     },
     {
       "@id": "nde:isBasisFor",
@@ -1452,11 +1543,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:ComputationalTool"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "nde:ComputationalTool"
+      }]
     },
     {
       "@id": "nde:isRelatedTo",
@@ -1466,11 +1555,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:ComputationalTool"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "nde:ComputationalTool"
+      }]
     },
     {
       "@id": "nde:isSimilarTo",
@@ -1480,11 +1567,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:ComputationalTool"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "nde:ComputationalTool"
+      }]
     },
     {
       "@id": "nde:topicCategory",
@@ -1494,11 +1579,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
     }
   ]
 }
