@@ -44,9 +44,12 @@
       "rdfs:comment": "Digital Object Identifier (DOI) for the Dataset. Note: the DOI should be a permanent identifier for the Dataset itself, not any publications associated with the Dataset.",
       "rdfs:label": "doi",
       "schema:domainIncludes": [{
-        "@id": "nde:Dataset",
-        "@id": "nde:ComputationalTool"
-      }],
+          "@id": "nde:Dataset"
+        },
+        {
+          "@id": "nde:ComputationalTool"
+        }
+      ],
       "schema:rangeIncludes": [{
         "@id": "schema:Text"
       }]
