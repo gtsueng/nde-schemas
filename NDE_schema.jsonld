@@ -7,8 +7,7 @@
     "niaid": "https://discovery.biothings.io/view/niaid/",
     "nde": "https://discovery.biothings.io/view/nde/"
   },
-  "@graph": [
-    {
+  "@graph": [{
       "@id": "nde:Dataset",
       "@type": "rdfs:Class",
       "rdfs:comment": "Datasets contained in the NIAID Data Ecosystem. The NIAID Data Ecosystem is a secure environment to find, access and analyze immune-mediated and infectious disease data and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
@@ -27,8 +26,7 @@
           },
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -66,8 +64,7 @@
           },
           "healthCondition": {
             "description": "The infectious disease(s) / health condition(s) which are the focus of the dataset or computational tool (e.g. COVID-19, coronavirus)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -103,8 +100,7 @@
           },
           "funding": {
             "description": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "MonetaryGrant",
                 "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution",
                 "properties": {
@@ -114,8 +110,7 @@
                   },
                   "funder": {
                     "description": "An organization associated with a creator or funder of a dataset",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "@type": "Organization",
                         "description": "Information about a single funder",
                         "properties": {
@@ -182,8 +177,7 @@
                     },
                     "funder": {
                       "description": "An organization associated with a creator or funder of a dataset",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "@type": "Organization",
                           "description": "Information about a single funder",
                           "properties": {
@@ -246,8 +240,7 @@
           },
           "species": {
             "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -285,8 +278,7 @@
           },
           "distribution": {
             "description": "A downloadable form of this dataset, at a specific location, in a specific format.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "DataDownload",
                 "description": "A dataset in downloadable form.",
                 "properties": {
@@ -332,8 +324,7 @@
           },
           "measurementTechnique": {
             "description": "A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),\ncorresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.\n\nFor example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".\n\nIf the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".\n\nIf there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].\n      ",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -373,8 +364,7 @@
           },
           "citation": {
             "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "ScholarlyArticle",
                 "description": "A scholarly article in which the dataset is cited.",
                 "properties": {
@@ -416,8 +406,7 @@
           },
           "creator": {
             "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -486,8 +475,7 @@
           },
           "sdPublisher": {
             "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -550,8 +538,7 @@
           },
           "spatialCoverage": {
             "description": "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content. It is a subproperty of\n      contentLocation intended primarily for more technical and detailed materials. For example with a Dataset, it indicates\n      areas that the dataset describes: a dataset of New York weather would have spatialCoverage which was the place: the state of New York.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "AdministrativeArea",
                 "description": "Location information",
                 "properties": {
@@ -576,8 +563,7 @@
                   },
                   "alternateName": {
                     "description": "An alias for the location.",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "type": "string"
                       },
                       {
@@ -594,8 +580,7 @@
                   },
                   "locationType": {
                     "description": "Categorization of how the location relates to the dataset or computational tool",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "enum": [
                           "residence",
                           "exposure",
@@ -659,8 +644,7 @@
                     },
                     "alternateName": {
                       "description": "An alias for the location.",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "type": "string"
                         },
                         {
@@ -677,8 +661,7 @@
                     },
                     "locationType": {
                       "description": "Categorization of how the location relates to the dataset or computational tool",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "enum": [
                             "residence",
                             "exposure",
@@ -723,8 +706,7 @@
           },
           "temporalCoverage": {
             "description": "The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals). In\n      the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written \"2011/2012\"). Other forms of content e.g. ScholarlyArticle, Book, TVSeries or TVEpisode may indicate their temporalCoverage in broader terms - textually or via well-known URL.\n      Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via \"1939/1945\".\n\nOpen-ended date ranges can be written with \"..\" in place of the end date. For example, \"2015-11/..\" indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "TemporalInterval",
                 "description": "Temporal information",
                 "properties": {
@@ -748,8 +730,7 @@
                   },
                   "temporalType": {
                     "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "enum": [
                           "exposure",
                           "collection",
@@ -806,8 +787,7 @@
                     },
                     "temporalType": {
                       "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "enum": [
                             "exposure",
                             "collection",
@@ -851,8 +831,7 @@
           },
           "identifier": {
             "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -880,138 +859,32 @@
           "name"
         ],
         "recommended": [
-          "doi",
           "infectiousAgent",
           "healthCondition",
           "species",
           "citation",
           "license",
           "spatialCoverage",
-          "temporalCoverage"
+          "temporalCoverage",
+          "doi"
         ],
         "optional": [
           "sdPublisher"
         ]
       }
     },
-      {
-        "@id": "nde:citedBy",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Publications that cite the dataset.",
-        "rdfs:label": "citedBy",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset",
-          "@id": "nde:ComputationalTool"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "niaid:ScholarlyArticle"
-          }
-        ]
+    {
+      "@id": "nde:doi",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Digital object identifier (DOI) for the Dataset",
+      "rdfs:label": "doi",
+      "schema:domainIncludes": {
+        "@id": "nde:Dataset"
       },
-      {
-        "@id": "nde:date",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Date the Dataset/ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
-        "rdfs:label": "date",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset",
-          "@id": "nde:ComputationalTool"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Date"
-          }
-        ]
-      },
-      {
-        "@id": "nde:doi",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Digital Object Identifier (DOI) for the Dataset. Note: the DOI should be a permanent identifier for the Dataset itself, not any publications associated with the Dataset.",
-        "rdfs:label": "doi",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset",
-          "@id": "nde:ComputationalTool"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          }
-        ]
-      },
-      {
-        "@id": "nde:nctid",
-        "@type": "rdf:Property",
-        "rdfs:comment": "ClinicalTrials.gov identifier of the associated clinical trial",
-        "rdfs:label": "nctid",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          }
-        ]
-      },
-      {
-        "@id": "nde:topicCategory",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Topic of the Dataset/ComputationalTool. This topic may be assigned by a human curator or through automated algorithms.",
-        "rdfs:label": "topicCategory",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset",
-          "@id": "nde:ComputationalTool"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": " nde:Topic"
-          }
-        ]
-      },
-      {
-        "@id": "nde:isRelatedTo",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Datasets which are related to the given Dataset; often datasets involved in the same study",
-        "rdfs:label": "isRelatedTo",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset",
-          "@id": "nde:ComputationalTool"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "nde:Dataset"
-          }
-        ]
-      },
-      {
-        "@id": "nde:isSimilarTo",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Datasets which are similar to the dataset, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
-        "rdfs:label": "isSimilarTo",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset",
-          "@id": "nde:ComputationalTool"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "nde:Dataset"
-          }
-        ]
-      },
-      {
-        "@id": "nde:relationship",
-        "@type": "rdf:Property",
-        "rdfs:comment": "Relationship describing how two relationships are related",
-        "rdfs:label": "relationship",
-        "schema:domainIncludes": {
-          "@id": "nde:Dataset"
-        },
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          }
-        ]
-      },
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
+    },
     {
       "@id": "nde:ComputationalTool",
       "@type": "rdfs:Class",
@@ -1027,8 +900,7 @@
           "citedBy": {
             "description": "A citation to the dataset",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "$ref": "#/definitions/citation"
               },
               {
@@ -1072,8 +944,7 @@
           },
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -1111,8 +982,7 @@
           },
           "healthCondition": {
             "description": "The infectious disease(s) / health condition(s) which are the focus of the dataset or computational tool (e.g. COVID-19, coronavirus)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -1148,8 +1018,7 @@
           },
           "funding": {
             "description": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "MonetaryGrant",
                 "description": "Funding that supports (sponsors) the collection of this computational tool through some kind of financial contribution",
                 "properties": {
@@ -1159,8 +1028,7 @@
                   },
                   "funder": {
                     "description": "An organization associated with a creator or funder of a computational tool",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "@type": "Organization",
                         "description": "Information about a single funder",
                         "properties": {
@@ -1227,8 +1095,7 @@
                     },
                     "funder": {
                       "description": "An organization associated with a creator or funder of a computational tool",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "@type": "Organization",
                           "description": "Information about a single funder",
                           "properties": {
@@ -1291,8 +1158,7 @@
           },
           "species": {
             "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -1330,8 +1196,7 @@
           },
           "codeRepository": {
             "description": "Link to the source code repository of the tool.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "format": "uri",
                 "type": "string"
               },
@@ -1347,8 +1212,7 @@
           },
           "programmingLanguage": {
             "description": "The main programming language(s) used to build or execute the tool. Please use terms from the ‘Programming language’ table in the Bio.Tools documentation",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -1370,8 +1234,7 @@
           },
           "applicationCategory": {
             "description": "Type of software application, e.g. 'Game, Multimedia'.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "type": "string"
               },
               {
@@ -1396,8 +1259,7 @@
           },
           "applicationSubCategory": {
             "description": "Subcategory of the application, e.g. 'Arcade Game'.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "DefinedTerm",
                 "strict": false,
                 "type": "object",
@@ -1463,8 +1325,7 @@
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "DefinedTerm",
                 "strict": false,
                 "type": "object",
@@ -1545,8 +1406,7 @@
           },
           "softwareHelp": {
             "description": "Software application help.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "properties": {
                   "url": {
@@ -1578,8 +1438,7 @@
           },
           "softwareVersion": {
             "description": "Version of the software instance.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -1601,8 +1460,7 @@
           },
           "citation": {
             "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "ScholarlyArticle",
                 "description": "A scholarly article in which the computational tool is cited.",
                 "properties": {
@@ -1644,16 +1502,38 @@
           },
           "conditionsOfAccess": {
             "description": "Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\\n\\nFor example \"Available by appointment from the Reading Room\" or \"Accessible only from logged-in accounts \". ",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "oneOf": [{
+              "type": "string",
+              "enum": [
+                "Closed",
+                "Open",
+                "Restricted",
+                "Embargoed"
+              ]
+            }]
           },
           "contributor": {
             "description": "A secondary contributor to the CreativeWork or Event.",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "@type": "Person",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name"
+            ]
           },
           "creator": {
             "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -1716,7 +1596,9 @@
           },
           "dateCreated": {
             "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
-            "owl:cardinality": "one"
+            "owl:cardinality": "one",
+            "format": "date",
+            "type": "string"
           },
           "dateModified": {
             "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
@@ -1726,11 +1608,15 @@
           },
           "datePublished": {
             "description": "Date of first broadcast/publication.",
-            "owl:cardinality": "one"
+            "owl:cardinality": "one",
+            "format": "date",
+            "type": "string"
           },
           "discussionUrl": {
             "description": "A link to the page containing the comments of the CreativeWork.",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "type": "string",
+            "format": "uri"
           },
           "hasPart": {
             "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
@@ -1758,7 +1644,12 @@
           },
           "keywords": {
             "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
-            "owl:cardinality": "many"
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }]
           },
           "license": {
             "description": "A license document that applies to this content, typically indicated by URL.",
@@ -1768,8 +1659,7 @@
           },
           "sdPublisher": {
             "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "@type": "Person",
                 "description": "Reusable person definition",
                 "properties": {
@@ -1832,7 +1722,9 @@
           },
           "thumbnailUrl": {
             "description": "A thumbnail image relevant to the Thing.",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "type": "string",
+            "format": "uri"
           },
           "description": {
             "description": "A description of the item.",
@@ -1841,22 +1733,22 @@
           },
           "identifier": {
             "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
+                "type": "array",
                 "items": {
                   "type": "string"
-                },
-                "type": "array"
+                }
               }
-            ],
-            "owl:cardinality": "many"
+            ]
           },
           "mainEntityOfPage": {
             "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "type": "string",
+            "format": "uri"
           },
           "name": {
             "description": "The name of the item.",
@@ -2032,6 +1924,42 @@
       }
     },
     {
+      "@id": "nde:citedBy",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Publications that cite the computational tool.",
+      "rdfs:label": "citedBy",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [{
+        "@id": "schema:ScholarlyArticle"
+      }]
+    },
+    {
+      "@id": "nde:date",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Date the ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
+      "rdfs:label": "date",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [{
+        "@id": "schema:Date"
+      }]
+    },
+    {
+      "@id": "nde:doi",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Digital object identifier (DOI) for the ComputationalTool",
+      "rdfs:label": "doi",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
+    },
+    {
       "@id": "nde:includedInDataCatalog",
       "@type": "rdf:Property",
       "rdfs:comment": "Repository or source which contains the ComputationalTool",
@@ -2039,11 +1967,9 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:DataCatalog"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:DataCatalog"
+      }]
     },
     {
       "@id": "nde:isBasisFor",
@@ -2053,11 +1979,45 @@
       "schema:domainIncludes": {
         "@id": "nde:ComputationalTool"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:ComputationalTool"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "nde:ComputationalTool"
+      }]
+    },
+    {
+      "@id": "nde:isRelatedTo",
+      "@type": "rdf:Property",
+      "rdfs:comment": "ComputationalTools which are related to the given ComputationalTool",
+      "rdfs:label": "isRelatedTo",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [{
+        "@id": "nde:ComputationalTool"
+      }]
+    },
+    {
+      "@id": "nde:isSimilarTo",
+      "@type": "rdf:Property",
+      "rdfs:comment": "ComputationalTools which are similar to the computational tool, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
+      "rdfs:label": "isSimilarTo",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [{
+        "@id": "nde:ComputationalTool"
+      }]
+    },
+    {
+      "@id": "nde:topicCategory",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Topic of the ComputationalTool. This topic may be assigned by a human curator or through automated algorithms.",
+      "rdfs:label": "topicCategory",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
     }
   ]
 }
