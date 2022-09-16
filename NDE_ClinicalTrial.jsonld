@@ -1,0 +1,1502 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "nde": "https://discovery.biothings.io/view/nde/"
+  },
+  "@graph": [
+    {
+      "@id": "nde:ComputationalTool",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "ComputationalTools (software, workflows, computational tools, code) contained in the NIAID Data Ecosystem. The NIAID Data Ecosystem is a secure environment to find, access and analyze immune-mediated and infectious disease data and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
+      "rdfs:label": "ComputationalTool",
+      "rdfs:subClassOf": {
+        "@id": "niaid:ComputationalTool"
+      },
+      "$validation": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "citedBy": {
+            "description": "A citation to the dataset",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "$ref": "#/definitions/citation"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              }
+            ]
+          },
+          "date": {
+            "description": "Date the ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
+            "owl:cardinality": "one",
+            "format": "date",
+            "type": "string"
+          },
+          "doi": {
+            "description": "Digital object identifier (DOI) for the ComputationalTool",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "includedInDataCatalog": {
+            "description": "Repository or source which contains the ComputationalTool",
+            "owl:cardinality": "one"
+          },
+          "isBasisFor": {
+            "description": "ComputationalTools which incorporate this ComputationalTool",
+            "owl:cardinality": "many"
+          },
+          "isRelatedTo": {
+            "description": "ComputationalTools which are related to the given ComputationalTool",
+            "owl:cardinality": "many"
+          },
+          "isSimilarTo": {
+            "description": "ComputationalTools which are similar to the computational tool, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
+            "owl:cardinality": "many"
+          },
+          "topicCategory": {
+            "description": "Topic of the ComputationalTool. This topic may be assigned by a human curator or through automated algorithms.",
+            "owl:cardinality": "many"
+          },
+          "infectiousAgent": {
+            "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
+            "oneOf": [
+              {
+                "@type": "CreativeWork",
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/NCBITaxon_10239",
+                    "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                  ],
+                  "ontology": [
+                    "ncbitaxon"
+                  ]
+                }
+              },
+              {
+                "items": {
+                  "@type": "CreativeWork",
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "strict": false,
+                  "type": "string",
+                  "vocabulary": {
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/NCBITaxon_10239",
+                      "http://purl.obolibrary.org/obo/NCBITaxon_2"
+                    ],
+                    "ontology": [
+                      "ncbitaxon"
+                    ]
+                  }
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "healthCondition": {
+            "description": "The infectious disease(s) / health condition(s) which are the focus of the dataset or computational tool (e.g. COVID-19, coronavirus)",
+            "oneOf": [
+              {
+                "@type": "CreativeWork",
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/MONDO_0000001"
+                  ],
+                  "ontology": [
+                    "mondo"
+                  ]
+                }
+              },
+              {
+                "items": {
+                  "@type": "CreativeWork",
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "strict": false,
+                  "type": "string",
+                  "vocabulary": {
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/MONDO_0000001"
+                    ],
+                    "ontology": [
+                      "mondo"
+                    ]
+                  }
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "funding": {
+            "description": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
+            "oneOf": [
+              {
+                "@type": "MonetaryGrant",
+                "description": "Funding that supports (sponsors) the collection of this computational tool through some kind of financial contribution",
+                "properties": {
+                  "description": {
+                    "description": "description about the funding award / grant",
+                    "type": "string"
+                  },
+                  "funder": {
+                    "description": "An organization associated with a creator or funder of a computational tool",
+                    "oneOf": [
+                      {
+                        "@type": "Organization",
+                        "description": "Information about a single funder",
+                        "properties": {
+                          "name": {
+                            "description": "An organization associated with a creator or funder of a computational tool",
+                            "type": "string"
+                          },
+                          "parentOrganization": {
+                            "description": "name of the parent funding organization",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "items": {
+                          "@type": "Organization",
+                          "description": "Information about a single funder",
+                          "properties": {
+                            "name": {
+                              "description": "An organization associated with a creator or funder of a computational tool",
+                              "type": "string"
+                            },
+                            "parentOrganization": {
+                              "description": "name of the parent funding organization",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "identifier": {
+                    "description": "Unique identifier(s) for the grant(s) used to fund the Dataset",
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "award / grant URL",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "funder",
+                  "identifier"
+                ],
+                "type": "object"
+              },
+              {
+                "items": {
+                  "@type": "MonetaryGrant",
+                  "description": "Funding that supports (sponsors) the collection of this computational tool through some kind of financial contribution",
+                  "properties": {
+                    "description": {
+                      "description": "description about the funding award / grant",
+                      "type": "string"
+                    },
+                    "funder": {
+                      "description": "An organization associated with a creator or funder of a computational tool",
+                      "oneOf": [
+                        {
+                          "@type": "Organization",
+                          "description": "Information about a single funder",
+                          "properties": {
+                            "name": {
+                              "description": "An organization associated with a creator or funder of a computational tool",
+                              "type": "string"
+                            },
+                            "parentOrganization": {
+                              "description": "name of the parent funding organization",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "items": {
+                            "@type": "Organization",
+                            "description": "Information about a single funder",
+                            "properties": {
+                              "name": {
+                                "description": "An organization associated with a creator or funder of a computational tool",
+                                "type": "string"
+                              },
+                              "parentOrganization": {
+                                "description": "name of the parent funding organization",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        }
+                      ]
+                    },
+                    "identifier": {
+                      "description": "Unique identifier(s) for the grant(s) used to fund the Dataset",
+                      "type": "string"
+                    },
+                    "url": {
+                      "description": "award / grant URL",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "funder",
+                    "identifier"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "species": {
+            "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied.",
+            "oneOf": [
+              {
+                "@type": "CreativeWork",
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": [
+                    "http://purl.obolibrary.org/obo/NCBITaxon_131567",
+                    "http://purl.obolibrary.org/obo/NCBITaxon_10239"
+                  ],
+                  "ontology": [
+                    "ncbitaxon"
+                  ]
+                }
+              },
+              {
+                "items": {
+                  "@type": "CreativeWork",
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "strict": false,
+                  "type": "string",
+                  "vocabulary": {
+                    "children_of": [
+                      "http://purl.obolibrary.org/obo/NCBITaxon_131567",
+                      "http://purl.obolibrary.org/obo/NCBITaxon_10239"
+                    ],
+                    "ontology": [
+                      "ncbitaxon"
+                    ]
+                  }
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "codeRepository": {
+            "description": "Link to the source code repository of the tool.",
+            "oneOf": [
+              {
+                "format": "uri",
+                "type": "string"
+              },
+              {
+                "items": {
+                  "format": "uri",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "programmingLanguage": {
+            "description": "The main programming language(s) used to build or execute the tool. Please use terms from the ‘Programming language’ table in the Bio.Tools documentation",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "input": {
+            "description": "Specification of a consumed input.",
+            "owl:cardinality": "many"
+          },
+          "output": {
+            "description": "Specification of a produced output.",
+            "owl:cardinality": "many"
+          },
+          "applicationCategory": {
+            "description": "Type of software application, e.g. 'Game, Multimedia'.",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "format": "uri",
+                "type": "string"
+              },
+              {
+                "items": {
+                  "format": "uri",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "applicationSubCategory": {
+            "description": "Subcategory of the application, e.g. 'Arcade Game'.",
+            "oneOf": [
+              {
+                "@type": "DefinedTerm",
+                "strict": false,
+                "type": "object",
+                "vocabulary": {
+                  "children_of": [
+                    "http://edamontology.org/topic_0003"
+                  ],
+                  "ontology": [
+                    "edam"
+                  ],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              {
+                "items": {
+                  "@type": "DefinedTerm",
+                  "strict": false,
+                  "type": "object",
+                  "vocabulary": {
+                    "children_of": [
+                      "http://edamontology.org/topic_0003"
+                    ],
+                    "ontology": [
+                      "edam"
+                    ],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "applicationSuite": {
+            "description": "The name of the application suite to which the application belongs (e.g. Excel belongs to Office).",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "downloadUrl": {
+            "description": "If the file can be downloaded, URL to download the binary.",
+            "owl:cardinality": "many"
+          },
+          "featureList": {
+            "description": "Features or modules provided by this application (and possibly required by other applications).",
+            "anyOf": [
+              {
+                "@type": "DefinedTerm",
+                "strict": false,
+                "type": "object",
+                "vocabulary": {
+                  "children_of": [
+                    "http://edamontology.org/operation_0004"
+                  ],
+                  "ontology": [
+                    "edam"
+                  ],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              {
+                "items": {
+                  "@type": "DefinedTerm",
+                  "strict": false,
+                  "type": "object",
+                  "vocabulary": {
+                    "children_of": [
+                      "http://edamontology.org/operation_0004"
+                    ],
+                    "ontology": [
+                      "edam"
+                    ],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              {
+                "format": "uri",
+                "type": "string"
+              },
+              {
+                "items": {
+                  "format": "uri",
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "operatingSystem": {
+            "description": "Operating systems supported (Windows 7, OSX 10.6, Android 1.6).",
+            "owl:cardinality": "many"
+          },
+          "processorRequirements": {
+            "description": "Processor architecture required to run the application (e.g. IA64).",
+            "owl:cardinality": "many"
+          },
+          "softwareAddOn": {
+            "description": "Additional content for a software application.",
+            "owl:cardinality": "many"
+          },
+          "softwareHelp": {
+            "description": "Software application help.",
+            "oneOf": [
+              {
+                "@type": "CreativeWork",
+                "properties": {
+                  "url": {
+                    "format": "uri",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              {
+                "items": {
+                  "@type": "CreativeWork",
+                  "properties": {
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "softwareRequirements": {
+            "description": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).",
+            "owl:cardinality": "many"
+          },
+          "softwareVersion": {
+            "description": "Version of the software instance.",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "one"
+          },
+          "aggregateRating": {
+            "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+            "owl:cardinality": "many",
+            "@type": "AggregateRating",
+            "type": "object",
+            "properties": {
+              "ratingCount": {
+                "type": "string"
+              },
+              "ratingValue": {
+                "type": "string"
+              },
+              "reviewAspect": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ratingValue"
+            ],
+            "recommended": [
+              "ratingCount",
+              "reviewAspect"
+            ]
+          },
+          "author": {
+            "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
+            "owl:cardinality": "many",
+            "anyOf": [
+              {
+                "@type": "Person",
+                "description": "Reusable person definition",
+                "properties": {
+                  "affiliation": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sameAs": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "optional": [
+                      "sameAs",
+                      "url"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "familyName": {
+                    "type": "string"
+                  },
+                  "givenName": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "familyName",
+                  "givenName ",
+                  "identifier "
+                ],
+                "optional": [
+                  "affiliation",
+                  "email",
+                  "role",
+                  "title",
+                  "url"
+                ],
+                "type": "object"
+              },
+              {
+                "@type": "Organization",
+                "description": "Reusable organization definition",
+                "properties": {
+                  "affiliation": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sameAs": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "optional": [
+                      "sameAs",
+                      "url"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "identifier "
+                ],
+                "optional": [
+                  "affiliation",
+                  "email",
+                  "role",
+                  "title",
+                  "url"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "citation": {
+            "description": "A citation to the dataset",
+            "oneOf": [
+              {
+                "$ref": "#/definitions/citation"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "conditionsOfAccess": {
+            "description": "Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\\n\\nFor example \"Available by appointment from the Reading Room\" or \"Accessible only from logged-in accounts \". ",
+            "owl:cardinality": "many",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "Closed",
+                  "Open",
+                  "Restricted",
+                  "Embargoed"
+                ]
+              }
+            ]
+          },
+          "contributor": {
+            "description": "A secondary contributor to the CreativeWork or Event.",
+            "anyOf": [
+              {
+                "@type": "Person",
+                "description": "Reusable person definition",
+                "properties": {
+                  "affiliation": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sameAs": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "optional": [
+                      "sameAs",
+                      "url"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "familyName": {
+                    "type": "string"
+                  },
+                  "givenName": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "familyName",
+                  "givenName ",
+                  "identifier "
+                ],
+                "optional": [
+                  "affiliation",
+                  "email",
+                  "role",
+                  "title",
+                  "url"
+                ],
+                "type": "object"
+              },
+              {
+                "@type": "Organization",
+                "description": "Reusable organization definition",
+                "properties": {
+                  "affiliation": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sameAs": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "optional": [
+                      "sameAs",
+                      "url"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "identifier "
+                ],
+                "optional": [
+                  "affiliation",
+                  "email",
+                  "role",
+                  "title",
+                  "url"
+                ],
+                "type": "object"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "creator": {
+            "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+            "owl:cardinality": "many",
+            "anyOf": [
+              {
+                "@type": "Person",
+                "description": "Reusable person definition",
+                "properties": {
+                  "affiliation": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sameAs": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "optional": [
+                      "sameAs",
+                      "url"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "familyName": {
+                    "type": "string"
+                  },
+                  "givenName": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "familyName",
+                  "givenName ",
+                  "identifier "
+                ],
+                "optional": [
+                  "affiliation",
+                  "email",
+                  "role",
+                  "title",
+                  "url"
+                ],
+                "type": "object"
+              },
+              {
+                "@type": "Organization",
+                "description": "Reusable organization definition",
+                "properties": {
+                  "affiliation": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "sameAs": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "optional": [
+                      "sameAs",
+                      "url"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "identifier "
+                ],
+                "optional": [
+                  "affiliation",
+                  "email",
+                  "role",
+                  "title",
+                  "url"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "dateCreated": {
+            "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
+            "owl:cardinality": "one",
+            "format": "date",
+            "type": "string"
+          },
+          "dateModified": {
+            "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
+            "format": "date",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "datePublished": {
+            "description": "Date of first broadcast/publication.",
+            "owl:cardinality": "one",
+            "format": "date",
+            "type": "string"
+          },
+          "discussionUrl": {
+            "description": "A link to the page containing the comments of the CreativeWork.",
+            "owl:cardinality": "many",
+            "type": "string",
+            "format": "uri"
+          },
+          "hasPart": {
+            "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
+            "owl:cardinality": "many"
+          },
+          "inLanguage": {
+            "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
+            "owl:cardinality": "many"
+          },
+          "interactionStatistic": {
+            "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
+            "owl:cardinality": "many"
+          },
+          "isAccessibleForFree": {
+            "description": "A flag to signal that the item, event, or place is accessible for free.",
+            "owl:cardinality": "one"
+          },
+          "isBasedOn": {
+            "description": "A resource from which this work is derived or from which it is a modification or adaption.",
+            "owl:cardinality": "many"
+          },
+          "isPartOf": {
+            "description": "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.",
+            "owl:cardinality": "many"
+          },
+          "keywords": {
+            "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "license": {
+            "description": "A license document that applies to this content, typically indicated by URL.",
+            "format": "uri",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "sdPublisher": {
+            "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
+            "anyOf": [
+              {
+                "@type": "Person",
+                "description": "Reusable person definition",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              {
+                "items": {
+                  "@type": "Person",
+                  "description": "Reusable person definition",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "@type": "Organization",
+                "description": "Reusable organization definition",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "type": "object"
+              },
+              {
+                "items": {
+                  "@type": "Organization",
+                  "description": "Reusable organization definition",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            ],
+            "owl:cardinality": "many"
+          },
+          "thumbnailUrl": {
+            "description": "A thumbnail image relevant to the Thing.",
+            "owl:cardinality": "many",
+            "type": "string",
+            "format": "uri"
+          },
+          "description": {
+            "description": "A description of the item.",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "identifier": {
+            "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "mainEntityOfPage": {
+            "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.",
+            "owl:cardinality": "many",
+            "type": "string",
+            "format": "uri"
+          },
+          "name": {
+            "description": "The name of the item.",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "sameAs": {
+            "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+            "owl:cardinality": "many"
+          },
+          "url": {
+            "description": "URL of the item.",
+            "format": "uri",
+            "owl:cardinality": "one",
+            "type": "string"
+          }
+        },
+        "required": [
+          "date",
+          "includedInDataCatalog",
+          "funding",
+          "author",
+          "description",
+          "name"
+        ],
+        "recommended": [
+          "citedBy",
+          "doi",
+          "topicCategory",
+          "codeRepository",
+          "programmingLanguage",
+          "applicationCategory",
+          "applicationSubCategory",
+          "softwareRequirements",
+          "softwareVersion",
+          "citation",
+          "conditionsOfAccess",
+          "dateModified",
+          "interactionStatistic",
+          "license",
+          "identifier",
+          "url"
+        ],
+        "optional": [
+          "isBasisFor",
+          "isRelatedTo",
+          "isSimilarTo",
+          "infectiousAgent",
+          "healthCondition",
+          "species",
+          "input",
+          "output",
+          "applicationSuite",
+          "availableOnDevice",
+          "downloadUrl",
+          "featureList",
+          "operatingSystem",
+          "processorRequirements",
+          "softwareAddOn",
+          "softwareHelp",
+          "aggregateRating",
+          "contributor",
+          "creator",
+          "dateCreated",
+          "datePublished",
+          "discussionUrl",
+          "hasPart",
+          "inLanguage",
+          "isAccessibleForFree",
+          "isBasedOn",
+          "isPartOf",
+          "keywords",
+          "provider",
+          "sdPublisher",
+          "thumbnailUrl",
+          "mainEntityOfPage",
+          "sameAs"
+        ],
+        "definitions": {
+          "citation": {
+            "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
+            "@type": "Thing",
+            "type": "object",
+            "properties": {
+              "author": {
+                "description": "Author(s) of the referenced resource",
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/person"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              },
+              "abstract": {
+                "description": "Abstract of the referenced resource",
+                "type": "string"
+              },
+              "datePublished": {
+                "description": "Date the referenced resource was published",
+                "format": "date",
+                "type": "string"
+              },
+              "description": {
+                "description": "Description of the referenced resource",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name or title of the citation",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "An identifier associated with the citation",
+                "type": "string"
+              },
+              "pmid": {
+                "description": "A PubMed identifier of the referenced publication, if available",
+                "abstract": "PubMed identifier",
+                "type": "string"
+              },
+              "doi": {
+                "description": "A digital object identifier (DOI) of the referenced resource, if available",
+                "abstract": "digital object identifier",
+                "type": "string"
+              },
+              "issueNumber": {
+                "description": "Issue number where the referenced resource appears",
+                "type": "string"
+              },
+              "journalName": {
+                "description": "Journal where the referenced resource appears",
+                "type": "string"
+              },
+              "journalNameAbbrev": {
+                "description": "Abbreviated journal name where the referenced resource appears",
+                "type": "string"
+              },
+              "pagination": {
+                "description": "Page numbers in the journal where the referenced resource appears",
+                "type": "string"
+              },
+              "url": {
+                "description": "The url of the resource cited",
+                "type": "string",
+                "format": "uri"
+              },
+              "volumeNumber": {
+                "description": "Volume of the journal where the referenced resource appears",
+                "type": "string"
+              },
+              "citation": {
+                "description": "The bibliographic citation for the referenced resource as is provided",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "recommended": [
+              "author",
+              "datePublished",
+              "doi",
+              "identifier",
+              "journalName",
+              "pmid",
+              "url"
+            ],
+            "optional": [
+              "abstract",
+              "citaiton",
+              "description",
+              "issueNumber",
+              "journalNameAbbrev",
+              "pagination",
+              "volumeNumber"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "@id": "nde:citedBy",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Publications that cite the computational tool.",
+      "rdfs:label": "citedBy",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:ScholarlyArticle"
+        }
+      ]
+    },
+    {
+      "@id": "nde:date",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Date the ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
+      "rdfs:label": "date",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Date"
+        }
+      ]
+    },
+    {
+      "@id": "nde:doi",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Digital object identifier (DOI) for the ComputationalTool",
+      "rdfs:label": "doi",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Text"
+        }
+      ]
+    },
+    {
+      "@id": "nde:includedInDataCatalog",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Repository or source which contains the ComputationalTool",
+      "rdfs:label": "includedInDataCatalog",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:DataCatalog"
+        }
+      ]
+    },
+    {
+      "@id": "nde:isBasisFor",
+      "@type": "rdf:Property",
+      "rdfs:comment": "ComputationalTools which incorporate this ComputationalTool",
+      "rdfs:label": "isBasisFor",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "nde:ComputationalTool"
+        }
+      ]
+    },
+    {
+      "@id": "nde:isRelatedTo",
+      "@type": "rdf:Property",
+      "rdfs:comment": "ComputationalTools which are related to the given ComputationalTool",
+      "rdfs:label": "isRelatedTo",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "nde:ComputationalTool"
+        }
+      ]
+    },
+    {
+      "@id": "nde:isSimilarTo",
+      "@type": "rdf:Property",
+      "rdfs:comment": "ComputationalTools which are similar to the computational tool, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
+      "rdfs:label": "isSimilarTo",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "nde:ComputationalTool"
+        }
+      ]
+    },
+    {
+      "@id": "nde:topicCategory",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Topic of the ComputationalTool. This topic may be assigned by a human curator or through automated algorithms.",
+      "rdfs:label": "topicCategory",
+      "schema:domainIncludes": {
+        "@id": "nde:ComputationalTool"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Text"
+        }
+      ]
+    }
+  ]
+}
