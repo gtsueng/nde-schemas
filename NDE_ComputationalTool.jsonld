@@ -141,6 +141,7 @@
           "funding": {
             "description": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
             "oneOf": [{
+              "items": {
                 "@type": "MonetaryGrant",
                 "description": "Funding that supports (sponsors) the collection of this computational tool through some kind of financial contribution",
                 "properties": {
@@ -151,43 +152,16 @@
                   "funder": {
                     "description": "An organization associated with a creator or funder of a computational tool",
                     "oneOf": [{
-                        "@type": "Organization",
-                        "description": "Information about a single funder",
-                        "properties": {
-                          "name": {
-                            "description": "An organization associated with a creator or funder of a computational tool",
-                            "type": "string"
-                          },
-                          "parentOrganization": {
-                            "description": "name of the parent funding organization",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ],
-                        "type": "object"
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/person"
+                        }
                       },
                       {
+                        "type": "array",
                         "items": {
-                          "@type": "Organization",
-                          "description": "Information about a single funder",
-                          "properties": {
-                            "name": {
-                              "description": "An organization associated with a creator or funder of a computational tool",
-                              "type": "string"
-                            },
-                            "parentOrganization": {
-                              "description": "name of the parent funding organization",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "name"
-                          ],
-                          "type": "object"
-                        },
-                        "type": "array"
+                          "$ref": "#/definitions/organization"
+                        }
                       }
                     ]
                   },
@@ -206,76 +180,8 @@
                 ],
                 "type": "object"
               },
-              {
-                "items": {
-                  "@type": "MonetaryGrant",
-                  "description": "Funding that supports (sponsors) the collection of this computational tool through some kind of financial contribution",
-                  "properties": {
-                    "description": {
-                      "description": "description about the funding award / grant",
-                      "type": "string"
-                    },
-                    "funder": {
-                      "description": "An organization associated with a creator or funder of a computational tool",
-                      "oneOf": [{
-                          "@type": "Organization",
-                          "description": "Information about a single funder",
-                          "properties": {
-                            "name": {
-                              "description": "An organization associated with a creator or funder of a computational tool",
-                              "type": "string"
-                            },
-                            "parentOrganization": {
-                              "description": "name of the parent funding organization",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "name"
-                          ],
-                          "type": "object"
-                        },
-                        {
-                          "items": {
-                            "@type": "Organization",
-                            "description": "Information about a single funder",
-                            "properties": {
-                              "name": {
-                                "description": "An organization associated with a creator or funder of a computational tool",
-                                "type": "string"
-                              },
-                              "parentOrganization": {
-                                "description": "name of the parent funding organization",
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "name"
-                            ],
-                            "type": "object"
-                          },
-                          "type": "array"
-                        }
-                      ]
-                    },
-                    "identifier": {
-                      "description": "Unique identifier(s) for the grant(s) used to fund the Dataset",
-                      "type": "string"
-                    },
-                    "url": {
-                      "description": "award / grant URL",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "funder",
-                    "identifier"
-                  ],
-                  "type": "object"
-                },
-                "type": "array"
-              }
-            ],
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "species": {
@@ -449,7 +355,9 @@
           },
           "downloadUrl": {
             "description": "If the file can be downloaded, URL to download the binary.",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "type": "string",
+            "format": "uri"
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",
@@ -604,135 +512,14 @@
           },
           "author": {
             "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
-            "owl:cardinality": "many",
             "anyOf": [{
-                "@type": "Person",
-                "description": "Reusable person definition",
-                "properties": {
-                  "affiliation": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "sameAs": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "optional": [
-                      "sameAs",
-                      "url"
-                    ]
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "familyName": {
-                    "type": "string"
-                  },
-                  "givenName": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
-                  },
-                  "title": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "recommended": [
-                  "familyName",
-                  "givenName ",
-                  "identifier "
-                ],
-                "optional": [
-                  "affiliation",
-                  "email",
-                  "role",
-                  "title",
-                  "url"
-                ],
-                "type": "object"
+                "$ref": "#/definitions/person"
               },
               {
-                "@type": "Organization",
-                "description": "Reusable organization definition",
-                "properties": {
-                  "affiliation": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "sameAs": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "optional": [
-                      "sameAs",
-                      "url"
-                    ]
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "recommended": [
-                  "identifier "
-                ],
-                "optional": [
-                  "affiliation",
-                  "email",
-                  "role",
-                  "title",
-                  "url"
-                ],
-                "type": "object"
+                "$ref": "#/definitions/organization"
               }
-            ]
+            ],
+            "owl:cardinality": "many"
           },
           "citation": {
             "description": "A citation to the dataset",
@@ -764,266 +551,24 @@
           "contributor": {
             "description": "A secondary contributor to the CreativeWork or Event.",
             "anyOf": [{
-                "@type": "Person",
-                "description": "Reusable person definition",
-                "properties": {
-                  "affiliation": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "sameAs": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "optional": [
-                      "sameAs",
-                      "url"
-                    ]
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "familyName": {
-                    "type": "string"
-                  },
-                  "givenName": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
-                  },
-                  "title": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "recommended": [
-                  "familyName",
-                  "givenName ",
-                  "identifier "
-                ],
-                "optional": [
-                  "affiliation",
-                  "email",
-                  "role",
-                  "title",
-                  "url"
-                ],
-                "type": "object"
+                "$ref": "#/definitions/person"
               },
               {
-                "@type": "Organization",
-                "description": "Reusable organization definition",
-                "properties": {
-                  "affiliation": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "sameAs": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "optional": [
-                      "sameAs",
-                      "url"
-                    ]
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "recommended": [
-                  "identifier "
-                ],
-                "optional": [
-                  "affiliation",
-                  "email",
-                  "role",
-                  "title",
-                  "url"
-                ],
-                "type": "object"
+                "$ref": "#/definitions/organization"
               }
             ],
             "owl:cardinality": "many"
           },
           "creator": {
             "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
-            "owl:cardinality": "many",
             "anyOf": [{
-                "@type": "Person",
-                "description": "Reusable person definition",
-                "properties": {
-                  "affiliation": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "sameAs": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "optional": [
-                      "sameAs",
-                      "url"
-                    ]
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "familyName": {
-                    "type": "string"
-                  },
-                  "givenName": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
-                  },
-                  "title": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "recommended": [
-                  "familyName",
-                  "givenName ",
-                  "identifier "
-                ],
-                "optional": [
-                  "affiliation",
-                  "email",
-                  "role",
-                  "title",
-                  "url"
-                ],
-                "type": "object"
+                "$ref": "#/definitions/person"
               },
               {
-                "@type": "Organization",
-                "description": "Reusable organization definition",
-                "properties": {
-                  "affiliation": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "sameAs": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "optional": [
-                      "sameAs",
-                      "url"
-                    ]
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string"
-                  },
-                  "identifier": {
-                    "type": "string"
-                  },
-                  "role": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "recommended": [
-                  "identifier "
-                ],
-                "optional": [
-                  "affiliation",
-                  "email",
-                  "role",
-                  "title",
-                  "url"
-                ],
-                "type": "object"
+                "$ref": "#/definitions/organization"
               }
-            ]
+            ],
+            "owl:cardinality": "many"
           },
           "dateCreated": {
             "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
