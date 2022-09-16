@@ -21,6 +21,7 @@
         "properties": {
           "doi": {
             "description": "Digital object identifier (DOI) for the Dataset",
+            "abstract": "digital object identifier",
             "owl:cardinality": "one",
             "type": "string"
           },
@@ -907,6 +908,7 @@
           },
           "doi": {
             "description": "Digital object identifier (DOI) for the ComputationalTool",
+            "abstract": "digital object identifier",
             "owl:cardinality": "one",
             "type": "string"
           },
