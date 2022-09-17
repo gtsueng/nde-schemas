@@ -937,16 +937,6 @@
               "volumeNumber"
             ]
           },
-          "catalog": {
-            "@type": "Thing",
-            "type": "object",
-            "properties": {
-              "abstract": {
-                "description": "Abstract of the referenced resource",
-                "type": "string"
-              }
-            }
-          },
           "creativework": {
             "description": "A resource",
             "@type": "Thing",
@@ -1040,14 +1030,142 @@
             ]
           },
           "topic": {
-            "@type": "Thing",
-            "type": "object",
+            "@type": "Person",
+            "description": "Reusable person definition",
             "properties": {
-              "abstract": {
-                "description": "Abstract of the referenced resource",
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "optional": [
+                  "sameAs",
+                  "url"
+                ]
+              },
+              "name": {
                 "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "familyName": {
+                "type": "string"
+              },
+              "givenName": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
               }
-            }
+            },
+            "required": [
+              "name"
+            ],
+            "recommended": [
+              "familyName",
+              "givenName ",
+              "identifier "
+            ],
+            "optional": [
+              "affiliation",
+              "email",
+              "role",
+              "title",
+              "url"
+            ],
+            "type": "object"
+          },
+          "catalog": {
+            "@type": "Person",
+            "description": "Reusable person definition",
+            "properties": {
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "optional": [
+                  "sameAs",
+                  "url"
+                ]
+              },
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "familyName": {
+                "type": "string"
+              },
+              "givenName": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "recommended": [
+              "familyName",
+              "givenName ",
+              "identifier "
+            ],
+            "optional": [
+              "affiliation",
+              "email",
+              "role",
+              "title",
+              "url"
+            ],
+            "type": "object"
           },
           "person": {
             "@type": "Person",
