@@ -54,7 +54,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/creativework"
+                "$ref": "#/definitions/citation"
               }
             }]
           },
@@ -63,7 +63,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/creativework"
+                "$ref": "#/definitions/citation"
               }
             }],
             "owl:cardinality": "many"
@@ -73,7 +73,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/creativework"
+                "$ref": "#/definitions/citation"
               }
             }],
             "owl:cardinality": "many"
@@ -487,7 +487,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/creativework"
+                "$ref": "#/definitions/citation"
               }
             }]
           },
@@ -695,7 +695,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/creativework"
+                "$ref": "#/definitions/citation"
               }
             }]
           },
@@ -968,7 +968,7 @@
               "hasPart": {
                 "description": "A portion of the work",
                 "oneOf": [{
-                  "$ref": "#/definitions/creativework"
+                  "$ref": "#/definitions/citation"
                 }]
               },
               "includedInDataCatalog": {
