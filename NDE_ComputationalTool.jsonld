@@ -1030,73 +1030,45 @@
             ]
           },
           "topic": {
-            "@type": "Person",
-            "description": "Reusable person definition",
+            "type": "object",
+            "description": "a topic assigned to the work",
             "properties": {
-              "affiliation": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
+              "description": {
+                "description": "Description of the topic",
+                "type": "string"
+              },
+              "curatedBy": {
+                "description": "The person, organization, or catalog categorizing the work",
+                "oneOf": [{
+                    "$ref": "#/definitions/catalog"
                   },
-                  "sameAs": {
-                    "type": "string"
+                  {
+                    "$ref": "#/definitions/organization"
                   },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
+                  {
+                    "$ref": "#/definitions/person"
                   }
-                },
-                "required": [
-                  "name"
-                ],
-                "optional": [
-                  "sameAs",
-                  "url"
                 ]
               },
               "name": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "familyName": {
-                "type": "string"
-              },
-              "givenName": {
-                "type": "string"
-              },
-              "identifier": {
-                "type": "string"
-              },
-              "role": {
-                "type": "string"
-              },
-              "title": {
+                "description": "Name or title",
                 "type": "string"
               },
               "url": {
+                "description": "The url of the resource cited",
                 "type": "string",
                 "format": "uri"
-              }
-            },
-            "required": [
-              "name"
-            ],
-            "recommended": [
-              "familyName",
-              "givenName ",
-              "identifier "
-            ],
-            "optional": [
-              "affiliation",
-              "email",
-              "role",
-              "title",
-              "url"
-            ],
-            "type": "object"
+              },
+              "required": [
+                "name"
+              ],
+              "recommended": [
+                "curatedBy",
+                "description",
+                "url"
+              ],
+              "optional": []
+            }
           },
           "catalog": {
             "@type": "DataCatalog",
