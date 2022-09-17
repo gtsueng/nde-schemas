@@ -46,7 +46,7 @@
           },
           "includedInDataCatalog": {
             "description": "Data or tool catalog",
-            "$ref": "#/definitions/catalog"
+            "$ref": "#/definitions/citation"
           },
           "isBasisFor": {
             "description": "A citation to the computational tool",
@@ -84,7 +84,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/topic"
+                "$ref": "#/definitions/citation"
               }
             }]
           },
@@ -717,12 +717,12 @@
           "sdPublisher": {
             "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
             "oneOf": [{
-                "$ref": "#/definitions/catalog"
+                "$ref": "#/definitions/citation"
               },
               {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/catalog"
+                  "$ref": "#/definitions/citation"
                 }
               }
             ],
@@ -974,7 +974,7 @@
               "includedInDataCatalog": {
                 "description": "Data or tool catalog which houses the work",
                 "oneOf": [{
-                  "$ref": "#/definitions/catalog"
+                  "$ref": "#/definitions/citation"
                 }]
               },
               "name": {
