@@ -1099,73 +1099,29 @@
             "type": "object"
           },
           "catalog": {
-            "@type": "Person",
-            "description": "Reusable person definition",
+            "@type": "DataCatalog",
+            "description": "Data or tool catalog",
+            "type": "object",
             "properties": {
-              "affiliation": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "sameAs": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "optional": [
-                  "sameAs",
-                  "url"
-                ]
-              },
               "name": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "familyName": {
-                "type": "string"
-              },
-              "givenName": {
-                "type": "string"
-              },
-              "identifier": {
-                "type": "string"
-              },
-              "role": {
-                "type": "string"
-              },
-              "title": {
                 "type": "string"
               },
               "url": {
                 "type": "string",
                 "format": "uri"
+              },
+              "versionDate": {
+                "type": "string",
+                "format": "date"
               }
             },
             "required": [
-              "name"
-            ],
-            "recommended": [
-              "familyName",
-              "givenName ",
-              "identifier "
-            ],
-            "optional": [
-              "affiliation",
-              "email",
-              "role",
-              "title",
+              "name",
               "url"
             ],
-            "type": "object"
+            "recommended": [
+              "versionDate"
+            ]
           },
           "person": {
             "@type": "Person",
