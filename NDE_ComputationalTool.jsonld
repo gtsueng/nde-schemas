@@ -938,7 +938,14 @@
             ]
           },
           "catalog": {
-            "type": "string"
+            "@type": "Thing",
+            "type": "object",
+            "properties": {
+              "abstract": {
+                "description": "Abstract of the referenced resource",
+                "type": "string"
+              }
+            }
           },
           "creativework": {
             "description": "A resource",
@@ -1033,7 +1040,14 @@
             ]
           },
           "topic": {
-            "type": "string"
+            "@type": "Thing",
+            "type": "object",
+            "properties": {
+              "abstract": {
+                "description": "Abstract of the referenced resource",
+                "type": "string"
+              }
+            }
           },
           "person": {
             "@type": "Person",
