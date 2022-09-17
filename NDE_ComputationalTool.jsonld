@@ -46,7 +46,7 @@
           },
           "includedInDataCatalog": {
             "description": "Data or tool catalog",
-            "$ref": "#/definitions/citation"
+            "$ref": "#/definitions/catalog"
           },
           "isBasisFor": {
             "description": "A citation to the computational tool",
@@ -54,7 +54,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/citation"
+                "$ref": "#/definitions/creativework"
               }
             }]
           },
@@ -63,7 +63,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/citation"
+                "$ref": "#/definitions/creativework"
               }
             }],
             "owl:cardinality": "many"
@@ -73,7 +73,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/citation"
+                "$ref": "#/definitions/creativework"
               }
             }],
             "owl:cardinality": "many"
@@ -84,7 +84,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/citation"
+                "$ref": "#/definitions/topic"
               }
             }]
           },
@@ -487,7 +487,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/citation"
+                "$ref": "#/definitions/creativework"
               }
             }]
           },
@@ -695,7 +695,7 @@
             "oneOf": [{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/citation"
+                "$ref": "#/definitions/creativework"
               }
             }]
           },
@@ -717,12 +717,12 @@
           "sdPublisher": {
             "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
             "oneOf": [{
-                "$ref": "#/definitions/citation"
+                "$ref": "#/definitions/catalog"
               },
               {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/citation"
+                  "$ref": "#/definitions/catalog"
                 }
               }
             ],
@@ -937,6 +937,9 @@
               "volumeNumber"
             ]
           },
+          "catalog": {
+            "type": "string"
+          },
           "creativework": {
             "description": "A resource",
             "@type": "Thing",
@@ -968,13 +971,13 @@
               "hasPart": {
                 "description": "A portion of the work",
                 "oneOf": [{
-                  "$ref": "#/definitions/citation"
+                  "$ref": "#/definitions/creativework"
                 }]
               },
               "includedInDataCatalog": {
                 "description": "Data or tool catalog which houses the work",
                 "oneOf": [{
-                  "$ref": "#/definitions/citation"
+                  "$ref": "#/definitions/catalog"
                 }]
               },
               "name": {
@@ -1029,71 +1032,8 @@
               "hasPart"
             ]
           },
-          "organization": {
-            "@type": "Organization",
-            "description": "Reusable organization definition",
-            "properties": {
-              "affiliation": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "sameAs": {
-                    "type": "string"
-                  },
-                  "url": {
-                    "type": "string",
-                    "format": "uri"
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "optional": [
-                  "sameAs",
-                  "url"
-                ]
-              },
-              "alternateName": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "parentOrganization": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "identifier": {
-                "type": "string"
-              },
-              "role": {
-                "type": "string"
-              },
-              "url": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": [
-              "name"
-            ],
-            "recommended": [
-              "identifier"
-            ],
-            "optional": [
-              "affiliation",
-              "alternateName",
-              "email",
-              "parentOrganization",
-              "role",
-              "title",
-              "url"
-            ],
-            "type": "object"
+          "topic": {
+            "type": "string"
           },
           "person": {
             "@type": "Person",
@@ -1158,6 +1098,72 @@
             "optional": [
               "affiliation",
               "email",
+              "role",
+              "title",
+              "url"
+            ],
+            "type": "object"
+          },
+          "organization": {
+            "@type": "Organization",
+            "description": "Reusable organization definition",
+            "properties": {
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "optional": [
+                  "sameAs",
+                  "url"
+                ]
+              },
+              "alternateName": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "parentOrganization": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "identifier": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "recommended": [
+              "identifier"
+            ],
+            "optional": [
+              "affiliation",
+              "alternateName",
+              "email",
+              "parentOrganization",
               "role",
               "title",
               "url"
