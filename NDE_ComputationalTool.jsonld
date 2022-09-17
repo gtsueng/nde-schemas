@@ -1130,7 +1130,6 @@
               },
               "curatedBy": {
                 "description": "The person, organization, or catalog categorizing the work",
-                "type": "object",
                 "oneOf": [{
                     "$ref": "#/definitions/catalog"
                   },
