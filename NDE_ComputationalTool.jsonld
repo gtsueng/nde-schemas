@@ -937,29 +937,96 @@
               "volumeNumber"
             ]
           },
-          "catalog": {
-            "@type": "DataCatalog",
-            "description": "Data or tool catalog",
+          "creativework": {
+            "description": "A resource",
+            "@type": "Thing",
             "type": "object",
             "properties": {
+              "author": {
+                "description": "Author(s) of the referenced resource",
+                "oneOf": [{
+                    "$ref": "#/definitions/person"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              },
+              "abstract": {
+                "description": "Abstract of the referenced resource",
+                "type": "string"
+              },
+              "datePublished": {
+                "description": "Date the referenced resource was published",
+                "format": "date",
+                "type": "string"
+              },
+              "description": {
+                "description": "Description of the referenced resource",
+                "type": "string"
+              },
+              "hasPart": {
+                "description": "A portion of the work",
+                "oneOf": [{
+                  "$ref": "#/definitions/citation"
+                }]
+              },
+              "includedInDataCatalog": {
+                "description": "Data or tool catalog which houses the work",
+                "oneOf": [{
+                  "$ref": "#/definitions/citation"
+                }]
+              },
               "name": {
+                "description": "Name or title",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "An identifier associated with the citation",
+                "type": "string"
+              },
+              "pmid": {
+                "description": "A PubMed identifier of the referenced publication, if available",
+                "abstract": "PubMed identifier",
+                "type": "string"
+              },
+              "relationship": {
+                "description": "How the works are related",
+                "type": "string"
+              },
+              "doi": {
+                "description": "A digital object identifier (DOI) of the referenced resource, if available",
+                "abstract": "digital object identifier",
                 "type": "string"
               },
               "url": {
+                "description": "The url of the resource cited",
                 "type": "string",
                 "format": "uri"
               },
-              "versionDate": {
-                "type": "string",
-                "format": "date"
+              "citation": {
+                "description": "The bibliographic citation for the referenced resource as is provided",
+                "type": "string"
               }
             },
             "required": [
-              "name",
-              "url"
+              "name"
             ],
             "recommended": [
-              "versionDate"
+              "author",
+              "datePublished",
+              "doi",
+              "identifier",
+              "includedInDataCatalog",
+              "pmid",
+              "relationship",
+              "url"
+            ],
+            "optional": [
+              "abstract",
+              "citation",
+              "description",
+              "hasPart"
             ]
           },
           "organization": {
@@ -1027,6 +1094,47 @@
               "url"
             ],
             "type": "object"
+          },
+          "topic": {
+            "type": "object",
+            "description": "a topic assigned to the work",
+            "properties": {
+              "description": {
+                "description": "Description of the topic",
+                "type": "string"
+              },
+              "curatedBy": {
+                "description": "The person, organization, or catalog categorizing the work",
+                "oneOf": [{
+                    "$ref": "#/definitions/citation"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  },
+                  {
+                    "$ref": "#/definitions/person"
+                  }
+                ]
+              },
+              "name": {
+                "description": "Name or title",
+                "type": "string"
+              },
+              "url": {
+                "description": "The url of the resource cited",
+                "type": "string",
+                "format": "uri"
+              },
+              "required": [
+                "name"
+              ],
+              "recommended": [
+                "curatedBy",
+                "description",
+                "url"
+              ],
+              "optional": []
+            }
           },
           "person": {
             "@type": "Person",
