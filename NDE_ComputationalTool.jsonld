@@ -1030,30 +1030,27 @@
             ]
           },
           "topic": {
+            "description": "Topic of the work",
             "type": "object",
-            "description": "a topic assigned to the work",
             "properties": {
-              "description": {
-                "description": "Description of the topic",
-                "type": "string"
-              },
               "name": {
-                "description": "Name or title",
                 "type": "string"
               },
               "url": {
-                "description": "The url of the resource cited",
                 "type": "string",
                 "format": "uri"
               },
-              "required": [
-                "name"
-              ],
-              "recommended": [
-                "description",
-                "url"
-              ]
-            }
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ],
+            "recommended": [
+              "description"
+            ]
           },
           "catalog": {
             "@type": "DataCatalog",
