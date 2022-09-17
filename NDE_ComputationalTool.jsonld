@@ -968,7 +968,7 @@
               "hasPart": {
                 "description": "A portion of the work",
                 "oneOf": [{
-                  "$ref": "#/definitions/creativework"
+                  "$ref": "#/definitions/citation"
                 }]
               },
               "includedInDataCatalog": {
