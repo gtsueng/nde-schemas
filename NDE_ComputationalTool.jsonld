@@ -1036,6 +1036,16 @@
               "name": {
                 "type": "string"
               },
+              "curatedBy": {
+                "description": "The person, organization, or catalog that categorized the work",
+                "oneOf": [{
+                  "$ref": "#/definitions/person"
+                },{
+                  "$ref": "#/definitions/organization"
+                },{
+                  "$ref": "#/definitions/catalog"
+                }]
+              },
               "url": {
                 "type": "string",
                 "format": "uri"
@@ -1049,7 +1059,8 @@
               "url"
             ],
             "recommended": [
-              "description"
+              "description",
+              "curatedBy"
             ]
           },
           "catalog": {
