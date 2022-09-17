@@ -1037,19 +1037,6 @@
                 "description": "Description of the topic",
                 "type": "string"
               },
-              "curatedBy": {
-                "description": "The person, organization, or catalog categorizing the work",
-                "oneOf": [{
-                    "$ref": "#/definitions/catalog"
-                  },
-                  {
-                    "$ref": "#/definitions/organization"
-                  },
-                  {
-                    "$ref": "#/definitions/person"
-                  }
-                ]
-              },
               "name": {
                 "description": "Name or title",
                 "type": "string"
@@ -1063,11 +1050,9 @@
                 "name"
               ],
               "recommended": [
-                "curatedBy",
                 "description",
                 "url"
-              ],
-              "optional": []
+              ]
             }
           },
           "catalog": {
