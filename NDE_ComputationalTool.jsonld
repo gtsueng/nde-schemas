@@ -536,27 +536,32 @@
           },
           "aggregateRating": {
             "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-            "owl:cardinality": "many",
-            "@type": "AggregateRating",
-            "type": "object",
-            "properties": {
-              "ratingCount": {
-                "type": "string"
+            "oneOf": [{
+              "items": {
+                "@type": "AggregateRating",
+                "type": "object",
+                "properties": {
+                  "ratingCount": {
+                    "type": "string"
+                  },
+                  "ratingValue": {
+                    "type": "string"
+                  },
+                  "reviewAspect": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ratingValue"
+                ],
+                "recommended": [
+                  "ratingCount",
+                  "reviewAspect"
+                ]
               },
-              "ratingValue": {
-                "type": "string"
-              },
-              "reviewAspect": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "ratingValue"
-            ],
-            "recommended": [
-              "ratingCount",
-              "reviewAspect"
-            ]
+              "type": "array"
+            }],
+            "owl:cardinality": "many"
           },
           "author": {
             "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
@@ -644,7 +649,13 @@
           },
           "hasPart": {
             "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
+              }
+            }]
           },
           "inLanguage": {
             "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -672,7 +683,26 @@
           },
           "interactionStatistic": {
             "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
-            "owl:cardinality": "many"
+            "owl:cardinality": "many",
+            "oneOf": [{
+              "items": {
+                "@type": "InteractionCounter",
+                "type": "object",
+                "properties": {
+                  "interactionType": {
+                    "type": "string"
+                  },
+                  "userInteractionCount": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "interactionType",
+                  "userInteractionCount"
+                ]
+              },
+              "type": "array"
+            }]
           },
           "isAccessibleForFree": {
             "description": "A flag to signal that the item, event, or place is accessible for free.",
