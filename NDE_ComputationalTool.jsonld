@@ -21,17 +21,20 @@
         "properties": {
           "citedBy": {
             "description": "A citation to the dataset",
-            "owl:cardinality": "many",
             "oneOf": [{
-                "$ref": "#/definitions/citation"
-              },
-              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/citation"
                 }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/creativework"
+                }
               }
-            ]
+            ],
+            "owl:cardinality": "many"
           },
           "date": {
             "description": "Date the ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
@@ -577,12 +580,15 @@
           "citation": {
             "description": "A citation to the dataset",
             "oneOf": [{
-                "$ref": "#/definitions/citation"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
               },
               {
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/citation"
+                  "$ref": "#/definitions/creativework"
                 }
               }
             ],
@@ -649,13 +655,20 @@
           },
           "hasPart": {
             "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
-            "owl:cardinality": "many",
             "oneOf": [{
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/creativework"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/creativework"
+                }
               }
-            }]
+            ],
+            "owl:cardinality": "many"
           },
           "inLanguage": {
             "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
@@ -711,23 +724,37 @@
           },
           "isBasedOn": {
             "description": "A citation to the computational tool",
-            "owl:cardinality": "many",
             "oneOf": [{
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/citation"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/creativework"
+                }
               }
-            }]
+            ],
+            "owl:cardinality": "many"
           },
           "isPartOf": {
             "description": "A citation to the computational tool",
-            "owl:cardinality": "many",
             "oneOf": [{
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/creativework"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/creativework"
+                }
               }
-            }]
+            ],
+            "owl:cardinality": "many"
           },
           "keywords": {
             "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
@@ -871,7 +898,7 @@
         "definitions": {
           "citation": {
             "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
-            "@type": "Thing",
+            "@type": "ScholarlyArticle",
             "type": "object",
             "properties": {
               "author": {
@@ -994,7 +1021,7 @@
           },
           "creativework": {
             "description": "A resource",
-            "@type": "Thing",
+            "@type": "CreativeWork",
             "type": "object",
             "properties": {
               "author": {
@@ -1040,11 +1067,6 @@
                 "description": "An identifier associated with the citation",
                 "type": "string"
               },
-              "pmid": {
-                "description": "A PubMed identifier of the referenced publication, if available",
-                "abstract": "PubMed identifier",
-                "type": "string"
-              },
               "relationship": {
                 "description": "How the works are related",
                 "type": "string"
@@ -1073,7 +1095,6 @@
               "doi",
               "identifier",
               "includedInDataCatalog",
-              "pmid",
               "relationship",
               "url"
             ],
@@ -1082,6 +1103,43 @@
               "citation",
               "description",
               "hasPart"
+            ]
+          },
+          "topic": {
+            "description": "Topic assigned to the work",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "curatedBy": {
+                "description": "The person, organization, or catalog that categorized the work",
+                "oneOf": [{
+                    "$ref": "#/definitions/person"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  },
+                  {
+                    "$ref": "#/definitions/catalog"
+                  }
+                ]
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ],
+            "recommended": [
+              "description",
+              "curatedBy"
             ]
           },
           "organization": {
@@ -1149,43 +1207,6 @@
               "url"
             ],
             "type": "object"
-          },
-          "topic": {
-            "description": "Topic assigned to the work",
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "curatedBy": {
-                "description": "The person, organization, or catalog that categorized the work",
-                "oneOf": [{
-                    "$ref": "#/definitions/person"
-                  },
-                  {
-                    "$ref": "#/definitions/organization"
-                  },
-                  {
-                    "$ref": "#/definitions/catalog"
-                  }
-                ]
-              },
-              "url": {
-                "type": "string",
-                "format": "uri"
-              },
-              "description": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "name",
-              "url"
-            ],
-            "recommended": [
-              "description",
-              "curatedBy"
-            ]
           },
           "person": {
             "@type": "Person",
