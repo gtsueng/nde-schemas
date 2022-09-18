@@ -1119,6 +1119,104 @@
           "sameAs"
         ],
         "definitions": {
+          "citation": {
+            "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
+            "@type": "Thing",
+            "type": "object",
+            "properties": {
+              "author": {
+                "description": "Author(s) of the referenced resource",
+                "oneOf": [{
+                    "$ref": "#/definitions/person"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  }
+                ]
+              },
+              "abstract": {
+                "description": "Abstract of the referenced resource",
+                "type": "string"
+              },
+              "datePublished": {
+                "description": "Date the referenced resource was published",
+                "format": "date",
+                "type": "string"
+              },
+              "description": {
+                "description": "Description of the referenced resource",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name or title of the citation",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "An identifier associated with the citation",
+                "type": "string"
+              },
+              "pmid": {
+                "description": "A PubMed identifier of the referenced publication, if available",
+                "abstract": "PubMed identifier",
+                "type": "string"
+              },
+              "doi": {
+                "description": "A digital object identifier (DOI) of the referenced resource, if available",
+                "abstract": "digital object identifier",
+                "type": "string"
+              },
+              "issueNumber": {
+                "description": "Issue number where the referenced resource appears",
+                "type": "string"
+              },
+              "journalName": {
+                "description": "Journal where the referenced resource appears",
+                "type": "string"
+              },
+              "journalNameAbbrev": {
+                "description": "Abbreviated journal name where the referenced resource appears",
+                "type": "string"
+              },
+              "pagination": {
+                "description": "Page numbers in the journal where the referenced resource appears",
+                "type": "string"
+              },
+              "url": {
+                "description": "The url of the resource cited",
+                "type": "string",
+                "format": "uri"
+              },
+              "volumeNumber": {
+                "description": "Volume of the journal where the referenced resource appears",
+                "type": "string"
+              },
+              "citation": {
+                "description": "The bibliographic citation for the referenced resource as is provided",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name"
+            ],
+            "recommended": [
+              "author",
+              "datePublished",
+              "doi",
+              "identifier",
+              "journalName",
+              "pmid",
+              "url"
+            ],
+            "optional": [
+              "abstract",
+              "citation",
+              "description",
+              "issueNumber",
+              "journalNameAbbrev",
+              "pagination",
+              "volumeNumber"
+            ]
+          },
           "creativework": {
             "description": "A resource",
             "@type": "Thing",
