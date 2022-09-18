@@ -1082,6 +1082,7 @@
         "recommended": [
           "citedBy",
           "doi",
+          "topicCategory",
           "infectiousAgent",
           "healthCondition",
           "species",
@@ -1106,6 +1107,7 @@
           "isSimilarTo",
           "isBasisFor",
           "nctid",
+          "relationship",
           "abstract",
           "aggregateRating",
           "creator",
