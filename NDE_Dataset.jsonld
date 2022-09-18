@@ -1279,7 +1279,7 @@
               "versionDate"
             ]
           },
-          "organization": "organization": {
+          "organization": {
             "@type": "Organization",
             "description": "Reusable organization definition",
             "properties": {
