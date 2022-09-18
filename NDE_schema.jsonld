@@ -20,7 +20,7 @@
         "type": "object",
         "properties": {
           "citedBy": {
-            "description": "Publications that cite the dataset.",
+            "description": "Publications, datasets, or computational tools that cite the dataset",
             "oneOf": [{
                 "type": "array",
                 "items": {
@@ -37,18 +37,21 @@
             "owl:cardinality": "many"
           },
           "date": {
-            "description": "Date the Dataset has changed: most recent date of dateModified, datePublished, and dateCreated.",
+            "description": "Date the dataset has changed: most recent date of dateModified, datePublished, and dateCreated.",
+            "abstract": "date changed",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
           },
           "doi": {
-            "description": "Digital Object Identifier (DOI) for the Dataset, not any associated publications",
+            "description": "Digital Object Identifier (DOI) for the dataset, not any associated publications",
+            "abstract": "digital object identifier",
             "type": "string",
             "owl:cardinality": "one"
           },
           "isRelatedTo": {
-            "description": "Datasets which are related to the given Dataset; often datasets involved in the same study",
+            "description": "Datasets which are related to the given dataset; often datasets involved in the same study. These linkages are created via human curation.",
+            "abstract": "related datasets (via curation)",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -59,6 +62,7 @@
           },
           "isSimilarTo": {
             "description": "Datasets which are similar to the dataset, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
+            "abstract": "similar datasets (auto-assigned)",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -68,7 +72,7 @@
             "owl:cardinality": "many"
           },
           "isBasisFor": {
-            "description": "Datasets which reuse the dataset",
+            "description": "A dataset which reuses the dataset",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -79,6 +83,7 @@
           },
           "nctid": {
             "description": "ClinicalTrials.gov identifier associated with the Dataset",
+            "abstract": "ClinicalTrials.gov ID",
             "type": "string",
             "owl:cardinality": "many"
           },
@@ -89,11 +94,12 @@
           },
           "topicCategory": {
             "description": "Topic of the Dataset. This topic may be assigned by a human curator or through automated algorithms.",
+            "abstract": "topic",
             "$ref": "#/definitions/topic",
             "owl:cardinality": "many"
           },
           "infectiousAgent": {
-            "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
+            "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset (like SARS-CoV-2)",
             "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
@@ -391,7 +397,8 @@
             "owl:cardinality": "many"
           },
           "includedInDataCatalog": {
-            "description": "A data catalog which contains this dataset.",
+            "description": "A data catalog where the dataset is published; original source of the metadata",
+            "abstract": "catalog containing the dataset",
             "oneOf": [{
                 "$ref": "#/definitions/catalog"
               },
@@ -1494,7 +1501,7 @@
         "type": "object",
         "properties": {
           "citedBy": {
-            "description": "A citation to the dataset",
+            "description": "Publications, datasets, or computational tools that cite the computational tool",
             "oneOf": [{
                 "type": "array",
                 "items": {
@@ -1511,22 +1518,25 @@
             "owl:cardinality": "many"
           },
           "date": {
-            "description": "Date the ComputationalTool has changed: most recent date of dateModified, datePublished, and dateCreated.",
+            "description": "Date the computational tool has changed: most recent date of dateModified, datePublished, and dateCreated.",
+            "abstract": "date changed",
             "owl:cardinality": "one",
             "format": "date",
             "type": "string"
           },
           "doi": {
-            "description": "Digital object identifier (DOI) for the ComputationalTool",
+            "description": "Digital object identifier (DOI) for the computational tool, not any associated publications",
+            "abstract": "digital object identifier",
             "owl:cardinality": "one",
             "type": "string"
           },
           "includedInDataCatalog": {
-            "description": "Data or tool catalog",
+            "description": "Data or tool catalog where the computational tool is published; original source of the metadata",
+            "abstract": "catalog containing the computational tool",
             "$ref": "#/definitions/catalog"
           },
           "isBasisFor": {
-            "description": "A citation to the computational tool",
+            "description": "A computational tool which reuses the computational tool",
             "owl:cardinality": "many",
             "oneOf": [{
               "type": "array",
@@ -1536,7 +1546,8 @@
             }]
           },
           "isRelatedTo": {
-            "description": "A citation to the computational tool",
+            "description": "Computational tools which are related to the given computational tool. These linkages are created via human curation.",
+            "abstract": "related computational tools (via curation)",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -1546,7 +1557,8 @@
             "owl:cardinality": "many"
           },
           "isSimilarTo": {
-            "description": "A citation to the computational tool",
+            "description": "Computational tools which are similar to the computational tool, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
+            "abstract": "similar computational tools (auto-assigned)",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -1557,6 +1569,7 @@
           },
           "topicCategory": {
             "description": "Topic of the ComputationalTool. This topic may be assigned by a human curator or through automated algorithms.",
+            "abstract": "topic",
             "owl:cardinality": "many",
             "oneOf": [{
               "type": "array",
@@ -1566,7 +1579,7 @@
             }]
           },
           "infectiousAgent": {
-            "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
+            "description": "Infectious agent(s) / pathogen(s) which are the focus of the computational tool (like SARS-CoV-2)",
             "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
