@@ -2827,9 +2827,11 @@
       "@type": "rdf:Property",
       "rdfs:comment": "ComputationalTools which are related to the given ComputationalTool",
       "rdfs:label": "isRelatedTo",
-      "schema:domainIncludes": {
+      "schema:domainIncludes": [{
+        "@id": "nde:Dataset"
+      }, {
         "@id": "nde:ComputationalTool"
-      },
+      }],
       "schema:rangeIncludes": [{
         "@id": "nde:ComputationalTool"
       }]
