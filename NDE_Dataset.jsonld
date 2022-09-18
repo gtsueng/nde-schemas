@@ -6,8 +6,7 @@
     "niaid": "https://discovery.biothings.io/view/niaid/",
     "nde": "https://discovery.biothings.io/view/nde/"
   },
-  "@graph": [
-    {
+  "@graph": [{
       "@id": "nde:Dataset",
       "@type": "rdfs:Class",
       "rdfs:comment": "Datasets contained in the NIAID Data Ecosystem. The NIAID Data Ecosystem is a secure environment to find, access and analyze immune-mediated and infectious disease data and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
@@ -21,24 +20,23 @@
         "properties": {
           "citedBy": {
             "description": "Publications that cite the dataset.",
-            "owl:cardinality": "many",
-            "oneOf": [
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
-                "description": "Publications that cite the dataset.",
-                "owl:cardinality": "many",
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": [
-                      {
-                        "$ref": "#/definitions/creativework"
-                      },
-                      {
-                        "$ref": "#/definitions/citation"
-                      }
-                    ]
-                  }
-                ]
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/dataset"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/creativework"
+                }
               }
             ]
           },
@@ -55,38 +53,32 @@
           },
           "isRelatedTo": {
             "description": "Datasets which are related to the given Dataset; often datasets involved in the same study",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "isSimilarTo": {
             "description": "Datasets which are similar to the dataset, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "isBasisFor": {
             "description": "Datasets or publications which reuse the dataset",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "nctid": {
@@ -106,8 +98,7 @@
           },
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -145,8 +136,7 @@
           },
           "healthCondition": {
             "description": "The infectious disease(s) / health condition(s) which are the focus of the dataset or computational tool (e.g. COVID-19, coronavirus)",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -182,8 +172,7 @@
           },
           "funding": {
             "description": "Funding that supports (sponsors) the collection of this dataset or computational tool through some kind of financial contribution",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "MonetaryGrant",
                 "description": "Funding that supports (sponsors) the collection of this dataset through some kind of financial contribution",
                 "properties": {
@@ -193,8 +182,7 @@
                   },
                   "funder": {
                     "description": "An organization associated with a creator or funder of a dataset",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "@type": "Organization",
                         "description": "Information about a single funder",
                         "properties": {
@@ -261,8 +249,7 @@
                     },
                     "funder": {
                       "description": "An organization associated with a creator or funder of a dataset",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "@type": "Organization",
                           "description": "Information about a single funder",
                           "properties": {
@@ -325,8 +312,7 @@
           },
           "species": {
             "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -364,8 +350,7 @@
           },
           "distribution": {
             "description": "A downloadable form of this dataset, at a specific location, in a specific format.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "DataDownload",
                 "description": "A dataset in downloadable form.",
                 "properties": {
@@ -411,8 +396,7 @@
           },
           "includedInDataCatalog": {
             "description": "A data catalog which contains this dataset.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "$ref": "#/definitions/catalog"
               },
               {
@@ -426,8 +410,7 @@
           },
           "measurementTechnique": {
             "description": "A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),\ncorresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.\n\nFor example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".\n\nIf the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".\n\nIf there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].\n      ",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
@@ -467,14 +450,12 @@
           },
           "variableMeasured": {
             "description": "The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "type": "string"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "abstract": {
@@ -484,39 +465,36 @@
           },
           "aggregateRating": {
             "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
-            "oneOf": [
-              {
-                "items": {
-                  "@type": "AggregateRating",
-                  "type": "object",
-                  "properties": {
-                    "ratingCount": {
-                      "type": "string"
-                    },
-                    "ratingValue": {
-                      "type": "string"
-                    },
-                    "reviewAspect": {
-                      "type": "string"
-                    }
+            "oneOf": [{
+              "items": {
+                "@type": "AggregateRating",
+                "type": "object",
+                "properties": {
+                  "ratingCount": {
+                    "type": "string"
                   },
-                  "required": [
-                    "ratingValue"
-                  ],
-                  "recommended": [
-                    "ratingCount",
-                    "reviewAspect"
-                  ]
+                  "ratingValue": {
+                    "type": "string"
+                  },
+                  "reviewAspect": {
+                    "type": "string"
+                  }
                 },
-                "type": "array"
-              }
-            ],
+                "required": [
+                  "ratingValue"
+                ],
+                "recommended": [
+                  "ratingCount",
+                  "reviewAspect"
+                ]
+              },
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "author": {
             "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "$ref": "#/definitions/person"
               },
               {
@@ -527,35 +505,30 @@
           },
           "citation": {
             "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "conditionsOfAccess": {
             "description": "Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\\n\\nFor example \"Available by appointment from the Reading Room\" or \"Accessible only from logged-in accounts \". ",
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "Closed",
-                  "Open",
-                  "Restricted",
-                  "Embargoed"
-                ]
-              }
-            ],
+            "oneOf": [{
+              "type": "string",
+              "enum": [
+                "Closed",
+                "Open",
+                "Restricted",
+                "Embargoed"
+              ]
+            }],
             "owl:cardinality": "one"
           },
           "creator": {
             "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
-            "anyOf": [
-              {
+            "anyOf": [{
                 "$ref": "#/definitions/person"
               },
               {
@@ -584,65 +557,59 @@
           },
           "hasPart": {
             "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "inLanguage": {
             "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
-            "oneOf": [
-              {
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "alternateName": {
-                      "type": "string"
-                    }
+            "oneOf": [{
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
                   },
-                  "required": [
-                    "name"
-                  ],
-                  "recommended": [
-                    "alternateName"
-                  ]
+                  "alternateName": {
+                    "type": "string"
+                  }
                 },
-                "type": "array"
-              }
-            ],
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "alternateName"
+                ]
+              },
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "interactionStatistic": {
             "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
-            "oneOf": [
-              {
-                "items": {
-                  "@type": "InteractionCounter",
-                  "type": "object",
-                  "properties": {
-                    "interactionType": {
-                      "type": "string"
-                    },
-                    "userInteractionCount": {
-                      "type": "integer"
-                    }
+            "oneOf": [{
+              "items": {
+                "@type": "InteractionCounter",
+                "type": "object",
+                "properties": {
+                  "interactionType": {
+                    "type": "string"
                   },
-                  "required": [
-                    "interactionType",
-                    "userInteractionCount"
-                  ]
+                  "userInteractionCount": {
+                    "type": "integer"
+                  }
                 },
-                "type": "array"
-              }
-            ],
+                "required": [
+                  "interactionType",
+                  "userInteractionCount"
+                ]
+              },
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "isAccessibleForFree": {
@@ -652,38 +619,32 @@
           },
           "isBasedOn": {
             "description": "A resource from which this work is derived or from which it is a modification or adaption.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "isPartOf": {
             "description": "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "keywords": {
             "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "type": "string"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "license": {
@@ -694,8 +655,7 @@
           },
           "sdPublisher": {
             "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "$ref": "#/definitions/catalog"
               },
               {
@@ -709,8 +669,7 @@
           },
           "spatialCoverage": {
             "description": "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content. It is a subproperty of\n      contentLocation intended primarily for more technical and detailed materials. For example with a Dataset, it indicates\n      areas that the dataset describes: a dataset of New York weather would have spatialCoverage which was the place: the state of New York.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "AdministrativeArea",
                 "description": "Location information",
                 "properties": {
@@ -735,8 +694,7 @@
                   },
                   "alternateName": {
                     "description": "An alias for the location.",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "type": "string"
                       },
                       {
@@ -753,8 +711,7 @@
                   },
                   "locationType": {
                     "description": "Categorization of how the location relates to the dataset or computational tool",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "enum": [
                           "residence",
                           "exposure",
@@ -818,8 +775,7 @@
                     },
                     "alternateName": {
                       "description": "An alias for the location.",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "type": "string"
                         },
                         {
@@ -836,8 +792,7 @@
                     },
                     "locationType": {
                       "description": "Categorization of how the location relates to the dataset or computational tool",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "enum": [
                             "residence",
                             "exposure",
@@ -882,8 +837,7 @@
           },
           "temporalCoverage": {
             "description": "The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals). In\n      the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written \"2011/2012\"). Other forms of content e.g. ScholarlyArticle, Book, TVSeries or TVEpisode may indicate their temporalCoverage in broader terms - textually or via well-known URL.\n      Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via \"1939/1945\".\n\nOpen-ended date ranges can be written with \"..\" in place of the end date. For example, \"2015-11/..\" indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "@type": "TemporalInterval",
                 "description": "Temporal information",
                 "properties": {
@@ -907,8 +861,7 @@
                   },
                   "temporalType": {
                     "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
-                    "oneOf": [
-                      {
+                    "oneOf": [{
                         "enum": [
                           "exposure",
                           "collection",
@@ -965,8 +918,7 @@
                     },
                     "temporalType": {
                       "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
-                      "oneOf": [
-                        {
+                      "oneOf": [{
                           "enum": [
                             "exposure",
                             "collection",
@@ -1005,14 +957,12 @@
           },
           "usageInfo": {
             "description": "The schema.org [[usageInfo]] property indicates further information about a [[CreativeWork]]. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options.\n\nThis property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.",
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/creativework"
               }
-            ],
+            }],
             "owl:cardinality": "many"
           },
           "version": {
@@ -1022,8 +972,7 @@
           },
           "alternateName": {
             "description": "An alias for the item.",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -1042,8 +991,7 @@
           },
           "identifier": {
             "description": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
-            "oneOf": [
-              {
+            "oneOf": [{
                 "type": "string"
               },
               {
@@ -1134,7 +1082,7 @@
         "definitions": {
           "citation": {
             "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
-            "@type": "Thing",
+            "@type": "ScholarlyPublication",
             "type": "object",
             "properties": {
               "author": {
@@ -1232,13 +1180,12 @@
           },
           "creativework": {
             "description": "A resource",
-            "@type": "Thing",
+            "@type": "CreativeWork",
             "type": "object",
             "properties": {
               "author": {
                 "description": "Author(s) of the referenced resource",
-                "oneOf": [
-                  {
+                "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
                   {
@@ -1261,19 +1208,15 @@
               },
               "hasPart": {
                 "description": "A portion of the work",
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/citation"
-                  }
-                ]
+                "oneOf": [{
+                  "$ref": "#/definitions/citation"
+                }]
               },
               "includedInDataCatalog": {
                 "description": "Data or tool catalog which houses the work",
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/catalog"
-                  }
-                ]
+                "oneOf": [{
+                  "$ref": "#/definitions/catalog"
+                }]
               },
               "name": {
                 "description": "Name or title",
@@ -1327,6 +1270,10 @@
               "hasPart"
             ]
           },
+          "dataset": {
+            "type": "object",
+            "@type": "Dataset"
+          },
           "topic": {
             "description": "Topic assigned to the work",
             "type": "object",
@@ -1336,8 +1283,7 @@
               },
               "curatedBy": {
                 "description": "The person, organization, or catalog that categorized the work",
-                "oneOf": [
-                  {
+                "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
                   {
@@ -1536,11 +1482,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:ScholarlyArticle"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:ScholarlyArticle"
+      }]
     },
     {
       "@id": "nde:date",
@@ -1550,11 +1494,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Date"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Date"
+      }]
     },
     {
       "@id": "nde:doi",
@@ -1564,11 +1506,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
     },
     {
       "@id": "nde:isRelatedTo",
@@ -1578,11 +1518,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:Dataset"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "nde:Dataset"
+      }]
     },
     {
       "@id": "nde:isSimilarTo",
@@ -1592,11 +1530,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "nde:Dataset"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "nde:Dataset"
+      }]
     },
     {
       "@id": "nde:isBasisFor",
@@ -1606,8 +1542,7 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
+      "schema:rangeIncludes": [{
           "@id": "nde:Dataset"
         },
         {
@@ -1623,11 +1558,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
     },
     {
       "@id": "nde:relationship",
@@ -1637,11 +1570,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
     },
     {
       "@id": "nde:topicCategory",
@@ -1651,11 +1582,9 @@
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
       },
-      "schema:rangeIncludes": [
-        {
-          "@id": "schema:Text"
-        }
-      ]
+      "schema:rangeIncludes": [{
+        "@id": "schema:Text"
+      }]
     }
   ]
 }
