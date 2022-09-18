@@ -24,10 +24,21 @@
             "owl:cardinality": "many",
             "oneOf": [
               {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/creativework"
-                }
+                "description": "Publications that cite the dataset.",
+                "owl:cardinality": "many",
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": [
+                      {
+                        "$ref": "#/definitions/creativework"
+                      },
+                      {
+                        "$ref": "#/definitions/citation"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           },
