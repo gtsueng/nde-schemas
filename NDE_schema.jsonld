@@ -1939,7 +1939,7 @@
           },
           "contributor": {
             "description": "A secondary contributor to the developement or maintenance of the computational tool",
-            "abstract": "contributor to development or maintenance"
+            "abstract": "contributor to development or maintenance",
             "anyOf": [{
                 "$ref": "#/definitions/person"
               },
