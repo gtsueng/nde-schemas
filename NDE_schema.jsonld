@@ -568,10 +568,9 @@
               }
             ]
           },
-          **
-          **
           "isPartOf": {
-            "description": "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.",
+            "description": "Indicates a broader study, project, or collection the dataset is part of",
+            "abstract": "study or project including the dataset",
             "owl:cardinality": "many",
             "oneOf": [{
                 "type": "array",
@@ -587,8 +586,6 @@
               }
             ]
           },
-          **
-          *
           "keywords": {
             "description": "Keywords or tags used to describe this dataset",
             "abstract": "keywords or tags",
@@ -1508,11 +1505,9 @@
             }],
             "owl:cardinality": "many"
           },
-          **
-          **
-          ** **
           "codeRepository": {
-            "description": "Link to the source code repository of the tool.",
+            "description": "Link to the source code repository of the tool such as GitHub",
+            "abstract": "source code link",
             "oneOf": [{
                 "format": "uri",
                 "type": "string"
@@ -1528,7 +1523,8 @@
             "owl:cardinality": "many"
           },
           "programmingLanguage": {
-            "description": "The main programming language(s) used to build or execute the tool. Please use terms from the ‘Programming language’ table in the Bio.Tools documentation",
+            "description": "The main programming language(s) used to build or execute the tool",
+            "abstract": "programming language",
             "oneOf": [{
                 "type": "string"
               },
@@ -1542,7 +1538,8 @@
             "owl:cardinality": "many"
           },
           "input": {
-            "description": "software input or output",
+            "description": "software input, such as a file or parameter",
+            "abstract": "input file/parameter",
             "owl:cardinality": "many",
             "@type": "FormalParameter",
             "type": "object",
@@ -1562,7 +1559,7 @@
             ]
           },
           "output": {
-            "description": "software input or output",
+            "description": "Output of the computational tool",
             "owl:cardinality": "many",
             "@type": "FormalParameter",
             "type": "object",
@@ -1583,6 +1580,7 @@
           },
           "applicationCategory": {
             "description": "Type of software application, e.g. 'Game, Multimedia'.",
+            "abstract": "type of software application"
             "anyOf": [{
                 "type": "string"
               },
@@ -1608,6 +1606,7 @@
           },
           "applicationSubCategory": {
             "description": "Subcategory of the application, e.g. 'Arcade Game'.",
+            "abstract": "software subcategory",
             "oneOf": [{
                 "@type": "DefinedTerm",
                 "strict": false,
@@ -1666,6 +1665,7 @@
           },
           "applicationSuite": {
             "description": "The name of the application suite to which the application belongs (e.g. Excel belongs to Office).",
+            "abstract": "software suite for the tool",
             "owl:cardinality": "many",
             "oneOf": [{
               "type": "array",
@@ -1675,13 +1675,14 @@
             }]
           },
           "downloadUrl": {
-            "description": "If the file can be downloaded, URL to download the binary.",
+            "description": "URL to download the computational tool",
             "owl:cardinality": "many",
             "type": "string",
             "format": "uri"
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",
+            "abstract": "features of the tool",
             "anyOf": [{
                 "@type": "DefinedTerm",
                 "strict": false,
@@ -1751,6 +1752,7 @@
           },
           "operatingSystem": {
             "description": "Operating systems supported (Windows 7, OSX 10.6, Android 1.6).",
+            "abstract": "operativen systems supported",
             "owl:cardinality": "many",
             "oneOf": [{
                 "type": "string"
@@ -1765,6 +1767,7 @@
           },
           "processorRequirements": {
             "description": "Processor architecture required to run the application (e.g. IA64).",
+            "abstract": "processor requirements",
             "owl:cardinality": "many",
             "oneOf": [{
                 "type": "string"
@@ -1778,7 +1781,7 @@
             ]
           },
           "softwareAddOn": {
-            "description": "Additional content for a software application.",
+            "description": "Additional content for a software application",
             "owl:cardinality": "many",
             "oneOf": [{
               "type": "array",
@@ -1788,7 +1791,7 @@
             }]
           },
           "softwareHelp": {
-            "description": "Software application help.",
+            "description": "URL to access software application help",
             "oneOf": [{
                 "@type": "CreativeWork",
                 "properties": {
@@ -1817,6 +1820,7 @@
           },
           "softwareRequirements": {
             "description": "Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime).",
+            "abstract": "requirements of tool",
             "owl:cardinality": "many",
             "oneOf": [{
               "type": "array",
@@ -1826,13 +1830,10 @@
             }]
           },
           "softwareVersion": {
-            "description": "Version of the software instance.",
+            "description": "Software version",
             "type": "string",
             "owl:cardinality": "one"
           },
-          **
-          **
-          **
           "aggregateRating": {
             "description": "The overall rating, based on a collection of reviews or ratings, of the computational tool. These ratings can be collected based on user reviews or through Altmetric scores of web-based citations.",
             "abstract": "rating of the tool",
@@ -2047,7 +2048,8 @@
             "owl:cardinality": "many"
           },
           "isPartOf": {
-            "description": "A citation to the computational tool",
+            "description": "Indicates a study, project, or collection the computational tool is part of",
+            "abstract": "study or project including the tool",
             "oneOf": [{
                 "type": "array",
                 "items": {
