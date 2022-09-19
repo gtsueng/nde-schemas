@@ -263,6 +263,7 @@
           },
           "distribution": {
             "description": "A downloadable form of this dataset, at a specific location, in a specific format.",
+            "abstract": "download link",
             "oneOf": [{
                 "@type": "DataDownload",
                 "description": "A dataset in downloadable form.",
@@ -323,7 +324,8 @@
             "owl:cardinality": "one"
           },
           "measurementTechnique": {
-            "description": "A technique or technology used in a [[Dataset]] (or [[DataDownload]], [[DataCatalog]]),\ncorresponding to the method used for measuring the corresponding variable(s) (described using [[variableMeasured]]). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.\n\nFor example, if [[variableMeasured]] is: molecule concentration, [[measurementTechnique]] could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".\n\nIf the [[variableMeasured]] is \"depression rating\", the [[measurementTechnique]] could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".\n\nIf there are several [[variableMeasured]] properties recorded for some given data object, use a [[PropertyValue]] for each [[variableMeasured]] and attach the corresponding [[measurementTechnique]].\n      ",
+            "description": "A technique or technology used in a  dataset corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured). For example, if variableMeasured is molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".",
+            "abstract": "measurement technique used to collect the dataset",
             "oneOf": [{
                 "@type": "CreativeWork",
                 "description": "collection of vocabulary terms defined in ontologies",
@@ -363,7 +365,7 @@
             "owl:cardinality": "many"
           },
           "variableMeasured": {
-            "description": "The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.",
+            "description": "Variables measured within the dataset",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -373,24 +375,29 @@
             "owl:cardinality": "many"
           },
           "abstract": {
-            "description": "An abstract is a short description that summarizes a [[CreativeWork]].",
+            "description": "Short description that summarizes a dataset",
+            "abstract": "short description",
             "type": "string",
             "owl:cardinality": "one"
           },
           "aggregateRating": {
-            "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+            "description": "The overall rating, based on a collection of reviews or ratings, of the dataset. These ratings can be collected based on user reviews or through Altmetric scores of web-based citations.",
+            "abstract": "rating of the dataset",
             "oneOf": [{
               "items": {
                 "@type": "AggregateRating",
                 "type": "object",
                 "properties": {
                   "ratingCount": {
+                    "description": "Total number of ratings",
                     "type": "string"
                   },
                   "ratingValue": {
+                    "description": "Average rating",
                     "type": "string"
                   },
-                  "reviewAspect": {
+                  "itemReviewed": {
+                    "description": "What is being reviewed",
                     "type": "string"
                   }
                 },
@@ -399,7 +406,7 @@
                 ],
                 "recommended": [
                   "ratingCount",
-                  "reviewAspect"
+                  "itemReviewed"
                 ]
               },
               "type": "array"
@@ -407,7 +414,7 @@
             "owl:cardinality": "many"
           },
           "author": {
-            "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
+            "description": "Author or creator of the dataset",
             "anyOf": [{
                 "$ref": "#/definitions/person"
               },
@@ -1621,6 +1628,7 @@
             }],
             "owl:cardinality": "many"
           },
+          ********
           "codeRepository": {
             "description": "Link to the source code repository of the tool.",
             "oneOf": [{
@@ -1940,20 +1948,25 @@
             "type": "string",
             "owl:cardinality": "one"
           },
+          ******
           "aggregateRating": {
-            "description": "The overall rating, based on a collection of reviews or ratings, of the item.",
+            "description": "The overall rating, based on a collection of reviews or ratings, of the computational tool. These ratings can be collected based on user reviews or through Altmetric scores of web-based citations.",
+            "abstract": "rating of the tool",
             "oneOf": [{
               "items": {
                 "@type": "AggregateRating",
                 "type": "object",
                 "properties": {
                   "ratingCount": {
+                    "description": "Total number of ratings",
                     "type": "string"
                   },
                   "ratingValue": {
+                    "description": "Average rating",
                     "type": "string"
                   },
-                  "reviewAspect": {
+                  "itemReviewed": {
+                    "description": "What is being reviewed",
                     "type": "string"
                   }
                 },
@@ -1962,7 +1975,7 @@
                 ],
                 "recommended": [
                   "ratingCount",
-                  "reviewAspect"
+                  "itemReviewed"
                 ]
               },
               "type": "array"
@@ -1970,7 +1983,7 @@
             "owl:cardinality": "many"
           },
           "author": {
-            "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
+            "description": "Author or creator of the computational tool",
             "anyOf": [{
                 "$ref": "#/definitions/person"
               },
