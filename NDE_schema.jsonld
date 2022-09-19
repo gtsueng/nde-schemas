@@ -1607,7 +1607,7 @@
           },
           "applicationCategory": {
             "description": "Type of software application, e.g. 'Game, Multimedia'.",
-            "abstract": "type of software application"
+            "abstract": "type of software application",
             "anyOf": [{
                 "type": "string"
               },
