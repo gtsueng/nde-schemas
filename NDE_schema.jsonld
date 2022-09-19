@@ -425,7 +425,8 @@
             "owl:cardinality": "many"
           },
           "citation": {
-            "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
+            "description": "A citation or reference to a publication, dataset, or computational tool which uses the dataset. Examples: a publication which describes the collection/analysis of the dataset, a publication which reuses the dataset in a secondary analysis, a dataset which extends the existing dataset, or a computational tool which relies on the dataset.",
+            "abstract": "citation to the dataset",
             "owl:cardinality": "many",
             "oneOf": [{
                 "type": "array",
@@ -442,7 +443,8 @@
             ]
           },
           "conditionsOfAccess": {
-            "description": "Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\\n\\nFor example \"Available by appointment from the Reading Room\" or \"Accessible only from logged-in accounts \". ",
+            "description": "Conditions that affect the availability of, or method(s) of access to, the dataset. Options include open (freely available), restricted (may include restrictions such as on use), closed (requires registration to access), or embargoed (unpublished)",
+            "abstract": "dataset accessibility",
             "oneOf": [{
               "type": "string",
               "enum": [
@@ -455,7 +457,7 @@
             "owl:cardinality": "one"
           },
           "creator": {
-            "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+            "description": "The creator/author of this dataset; equivalent to author",
             "anyOf": [{
                 "$ref": "#/definitions/person"
               },
@@ -466,25 +468,26 @@
             "owl:cardinality": "many"
           },
           "dateCreated": {
-            "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
+            "description": "Date the dataset was created",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
           },
           "dateModified": {
-            "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
+            "description": "Date the dataset was modified",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
           },
           "datePublished": {
-            "description": "Date of first broadcast/publication.",
+            "description": "Date the dataset was first published",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
           },
           "hasPart": {
-            "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
+            "description": "Associated materials for the dataset, including data dictionaries and data limitation descriptions",
+            "abstract": "data limitations or dictionaries"
             "oneOf": [{
               "type": "array",
               "items": {
@@ -494,7 +497,7 @@
             "owl:cardinality": "many"
           },
           "inLanguage": {
-            "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
+            "description": "The language of the content of the dataset",
             "oneOf": [{
               "items": {
                 "type": "object",
@@ -518,7 +521,8 @@
             "owl:cardinality": "many"
           },
           "interactionStatistic": {
-            "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
+            "description": "The number of interactions with the dataset, such as page views or tool downloads",
+            "abstract": "views or downloads",
             "oneOf": [{
               "items": {
                 "@type": "InteractionCounter",
@@ -541,12 +545,14 @@
             "owl:cardinality": "many"
           },
           "isAccessibleForFree": {
-            "description": "A flag to signal that the item, event, or place is accessible for free.",
+            "description": "A flag to signal that the dataset is accessible for free.",
+            "abstract": "accessible without charge",
             "type": "boolean",
             "owl:cardinality": "one"
           },
           "isBasedOn": {
-            "description": "A resource from which this work is derived or from which it is a modification or adaption.",
+            "description": "A dataset, publication, or computational tool from which this dataset is derived, modified, or adapted",
+            "abstract": "dataset, publication, or tool used to create the dataset",
             "owl:cardinality": "many",
             "oneOf": [{
                 "type": "array",
@@ -562,6 +568,8 @@
               }
             ]
           },
+          **
+          **
           "isPartOf": {
             "description": "Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.",
             "owl:cardinality": "many",
@@ -579,8 +587,11 @@
               }
             ]
           },
+          **
+          *
           "keywords": {
-            "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+            "description": "Keywords or tags used to describe this dataset",
+            "abstract": "keywords or tags",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -590,13 +601,15 @@
             "owl:cardinality": "many"
           },
           "license": {
-            "description": "A license document that applies to this content, typically indicated by URL.",
+            "description": "A license document that applies to this dataset, typically indicated by URL.",
+            "abstract": "license for dataset use",
             "format": "uri",
             "owl:cardinality": "one",
             "type": "string"
           },
           "sdPublisher": {
-            "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
+            "description": "Original publisher of the dataset metadata (like GenBank, ImmPort, etc.)",
+            "abstract": "original metadata source",
             "oneOf": [{
                 "$ref": "#/definitions/catalog"
               },
@@ -610,13 +623,15 @@
             "owl:cardinality": "many"
           },
           "spatialCoverage": {
-            "description": "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content. It is a subproperty of\n      contentLocation intended primarily for more technical and detailed materials. For example with a Dataset, it indicates\n      areas that the dataset describes: a dataset of New York weather would have spatialCoverage which was the place: the state of New York.",
+            "description": "The place(s) which are the focus of the dataset",
+            "abstract": "geographic focus of the dataset",
             "oneOf": [{
+              "items": {
                 "@type": "AdministrativeArea",
                 "description": "Location information",
                 "properties": {
                   "administrativeType": {
-                    "description": "the type of administrative area",
+                    "description": "the type of administrative area, such as country, state, county, or city",
                     "enum": [
                       "province",
                       "district",
@@ -635,7 +650,7 @@
                     "type": "string"
                   },
                   "alternateName": {
-                    "description": "An alias for the location.",
+                    "description": "An alias for the location",
                     "oneOf": [{
                         "type": "string"
                       },
@@ -648,11 +663,11 @@
                     ]
                   },
                   "identifier": {
-                    "description": "An identifier for the location, preferably a Wikidata ID.",
+                    "description": "An identifier for the location, preferably a Wikidata ID",
                     "type": "string"
                   },
                   "locationType": {
-                    "description": "Categorization of how the location relates to the dataset or computational tool",
+                    "description": "Categorization of how the location relates to the dataset",
                     "oneOf": [{
                         "enum": [
                           "residence",
@@ -685,110 +700,30 @@
                     ]
                   },
                   "name": {
-                    "description": "The name of the item.",
+                    "description": "The name of the location",
                     "type": "string"
                   }
                 },
                 "type": "object"
               },
-              {
-                "items": {
-                  "@type": "AdministrativeArea",
-                  "description": "Location information",
-                  "properties": {
-                    "administrativeType": {
-                      "description": "the type of administrative area",
-                      "enum": [
-                        "province",
-                        "district",
-                        "chiefdom",
-                        "village",
-                        "city",
-                        "country",
-                        "prefecture",
-                        "sub-prefecture",
-                        "clan",
-                        "Federal Capital Territory",
-                        "state",
-                        "Local Government Area",
-                        "ward"
-                      ],
-                      "type": "string"
-                    },
-                    "alternateName": {
-                      "description": "An alias for the location.",
-                      "oneOf": [{
-                          "type": "string"
-                        },
-                        {
-                          "items": {
-                            "type": "string"
-                          },
-                          "type": "array"
-                        }
-                      ]
-                    },
-                    "identifier": {
-                      "description": "An identifier for the location, preferably a Wikidata ID.",
-                      "type": "string"
-                    },
-                    "locationType": {
-                      "description": "Categorization of how the location relates to the dataset or computational tool",
-                      "oneOf": [{
-                          "enum": [
-                            "residence",
-                            "exposure",
-                            "collection",
-                            "screening",
-                            "treatment",
-                            "study location",
-                            "other",
-                            "unknown"
-                          ],
-                          "type": "string"
-                        },
-                        {
-                          "items": {
-                            "enum": [
-                              "residence",
-                              "exposure",
-                              "collection",
-                              "screening",
-                              "treatment",
-                              "study location",
-                              "other",
-                              "unknown"
-                            ],
-                            "type": "string"
-                          },
-                          "type": "array"
-                        }
-                      ]
-                    },
-                    "name": {
-                      "description": "The name of the item.",
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              }
-            ],
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "temporalCoverage": {
-            "description": "The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in [ISO 8601 time interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals). In\n      the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written \"2011/2012\"). Other forms of content e.g. ScholarlyArticle, Book, TVSeries or TVEpisode may indicate their temporalCoverage in broader terms - textually or via well-known URL.\n      Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via \"1939/1945\".\n\nOpen-ended date ranges can be written with \"..\" in place of the end date. For example, \"2015-11/..\" indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated.",
+            "description": "The period of time covered within the dataset",
+            "abstract": "dataset time period",
             "oneOf": [{
+              "items": {
                 "@type": "TemporalInterval",
                 "description": "Temporal information",
                 "properties": {
                   "duration": {
-                    "description": "A time interval in ISO 8601 duration format.",
+                    "description": "A time interval in ISO 8601 duration format",
                     "type": "string"
                   },
                   "endDate": {
-                    "description": "An end date.",
+                    "description": "An end date",
                     "format": "date",
                     "type": "string"
                   },
@@ -797,12 +732,12 @@
                     "type": "string"
                   },
                   "startDate": {
-                    "description": "A start date. ",
+                    "description": "A start date",
                     "format": "date",
                     "type": "string"
                   },
                   "temporalType": {
-                    "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
+                    "description": "Categorization of how the date/temporal interval relates to the dataset",
                     "oneOf": [{
                         "enum": [
                           "exposure",
@@ -835,66 +770,8 @@
                 },
                 "type": "object"
               },
-              {
-                "items": {
-                  "@type": "TemporalInterval",
-                  "description": "Temporal information",
-                  "properties": {
-                    "duration": {
-                      "description": "A time interval in ISO 8601 duration format.",
-                      "type": "string"
-                    },
-                    "endDate": {
-                      "description": "An end date.",
-                      "format": "date",
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "String describing the temporal interval",
-                      "type": "string"
-                    },
-                    "startDate": {
-                      "description": "A start date. ",
-                      "format": "date",
-                      "type": "string"
-                    },
-                    "temporalType": {
-                      "description": "Categorization of how the date/temporal interval relates to the dataset or computational tool",
-                      "oneOf": [{
-                          "enum": [
-                            "exposure",
-                            "collection",
-                            "screening",
-                            "treatment",
-                            "study date",
-                            "other",
-                            "unknown"
-                          ],
-                          "type": "string"
-                        },
-                        {
-                          "items": {
-                            "enum": [
-                              "exposure",
-                              "collection",
-                              "screening",
-                              "treatment",
-                              "study date",
-                              "other",
-                              "unknown"
-                            ],
-                            "type": "string"
-                          },
-                          "type": "array"
-                        }
-                      ]
-                    }
-                  },
-                  "type": "object"
-                },
-                "type": "array"
-              }
-            ],
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "usageInfo": {
@@ -1628,7 +1505,9 @@
             }],
             "owl:cardinality": "many"
           },
-          ********
+          **
+          **
+          ** **
           "codeRepository": {
             "description": "Link to the source code repository of the tool.",
             "oneOf": [{
@@ -1948,7 +1827,9 @@
             "type": "string",
             "owl:cardinality": "one"
           },
-          ******
+          **
+          **
+          **
           "aggregateRating": {
             "description": "The overall rating, based on a collection of reviews or ratings, of the computational tool. These ratings can be collected based on user reviews or through Altmetric scores of web-based citations.",
             "abstract": "rating of the tool",
@@ -1994,7 +1875,8 @@
             "owl:cardinality": "many"
           },
           "citation": {
-            "description": "A citation to the dataset",
+            "description": "A citation or reference to a publication, dataset, or computational tool which uses the computational tool. Examples: a publication which describes the development of the computational tool, a publication which describes the extension or use of the computational tool, a datset which was processed or analyzed using the tool, or a computational tool which relies on the given tool.",
+            "abstract": "citation to the computational tool",
             "oneOf": [{
                 "type": "array",
                 "items": {
@@ -2011,7 +1893,8 @@
             "owl:cardinality": "many"
           },
           "conditionsOfAccess": {
-            "description": "Conditions that affect the availability of, or method(s) of access to, an item. Typically used for real world items such as an [[ArchiveComponent]] held by an [[ArchiveOrganization]]. This property is not suitable for use as a general Web access control mechanism. It is expressed only in natural language.\\n\\nFor example \"Available by appointment from the Reading Room\" or \"Accessible only from logged-in accounts \". ",
+            "description": "Conditions that affect the availability of, or method(s) of access to, the computational tool. Options include open (freely available), restricted (may include restrictions such as on use), closed (requires registration to access), or embargoed (unpublished)",
+            "abstract": "tool accessibility",
             "owl:cardinality": "many",
             "oneOf": [{
               "type": "string",
@@ -2024,7 +1907,8 @@
             }]
           },
           "contributor": {
-            "description": "A secondary contributor to the CreativeWork or Event.",
+            "description": "A secondary contributor to the developement or maintenance of the computational tool",
+            "abstract": "contributor to development or maintenance"
             "anyOf": [{
                 "$ref": "#/definitions/person"
               },
@@ -2035,7 +1919,7 @@
             "owl:cardinality": "many"
           },
           "creator": {
-            "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+            "description": "The creator/author of this computational tool; equivalent to author",
             "anyOf": [{
                 "$ref": "#/definitions/person"
               },
@@ -2046,31 +1930,32 @@
             "owl:cardinality": "many"
           },
           "dateCreated": {
-            "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
+            "description": "Date the computational tool was created",
             "owl:cardinality": "one",
             "format": "date",
             "type": "string"
           },
           "dateModified": {
-            "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
+            "description": "Date the computational tool was modified",
             "format": "date",
             "owl:cardinality": "one",
             "type": "string"
           },
           "datePublished": {
-            "description": "Date of first broadcast/publication.",
+            "description": "Date the computational tool was first published",
             "owl:cardinality": "one",
             "format": "date",
             "type": "string"
           },
           "discussionUrl": {
-            "description": "A link to the page containing the comments of the CreativeWork.",
+            "description": "A link to a webpage containing the comments about the computational tool.",
+            "abstract": "link to tool discussion page",
             "owl:cardinality": "many",
             "type": "string",
             "format": "uri"
           },
           "hasPart": {
-            "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
+            "description": "An item that is part of this computational tool",
             "oneOf": [{
                 "type": "array",
                 "items": {
@@ -2087,7 +1972,7 @@
             "owl:cardinality": "many"
           },
           "inLanguage": {
-            "description": "The language of the content or performance or used in an action. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[availableLanguage]].",
+            "description": "The language of the computational tool (not programming language)",
             "owl:cardinality": "many",
             "oneOf": [{
               "items": {
@@ -2111,7 +1996,8 @@
             }]
           },
           "interactionStatistic": {
-            "description": "The number of interactions for the CreativeWork using the WebSite or SoftwareApplication. The most specific child type of InteractionCounter should be used.",
+            "description": "The number of interactions with the computational tool, such as page views or tool downloads",
+            "abstract": "views or downloads",
             "owl:cardinality": "many",
             "oneOf": [{
               "items": {
@@ -2134,12 +2020,14 @@
             }]
           },
           "isAccessibleForFree": {
-            "description": "A flag to signal that the item, event, or place is accessible for free.",
+            "description": "A flag to signal that the computational tool is accessible for free.",
+            "abstract": "accessible without charge",
             "owl:cardinality": "one",
             "type": "boolean"
           },
           "isBasedOn": {
-            "description": "A citation to the computational tool",
+            "description": "A dataset, publication, or computational tool from which this computational tool is derived, modified, or adapted",
+            "abstract": "dataset, publication, or tool used to create the tool",
             "oneOf": [{
                 "type": "array",
                 "items": {
@@ -2173,7 +2061,8 @@
             "owl:cardinality": "many"
           },
           "keywords": {
-            "description": "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.",
+            "description": "Keywords or tags used to describe this computational tool",
+            "abstract": "keywords or tags",
             "oneOf": [{
               "type": "array",
               "items": {
@@ -2182,13 +2071,15 @@
             }]
           },
           "license": {
-            "description": "A license document that applies to this content, typically indicated by URL.",
+            "description": "A license document that applies to this computational tool, typically indicated by URL.",
+            "abstract": "license for tool use",
             "format": "uri",
             "owl:cardinality": "one",
             "type": "string"
           },
           "sdPublisher": {
-            "description": "Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The\n[[sdPublisher]] property helps make such practices more explicit.",
+            "description": "Original publisher of the computational tool metadata (like GitHub, Dockstore, etc.)",
+            "abstract": "original metadata source",
             "oneOf": [{
                 "$ref": "#/definitions/catalog"
               },
@@ -2202,7 +2093,7 @@
             "owl:cardinality": "many"
           },
           "thumbnailUrl": {
-            "description": "A thumbnail image relevant to the Thing.",
+            "description": "A thumbnail image of the computational tool",
             "owl:cardinality": "many",
             "type": "string",
             "format": "uri"
