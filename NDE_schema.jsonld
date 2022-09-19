@@ -905,7 +905,7 @@
             "type": "object",
             "properties": {
               "author": {
-                "description": "Author(s) of the referenced resource",
+                "description": "Author(s) of the publication",
                 "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
@@ -915,63 +915,63 @@
                 ]
               },
               "abstract": {
-                "description": "Abstract of the referenced resource",
+                "description": "Abstract of the publication",
                 "type": "string"
               },
               "datePublished": {
-                "description": "Date the referenced resource was published",
+                "description": "Date the article was published",
                 "format": "date",
                 "type": "string"
               },
               "description": {
-                "description": "Description of the referenced resource",
+                "description": "Description of the publication",
                 "type": "string"
               },
               "name": {
-                "description": "Name or title of the citation",
+                "description": "Title of the publication",
                 "type": "string"
               },
               "identifier": {
-                "description": "An identifier associated with the citation",
+                "description": "An identifier associated with the citation such as a digital object identifier (DOI), PubMed ID (PMID), or PubMed Central ID (PMCID)",
                 "type": "string"
               },
               "pmid": {
-                "description": "A PubMed identifier of the referenced publication, if available",
+                "description": "A PubMed identifier (PMID) of the referenced publication",
                 "abstract": "PubMed identifier",
                 "type": "string"
               },
               "doi": {
-                "description": "A digital object identifier (DOI) of the referenced resource, if available",
+                "description": "A digital object identifier (DOI) of the referenced publication",
                 "abstract": "digital object identifier",
                 "type": "string"
               },
               "issueNumber": {
-                "description": "Issue number where the referenced resource appears",
+                "description": "Issue number where the article appears",
                 "type": "string"
               },
               "journalName": {
-                "description": "Journal where the referenced resource appears",
+                "description": "Journal where the article appears",
                 "type": "string"
               },
               "journalNameAbbrev": {
-                "description": "Abbreviated journal name where the referenced resource appears",
+                "description": "Abbreviated journal name where the article appears",
                 "type": "string"
               },
               "pagination": {
-                "description": "Page numbers in the journal where the referenced resource appears",
+                "description": "Page numbers in the journal where the article appears",
                 "type": "string"
               },
               "url": {
-                "description": "The url of the resource cited",
+                "description": "The url of the arrticle",
                 "type": "string",
                 "format": "uri"
               },
               "volumeNumber": {
-                "description": "Volume of the journal where the referenced resource appears",
+                "description": "Volume of the journal where the article appears",
                 "type": "string"
               },
               "citation": {
-                "description": "The bibliographic citation for the referenced resource as is provided",
+                "description": "The bibliographic citation string for the article as is provided",
                 "type": "string"
               }
             },
@@ -1003,7 +1003,7 @@
             "type": "object",
             "properties": {
               "author": {
-                "description": "Author(s) of the referenced resource",
+                "description": "Author(s) of the referenced work",
                 "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
@@ -1013,16 +1013,16 @@
                 ]
               },
               "abstract": {
-                "description": "Abstract of the referenced resource",
+                "description": "Abstract of the referenced work",
                 "type": "string"
               },
               "datePublished": {
-                "description": "Date the referenced resource was published",
+                "description": "Date the referenced work was published",
                 "format": "date",
                 "type": "string"
               },
               "description": {
-                "description": "Description of the referenced resource",
+                "description": "Description of the referenced work",
                 "type": "string"
               },
               "hasPart": {
@@ -1042,7 +1042,7 @@
                 "type": "string"
               },
               "identifier": {
-                "description": "An identifier associated with the citation",
+                "description": "An identifier associated with the work",
                 "type": "string"
               },
               "relationship": {
@@ -1050,17 +1050,17 @@
                 "type": "string"
               },
               "doi": {
-                "description": "A digital object identifier (DOI) of the referenced resource, if available",
+                "description": "A digital object identifier (DOI) of the referenced work",
                 "abstract": "digital object identifier",
                 "type": "string"
               },
               "url": {
-                "description": "The url of the resource cited",
+                "description": "The url of the work",
                 "type": "string",
                 "format": "uri"
               },
               "citation": {
-                "description": "The bibliographic citation for the referenced resource as is provided",
+                "description": "The bibliographic citation for the referenced work as is provided",
                 "type": "string"
               }
             },
@@ -1088,10 +1088,11 @@
             "type": "object",
             "properties": {
               "name": {
+                "description": "topic name",
                 "type": "string"
               },
               "curatedBy": {
-                "description": "The person, organization, or catalog that categorized the work",
+                "description": "The person, organization, or catalog that categorized the dataset",
                 "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
@@ -1104,10 +1105,12 @@
                 ]
               },
               "url": {
+                "description": "URL linking to the topic",
                 "type": "string",
                 "format": "uri"
               },
               "description": {
+                "description": "description of the topic",
                 "type": "string"
               }
             },
@@ -1126,13 +1129,16 @@
             "type": "object",
             "properties": {
               "name": {
+                "description": "Data or tool catalog name",
                 "type": "string"
               },
               "url": {
+                "description": "Link to data or tool catalog",
                 "type": "string",
                 "format": "uri"
               },
               "versionDate": {
+                "description": "date the metadata was harvested from the catalog"
                 "type": "string",
                 "format": "date"
               }
@@ -1153,12 +1159,15 @@
                 "type": "object",
                 "properties": {
                   "name": {
+                    "description": "Name of the affiliation, such as a university",
                     "type": "string"
                   },
                   "sameAs": {
+                    "description": "Alias for the affiliation",
                     "type": "string"
                   },
                   "url": {
+                    "description": "URL of the affiliation",
                     "type": "string",
                     "format": "uri"
                   }
@@ -1172,24 +1181,31 @@
                 ]
               },
               "alternateName": {
+                "description": "Alias of the name",
                 "type": "string"
               },
               "name": {
+                "description": "Name of the organization",
                 "type": "string"
               },
               "parentOrganization": {
+                "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
                 "type": "string"
               },
               "email": {
+                "description": "Email address of the organization",
                 "type": "string"
               },
               "identifier": {
+                "description": "Unique identifier of the organization",
                 "type": "string"
               },
               "role": {
+                "description": "What role the organization played in creating the dataset",
                 "type": "string"
               },
               "url": {
+                "description": "Link to the organization",
                 "type": "string",
                 "format": "uri"
               }
@@ -1219,12 +1235,15 @@
                 "type": "object",
                 "properties": {
                   "name": {
+                    "description": "Name of the affiliation, such as a university",
                     "type": "string"
                   },
                   "sameAs": {
+                    "description": "Alias for the affiliation",
                     "type": "string"
                   },
                   "url": {
+                    "description": "URL of the affiliation",
                     "type": "string",
                     "format": "uri"
                   }
@@ -1238,27 +1257,35 @@
                 ]
               },
               "name": {
+                "description": "Name of the person",
                 "type": "string"
               },
               "email": {
+                "description": "Email address of the person",
                 "type": "string"
               },
               "familyName": {
+                "description": "Family name (surname) of the person",
                 "type": "string"
               },
               "givenName": {
+                "description": "Given (first) name of the person",
                 "type": "string"
               },
               "identifier": {
+                "description": "Unique identifier of the person, like an ORCID ID",
                 "type": "string"
               },
               "role": {
+                "description": "Role the person played in creating the dataset",
                 "type": "string"
               },
               "title": {
+                "description": "Title of the person",
                 "type": "string"
               },
               "url": {
+                "description": "Link to the homepage or other web content describing the person",
                 "type": "string",
                 "format": "uri"
               }
@@ -2215,7 +2242,7 @@
             "type": "object",
             "properties": {
               "author": {
-                "description": "Author(s) of the referenced resource",
+                "description": "Author(s) of the publication",
                 "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
@@ -2225,63 +2252,63 @@
                 ]
               },
               "abstract": {
-                "description": "Abstract of the referenced resource",
+                "description": "Abstract of the publication",
                 "type": "string"
               },
               "datePublished": {
-                "description": "Date the referenced resource was published",
+                "description": "Date the article was published",
                 "format": "date",
                 "type": "string"
               },
               "description": {
-                "description": "Description of the referenced resource",
+                "description": "Description of the publication",
                 "type": "string"
               },
               "name": {
-                "description": "Name or title of the citation",
+                "description": "Title of the publication",
                 "type": "string"
               },
               "identifier": {
-                "description": "An identifier associated with the citation",
+                "description": "An identifier associated with the citation such as a digital object identifier (DOI), PubMed ID (PMID), or PubMed Central ID (PMCID)",
                 "type": "string"
               },
               "pmid": {
-                "description": "A PubMed identifier of the referenced publication, if available",
+                "description": "A PubMed identifier (PMID) of the referenced publication",
                 "abstract": "PubMed identifier",
                 "type": "string"
               },
               "doi": {
-                "description": "A digital object identifier (DOI) of the referenced resource, if available",
+                "description": "A digital object identifier (DOI) of the referenced publication",
                 "abstract": "digital object identifier",
                 "type": "string"
               },
               "issueNumber": {
-                "description": "Issue number where the referenced resource appears",
+                "description": "Issue number where the article appears",
                 "type": "string"
               },
               "journalName": {
-                "description": "Journal where the referenced resource appears",
+                "description": "Journal where the article appears",
                 "type": "string"
               },
               "journalNameAbbrev": {
-                "description": "Abbreviated journal name where the referenced resource appears",
+                "description": "Abbreviated journal name where the article appears",
                 "type": "string"
               },
               "pagination": {
-                "description": "Page numbers in the journal where the referenced resource appears",
+                "description": "Page numbers in the journal where the article appears",
                 "type": "string"
               },
               "url": {
-                "description": "The url of the resource cited",
+                "description": "The url of the arrticle",
                 "type": "string",
                 "format": "uri"
               },
               "volumeNumber": {
-                "description": "Volume of the journal where the referenced resource appears",
+                "description": "Volume of the journal where the article appears",
                 "type": "string"
               },
               "citation": {
-                "description": "The bibliographic citation for the referenced resource as is provided",
+                "description": "The bibliographic citation string for the article as is provided",
                 "type": "string"
               }
             },
@@ -2313,13 +2340,16 @@
             "type": "object",
             "properties": {
               "name": {
+                "description": "Data or tool catalog name",
                 "type": "string"
               },
               "url": {
+                "description": "Link to data or tool catalog",
                 "type": "string",
                 "format": "uri"
               },
               "versionDate": {
+                "description": "date the metadata was harvested from the catalog"
                 "type": "string",
                 "format": "date"
               }
@@ -2338,7 +2368,7 @@
             "type": "object",
             "properties": {
               "author": {
-                "description": "Author(s) of the referenced resource",
+                "description": "Author(s) of the referenced work",
                 "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
@@ -2348,16 +2378,16 @@
                 ]
               },
               "abstract": {
-                "description": "Abstract of the referenced resource",
+                "description": "Abstract of the referenced work",
                 "type": "string"
               },
               "datePublished": {
-                "description": "Date the referenced resource was published",
+                "description": "Date the referenced work was published",
                 "format": "date",
                 "type": "string"
               },
               "description": {
-                "description": "Description of the referenced resource",
+                "description": "Description of the referenced work",
                 "type": "string"
               },
               "hasPart": {
@@ -2377,7 +2407,7 @@
                 "type": "string"
               },
               "identifier": {
-                "description": "An identifier associated with the citation",
+                "description": "An identifier associated with the work",
                 "type": "string"
               },
               "relationship": {
@@ -2385,17 +2415,17 @@
                 "type": "string"
               },
               "doi": {
-                "description": "A digital object identifier (DOI) of the referenced resource, if available",
+                "description": "A digital object identifier (DOI) of the referenced work",
                 "abstract": "digital object identifier",
                 "type": "string"
               },
               "url": {
-                "description": "The url of the resource cited",
+                "description": "The url of the work",
                 "type": "string",
                 "format": "uri"
               },
               "citation": {
-                "description": "The bibliographic citation for the referenced resource as is provided",
+                "description": "The bibliographic citation for the referenced work as is provided",
                 "type": "string"
               }
             },
@@ -2423,10 +2453,11 @@
             "type": "object",
             "properties": {
               "name": {
+                "description": "topic name",
                 "type": "string"
               },
               "curatedBy": {
-                "description": "The person, organization, or catalog that categorized the work",
+                "description": "The person, organization, or catalog that categorized the computational tool",
                 "oneOf": [{
                     "$ref": "#/definitions/person"
                   },
@@ -2439,10 +2470,12 @@
                 ]
               },
               "url": {
+                "description": "URL linking to the topic",
                 "type": "string",
                 "format": "uri"
               },
               "description": {
+                "description": "description of the topic",
                 "type": "string"
               }
             },
@@ -2463,12 +2496,15 @@
                 "type": "object",
                 "properties": {
                   "name": {
+                    "description": "Name of the affiliation, such as a university",
                     "type": "string"
                   },
                   "sameAs": {
+                    "description": "Alias for the affiliation",
                     "type": "string"
                   },
                   "url": {
+                    "description": "URL of the affiliation",
                     "type": "string",
                     "format": "uri"
                   }
@@ -2482,24 +2518,31 @@
                 ]
               },
               "alternateName": {
+                "description": "Alias of the name",
                 "type": "string"
               },
               "name": {
+                "description": "Name of the organization",
                 "type": "string"
               },
               "parentOrganization": {
+                "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
                 "type": "string"
               },
               "email": {
+                "description": "Email address of the organization",
                 "type": "string"
               },
               "identifier": {
+                "description": "Unique identifier of the organization",
                 "type": "string"
               },
               "role": {
+                "description": "What role the organization played in creating the computational tool",
                 "type": "string"
               },
               "url": {
+                "description": "Link to the organization",
                 "type": "string",
                 "format": "uri"
               }
@@ -2529,12 +2572,15 @@
                 "type": "object",
                 "properties": {
                   "name": {
+                    "description": "Name of the affiliation, such as a university",
                     "type": "string"
                   },
                   "sameAs": {
+                    "description": "Alias for the affiliation",
                     "type": "string"
                   },
                   "url": {
+                    "description": "URL of the affiliation",
                     "type": "string",
                     "format": "uri"
                   }
@@ -2548,27 +2594,35 @@
                 ]
               },
               "name": {
+                "description": "Name of the person",
                 "type": "string"
               },
               "email": {
+                "description": "Email address of the person",
                 "type": "string"
               },
               "familyName": {
+                "description": "Family name (surname) of the person",
                 "type": "string"
               },
               "givenName": {
+                "description": "Given (first) name of the person",
                 "type": "string"
               },
               "identifier": {
+                "description": "Unique identifier of the person, like an ORCID ID",
                 "type": "string"
               },
               "role": {
+                "description": "Role the person played in creating the computational tool",
                 "type": "string"
               },
               "title": {
+                "description": "Title of the person",
                 "type": "string"
               },
               "url": {
+                "description": "Link to the homepage or other web content describing the person",
                 "type": "string",
                 "format": "uri"
               }
