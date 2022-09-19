@@ -1138,7 +1138,7 @@
                 "format": "uri"
               },
               "versionDate": {
-                "description": "date the metadata was harvested from the catalog"
+                "description": "date the metadata was harvested from the catalog",
                 "type": "string",
                 "format": "date"
               }
@@ -2349,7 +2349,7 @@
                 "format": "uri"
               },
               "versionDate": {
-                "description": "date the metadata was harvested from the catalog"
+                "description": "date the metadata was harvested from the catalog",
                 "type": "string",
                 "format": "date"
               }
