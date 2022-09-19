@@ -487,7 +487,7 @@
           },
           "hasPart": {
             "description": "Associated materials for the dataset, including data dictionaries and data limitation descriptions",
-            "abstract": "data limitations or dictionaries"
+            "abstract": "data limitations or dictionaries",
             "oneOf": [{
               "type": "array",
               "items": {
