@@ -95,7 +95,12 @@
           "topicCategory": {
             "description": "Topic of the Dataset. This topic may be assigned by a human curator or through automated algorithms.",
             "abstract": "topic",
-            "$ref": "#/definitions/topic",
+            "oneOf": [{
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/topic"
+              }
+            }],
             "owl:cardinality": "many"
           },
           "infectiousAgent": {
