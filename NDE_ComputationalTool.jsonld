@@ -384,14 +384,12 @@
           "downloadUrl": {
             "description": "If the file can be downloaded, URL to download the binary.",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            ]
+            "oneOf": [{
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }]
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",
@@ -574,11 +572,17 @@
           },
           "author": {
             "description": "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"
@@ -615,22 +619,34 @@
           },
           "contributor": {
             "description": "A secondary contributor to the CreativeWork or Event.",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"
           },
           "creator": {
             "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"

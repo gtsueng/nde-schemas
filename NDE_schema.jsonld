@@ -445,11 +445,17 @@
           },
           "creator": {
             "description": "The creator/author of this dataset; equivalent to author",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"
@@ -904,12 +910,18 @@
               "author": {
                 "description": "Author(s) of the publication",
                 "oneOf": [{
-                    "$ref": "#/definitions/person"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/person"
+                    }
                   },
                   {
-                    "$ref": "#/definitions/organization"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
                   }
-                ]
+                ],
               },
               "abstract": {
                 "description": "Abstract of the publication",
@@ -1002,12 +1014,18 @@
               "author": {
                 "description": "Author(s) of the referenced work",
                 "oneOf": [{
-                    "$ref": "#/definitions/person"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/person"
+                    }
                   },
                   {
-                    "$ref": "#/definitions/organization"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
                   }
-                ]
+                ],
               },
               "abstract": {
                 "description": "Abstract of the referenced work",
@@ -1943,22 +1961,34 @@
           "contributor": {
             "description": "A secondary contributor to the developement or maintenance of the computational tool",
             "abstract": "contributor to development or maintenance",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"
           },
           "creator": {
             "description": "The creator/author of this computational tool; equivalent to author",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"
