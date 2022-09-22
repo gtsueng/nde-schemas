@@ -845,8 +845,13 @@
           },
           "sameAs": {
             "description": "URL of additional sources for the dataset",
-            "type": "string",
-            "format": "uri",
+            "oneOf": [{
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "url": {
@@ -2179,8 +2184,13 @@
           "sameAs": {
             "description": "URL of additional sources for the computational tool",
             "owl:cardinality": "many",
-            "type": "string",
-            "format": "uri"
+            "oneOf": [{
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "type": "array"
+            }]
           },
           "url": {
             "description": "URL of the computational tool",
