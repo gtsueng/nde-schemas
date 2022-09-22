@@ -402,11 +402,17 @@
           },
           "author": {
             "description": "Author or creator of the dataset",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"
@@ -921,7 +927,7 @@
                       "$ref": "#/definitions/organization"
                     }
                   }
-                ],
+                ]
               },
               "abstract": {
                 "description": "Abstract of the publication",
@@ -1025,7 +1031,7 @@
                       "$ref": "#/definitions/organization"
                     }
                   }
-                ],
+                ]
               },
               "abstract": {
                 "description": "Abstract of the referenced work",
@@ -1917,11 +1923,17 @@
           },
           "author": {
             "description": "Author or creator of the computational tool",
-            "anyOf": [{
-                "$ref": "#/definitions/person"
+            "oneOf": [{
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/person"
+                }
               },
               {
-                "$ref": "#/definitions/organization"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
               }
             ],
             "owl:cardinality": "many"
@@ -2287,10 +2299,16 @@
               "author": {
                 "description": "Author(s) of the publication",
                 "oneOf": [{
-                    "$ref": "#/definitions/person"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/person"
+                    }
                   },
                   {
-                    "$ref": "#/definitions/organization"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
                   }
                 ]
               },
@@ -2413,10 +2431,16 @@
               "author": {
                 "description": "Author(s) of the referenced work",
                 "oneOf": [{
-                    "$ref": "#/definitions/person"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/person"
+                    }
                   },
                   {
-                    "$ref": "#/definitions/organization"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
                   }
                 ]
               },

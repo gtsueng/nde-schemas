@@ -1113,10 +1113,16 @@
               "author": {
                 "description": "Author(s) of the referenced resource",
                 "oneOf": [{
-                    "$ref": "#/definitions/person"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/person"
+                    }
                   },
                   {
-                    "$ref": "#/definitions/organization"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
                   }
                 ]
               },
@@ -1211,10 +1217,16 @@
               "author": {
                 "description": "Author(s) of the referenced resource",
                 "oneOf": [{
-                    "$ref": "#/definitions/person"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/person"
+                    }
                   },
                   {
-                    "$ref": "#/definitions/organization"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
                   }
                 ]
               },
