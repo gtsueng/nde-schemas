@@ -23,7 +23,7 @@ files = os.listdir()
 
 # loop over the files, and append the `@graph` list to the `@graph` object in the schema holder
 for filename in files:
-    if(".json" in filename):
+    if((".json" in filename) & ("NDE" not in filename)):
         with open(filename) as json_file:
             s = json.load(json_file)
             schema["@graph"].extend(s["@graph"])
