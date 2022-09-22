@@ -829,8 +829,13 @@
           "mainEntityOfPage": {
             "description": "Website which describes the dataset and provides additional details",
             "abstract": "dataset details",
-            "type": "string",
-            "format": "uri",
+            "oneOf": [{
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "name": {
@@ -2158,8 +2163,13 @@
             "description": "Website which describes the computational tool and provides additional details",
             "abstract": "computational tool details",
             "owl:cardinality": "many",
-            "type": "string",
-            "format": "uri"
+            "oneOf": [{
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "type": "array"
+            }]
           },
           "name": {
             "description": "Computational tool name",

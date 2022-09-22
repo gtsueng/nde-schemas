@@ -813,8 +813,13 @@
           "mainEntityOfPage": {
             "description": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.",
             "owl:cardinality": "many",
-            "type": "string",
-            "format": "uri"
+            "oneOf": [{
+              "items": {
+                "type": "string",
+                "format": "uri"
+              },
+              "type": "array"
+            }]
           },
           "name": {
             "description": "The name of the item.",
