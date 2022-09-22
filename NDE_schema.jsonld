@@ -107,7 +107,7 @@
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset (like SARS-CoV-2)",
             "abstract": "infectious agent / pathogen",
             "oneOf": [{
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -123,7 +123,7 @@
               },
               {
                 "items": {
-                  "@type": "CreativeWork",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -146,7 +146,7 @@
             "description": "The health condition(s) /infectious disease(s) which are the focus of the dataset (like COVID-19, coronavirus)",
             "abstract": "health condition/disease",
             "oneOf": [{
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -231,7 +231,7 @@
             "description": "Species / host organism from which dataset has been collected",
             "abstract": "species/host organism of dataset",
             "oneOf": [{
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -312,7 +312,7 @@
             "description": "A technique or technology used in a  dataset corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured). For example, if variableMeasured is molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".",
             "abstract": "measurement technique used to collect the dataset",
             "oneOf": [{
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -329,7 +329,7 @@
               },
               {
                 "items": {
-                  "@type": "CreativeWork",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -1423,7 +1423,7 @@
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the computational tool (like SARS-CoV-2)",
             "abstract": "infectious agent / pathogen",
             "oneOf": [{
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -1439,7 +1439,7 @@
               },
               {
                 "items": {
-                  "@type": "CreativeWork",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -1463,7 +1463,7 @@
             "abstract": "health condition/disease",
             "oneOf": [{
               "items": {
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -1533,7 +1533,7 @@
             "abstract": "species/host organism of dataset",
             "oneOf": [{
               "items": {
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
