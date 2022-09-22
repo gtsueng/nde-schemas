@@ -1701,8 +1701,14 @@
           "downloadUrl": {
             "description": "URL to download the computational tool",
             "owl:cardinality": "many",
-            "type": "string",
-            "format": "uri"
+            "oneOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",

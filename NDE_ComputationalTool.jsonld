@@ -384,8 +384,14 @@
           "downloadUrl": {
             "description": "If the file can be downloaded, URL to download the binary.",
             "owl:cardinality": "many",
-            "type": "string",
-            "format": "uri"
+            "oneOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",
