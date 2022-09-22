@@ -269,25 +269,7 @@
           "distribution": {
             "description": "A downloadable form of this dataset, at a specific location, in a specific format.",
             "abstract": "download link",
-            "oneOf": [{
-                "@type": "DataDownload",
-                "description": "A dataset in downloadable form.",
-                "properties": {
-                  "contentUrl": {
-                    "format": "uri",
-                    "type": "string"
-                  },
-                  "dateModified": {
-                    "format": "date",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "dateModified",
-                  "contentUrl"
-                ],
-                "type": "object"
-              },
+            "oneOf": [
               {
                 "items": {
                   "@type": "DataDownload",
