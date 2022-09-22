@@ -94,7 +94,7 @@
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the dataset or tool (e.g. SARS-CoV-2)",
             "oneOf": [{
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -110,7 +110,7 @@
               },
               {
                 "items": {
-                  "@type": "CreativeWork",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -133,7 +133,7 @@
             "description": "The infectious disease(s) / health condition(s) which are the focus of the dataset or computational tool (e.g. COVID-19, coronavirus)",
             "oneOf": [{
               "items": {
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -200,7 +200,7 @@
             "description": "Species(es) from which dataset has been collected or for which the tool was designed or applied.",
             "oneOf": [{
               "items": {
-                "@type": "CreativeWork",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
