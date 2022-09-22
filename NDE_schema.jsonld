@@ -269,30 +269,28 @@
           "distribution": {
             "description": "A downloadable form of this dataset, at a specific location, in a specific format.",
             "abstract": "download link",
-            "oneOf": [
-              {
-                "items": {
-                  "@type": "DataDownload",
-                  "description": "A dataset in downloadable form.",
-                  "properties": {
-                    "contentUrl": {
-                      "format": "uri",
-                      "type": "string"
-                    },
-                    "dateModified": {
-                      "format": "date",
-                      "type": "string"
-                    }
+            "oneOf": [{
+              "items": {
+                "@type": "DataDownload",
+                "description": "A dataset in downloadable form.",
+                "properties": {
+                  "contentUrl": {
+                    "format": "uri",
+                    "type": "string"
                   },
-                  "required": [
-                    "dateModified",
-                    "contentUrl"
-                  ],
-                  "type": "object"
+                  "dateModified": {
+                    "format": "date",
+                    "type": "string"
+                  }
                 },
-                "type": "array"
-              }
-            ],
+                "required": [
+                  "dateModified",
+                  "contentUrl"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }],
             "owl:cardinality": "many"
           },
           "includedInDataCatalog": {
@@ -1589,42 +1587,52 @@
             "description": "software input, such as a file or parameter",
             "abstract": "input file/parameter",
             "owl:cardinality": "many",
-            "@type": "FormalParameter",
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
+            "oneOf": [{
+              "items": {
+                "@type": "FormalParameter",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "encodingFormat": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "encodingFormat"
+                ]
               },
-              "encodingFormat": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "name"
-            ],
-            "recommended": [
-              "encodingFormat"
-            ]
+              "type": "array"
+            }]
           },
           "output": {
             "description": "Output of the computational tool",
             "owl:cardinality": "many",
-            "@type": "FormalParameter",
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
+            "oneOf": [{
+              "items": {
+                "@type": "FormalParameter",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "encodingFormat": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "recommended": [
+                  "encodingFormat"
+                ]
               },
-              "encodingFormat": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "name"
-            ],
-            "recommended": [
-              "encodingFormat"
-            ]
+              "type": "array"
+            }]
           },
           "applicationCategory": {
             "description": "Type of software application, e.g. 'Game, Multimedia'.",
@@ -1725,14 +1733,12 @@
           "downloadUrl": {
             "description": "URL to download the computational tool",
             "owl:cardinality": "many",
-            "oneOf": [
-              {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              }
-            ]
+            "oneOf": [{
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }]
           },
           "featureList": {
             "description": "Features or modules provided by this application (and possibly required by other applications).",
