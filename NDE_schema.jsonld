@@ -975,7 +975,7 @@
                 "type": "string"
               },
               "url": {
-                "description": "The url of the arrticle",
+                "description": "The url of the article",
                 "type": "string",
                 "format": "uri"
               },
