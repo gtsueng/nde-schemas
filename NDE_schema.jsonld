@@ -2454,6 +2454,28 @@
                 "description": "Abstract of the referenced work",
                 "type": "string"
               },
+              "additionalType": {
+                "description": "Additional type of the referenced work, such as a Sample, Run, Experiment, or BioProject",
+                "oneOf": [{
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "recommended": ["url"],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }]
+              },
               "datePublished": {
                 "description": "Date the referenced work was published",
                 "format": "date",
