@@ -1551,6 +1551,17 @@
             }],
             "owl:cardinality": "many"
           },
+          "availableOnDevice": {
+            "description": "Device or platform required to run the application, such as Bioconda, Docker, or Singularity",
+            "abstract": "platform to run the application",
+            "owl:cardinality": "many",
+            "oneOf": [{
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }]
+          },
           "codeRepository": {
             "description": "Link to the source code repository of the tool such as GitHub",
             "abstract": "source code link",
