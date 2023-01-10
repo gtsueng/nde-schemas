@@ -154,7 +154,20 @@
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                  "ontology": ["mondo"]
+                  "ontology": ["mondo"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The health condition(s) /infectious disease(s) which are the focus of the work (ex: COVID-19)"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
                 }
               },
               {
@@ -165,7 +178,20 @@
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                    "ontology": ["mondo"]
+                    "ontology": ["mondo"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The health condition(s) /infectious disease(s) which are the focus of the work (ex: COVID-19)"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
                   }
                 },
                 "type": "array"
@@ -290,8 +316,13 @@
                       "format": "uri",
                       "type": "string"
                     },
+                    "encodingFormat": {
+                      "description": "file type (ex: XLSX)",
+                      "type": "string"
+                    },
                     "dateModified": {
                       "format": "date",
+                      "description": "date the file was modified",
                       "type": "string"
                     }
                   },
@@ -1523,7 +1554,7 @@
             "owl:cardinality": "many"
           },
           "applicationSubCategory": {
-            "description": "Subcategory of the application, e.g. 'Arcade Game'.",
+            "description": "Subcategory of the computational tool, like gene regulation",
             "abstract": "software subcategory",
             "oneOf": [
               {
@@ -1538,7 +1569,8 @@
                       "type": "string"
                     },
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Subcategory of the tool (ex: gene regulation)"
                     },
                     "url": {
                       "format": "uri",
@@ -1560,7 +1592,8 @@
                         "type": "string"
                       },
                       "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Subcategory of the tool (ex: gene regulation)"
                       },
                       "url": {
                         "format": "uri",
