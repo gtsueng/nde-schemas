@@ -232,7 +232,19 @@
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                  "ontology": ["ncbitaxon"]
+                  "ontology": ["ncbitaxon"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Species / host organism from which the dataset has been collected."
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
                 }
               },
               {
@@ -243,7 +255,19 @@
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                    "ontology": ["ncbitaxon"]
+                    "ontology": ["ncbitaxon"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Species / host organism from which the dataset has been collected."
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
                   }
                 },
                 "type": "array"
