@@ -1567,10 +1567,12 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "name of the tool's output"
                     },
                     "encodingFormat": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "file type of the tool's output"
                     }
                   },
                   "required": ["name"],
