@@ -361,7 +361,20 @@
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://edamontology.org/topic_3361", "http://purl.obolibrary.org/obo/NCIT_C20368"],
-                  "ontology": ["edam", "ncit"]
+                  "ontology": ["edam", "ncit"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Technique used to collect the dataset"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
                 }
               },
               {
@@ -372,7 +385,20 @@
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://edamontology.org/topic_3361", "http://purl.obolibrary.org/obo/NCIT_C20368"],
-                    "ontology": ["edam", "ncit"]
+                    "ontology": ["edam", "ncit"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Technique used to collect the dataset"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
                   }
                 },
                 "type": "array"
@@ -533,7 +559,8 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "language of the work"
                     },
                     "alternateName": {
                       "type": "string"
@@ -1320,7 +1347,20 @@
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_10239", "http://purl.obolibrary.org/obo/NCBITaxon_2"],
-                  "ontology": ["ncbitaxon"]
+                  "ontology": ["ncbitaxon"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "infectious agent / pathogen"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
                 }
               },
               {
@@ -1331,7 +1371,20 @@
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_10239", "http://purl.obolibrary.org/obo/NCBITaxon_2"],
-                    "ontology": ["ncbitaxon"]
+                    "ontology": ["ncbitaxon"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "infectious agent / pathogen"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
                   }
                 },
                 "type": "array"
@@ -1486,14 +1539,15 @@
                   "properties": {
                     "name": {
                       "type": "string",
-                      "description": "Name of the software input."
+                      "description": "Name of the software input"
                     },
                     "description": {
                       "type": "string",
-                      "description": "Description of the software input."
+                      "description": "Description of the software input"
                     },
                     "encodingFormat": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "File type of the software input"
                     }
                   },
                   "required": ["name"],
