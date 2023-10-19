@@ -2570,10 +2570,10 @@
     {
       "@id": "nde:ResourceCatalog",
       "@type": "rdfs:Class",
-      "rdfs:comment": "ResourceCatalogs (collections of scientific information or research outputs such as databases, repositories, knowledge bases, citation indices, software indices, etc.) contained in the NIAID Data Ecosystem. The NIAID Data Ecosystem is an environment to find and access and infectious and immune-mediated disease data and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
+      "rdfs:comment": "ResourceCatalogs (collections of scientific information or research outputs such as databases, repositories, knowledge bases, citation indices, software indices, etc.) contained in the NIAID Data Ecosystem. The NIAID Data Ecosystem is an environment to find and access and infectious and immune-mediated disease data and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering. Note that this class would ideally be a child of Schema:Collection; however, due to the properties shared between this class and the NIAID Data Ecosystem's Dataset schema, it is defined as a subclass of the Dataset schema to ensure interoperability with the handling of inherited properties.",
       "rdfs:label": "ResourceCatalog",
       "rdfs:subClassOf": {
-        "@id": "schema:Collection"
+        "@id": "nde:Dataset"
       },
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2862,7 +2862,7 @@
             "oneOf": [
               {
                 "items": {
-                  "@type": "DataDownload",
+                  "@type": "schema:DataDownload",
                   "description": "A dataset in downloadable form.",
                   "properties": {
                     "contentUrl": {
@@ -3434,7 +3434,7 @@
             "owl:cardinality": "one"
           },
           "collectionSize": {
-            "description": "The number of records, datasets, tools, items, pages, etc. in the resource catalog",
+            "description": "The number of records, datasets, tools, items, pages, etc. in the resource catalog. Min/max estimates can be used in lieu of actual number. If completely unknown, set value = 0, and unitText = 'unknown'",
             "oneOf": [
               {
                 "type": "array",
@@ -3461,7 +3461,7 @@
         },
         "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType"],
         "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize"],
-        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", , "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship"],
+        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship"],
         "definitions": {
           "citation": {
             "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
@@ -3821,12 +3821,24 @@
                 "description": "A numeric value for the property",
                 "type": "integer"
               },
+              "maxValue": {
+                "description": "An estimated maximum numberic value if the actual value is not known. Ignore if actual numeric value is known.",
+                "type": "integer"
+              },
+              "minValue": {
+                "description": "An estimated minumum numeric value if the actual value is not known. Ignore if actual numeric value is known.",
+                "type": "integer"
+              },
               "unitText": {
                 "description": "A unit associated with the value. E.g.- 'records' for the number of records in a database.",
-                "type": "text"
+                "type": "string"
               }
-            }
-          }
+            },
+            "required" : ["unitText"],
+            "recommended": ["value"],
+            "optional": ["maxValue","minValue"]
+          },
+          
         }
       }
     },
@@ -3885,14 +3897,14 @@
         },
         {
           "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
         }
       ],
       "schema:rangeIncludes": [
         {
           "@id": "schema:Text"
-        },
-        {
-          "@id": "nde:ResourceCatalog"
         }
       ]
     },
