@@ -3934,7 +3934,7 @@
         },
         {
           "@id": "nde:ResourceCatalog"
-        },
+        }
       ],
       "schema:rangeIncludes": [
         {
