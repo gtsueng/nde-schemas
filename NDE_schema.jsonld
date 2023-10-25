@@ -3925,9 +3925,17 @@
       "@type": "rdf:Property",
       "rdfs:comment": "Repository or source which contains the dataset, resource/resource catalog or computational tool",
       "rdfs:label": "includedInDataCatalog",
-      "schema:domainIncludes": {
-        "@id": "nde:ComputationalTool"
-      },
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:Dataset"
+        },
+        {
+          "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        },
+      ],
       "schema:rangeIncludes": [
         {
           "@id": "schema:DataCatalog"
@@ -4190,11 +4198,27 @@
       }
     },
     {
+      "@id": "nde:distribution",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A downloadable form of the dataset, resource/resource catalog, at a specific location, in a specific format.",
+      "rdfs:label": "distribution",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:Dataset"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        }
+      ],
+      "schema:rangeIncludes": [{
+        "@id": "niaid:DataDownload"
+      }]
+    },
+    {
       "@id": "nde:species",
       "@type": "rdf:Property",
       "rdfs:comment": "Species(es) from which dataset has been collected, or is the focus of a resource/resource catalog, or for which the tool was designed or applied.",
       "rdfs:label": "species",
-      "rdfs:subPropertyOf": "niaid:species",
       "schema:domainIncludes": [
         {
           "@id": "nde:Dataset"
@@ -4206,28 +4230,64 @@
           "@id": "nde:ResourceCatalog"
         }
       ],
-      "schema:rangeIncludes": [{
+      "schema:rangeIncludes": [
+        {
         "@id": "schema:Text"
-      },
-      {
+        },
+        {
         "@id": "schema:DefinedTerm"
-      }]
+        }
+      ]
     },
     {
-      "@id": "nde:distribution",
+      "@id": "nde:measurementTechnique",
       "@type": "rdf:Property",
-      "rdfs:comment": "A downloadable form of the dataset, resource/resource catalog, at a specific location, in a specific format.",
-      "rdfs:label": "species",
-      "schema:domainIncludes": [{
+      "rdfs:comment": "A technique, method or technology used in an Observation, StatisticalVariable or Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using variableMeasured; for Observation, a StatisticalVariable). For example, if variableMeasured is: molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the variableMeasured is \"depression rating\", the measurementTechnique could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\".",
+      "rdfs:label": "measurementTechnique",
+      "schema:domainIncludes": [
+        {
           "@id": "nde:Dataset"
+        },
+        {
+          "@id": "nde:ComputationalTool"
         },
         {
           "@id": "nde:ResourceCatalog"
         }
       ],
-      "schema:rangeIncludes": [{
-        "@id": "niaid:DataDownload"
-      }]
+      "schema:rangeIncludes": [
+        {
+        "@id": "schema:Text"
+        },
+        {
+        "@id": "schema:DefinedTerm"
+        }
+      ]
+    },
+    {
+      "@id": "nde:variableMeasured",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The variableMeasured property can indicate (repeated as necessary) the variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a StatisticalVariable.",
+      "rdfs:label": "variableMeasured",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:Dataset"
+        },
+        {
+          "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+        "@id": "schema:Text"
+        },
+        {
+        "@id": "schema:DefinedTerm"
+        }
+      ]
     }    
   ]
 }
