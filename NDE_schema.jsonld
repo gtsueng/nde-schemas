@@ -3454,6 +3454,9 @@
               },
               {
                 "type": "string"
+              },
+              {
+                  "$ref": "#/definitions/collectiontypes"
               }
             ],
             "owl:cardinality": "many"
@@ -3952,7 +3955,16 @@
       ],
       "schema:rangeIncludes": [
         {
+          "@id": "nde:Dataset"
+        },
+        {
           "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        },
+        {
+          "@id": "schema:CreativeWork"
         }
       ]
     },
@@ -3974,7 +3986,16 @@
       ],
       "schema:rangeIncludes": [
         {
+          "@id": "nde:Dataset"
+        },
+        {
           "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        },
+        {
+          "@id": "schema:CreativeWork"
         }
       ]
     },
@@ -3996,7 +4017,13 @@
       ],
       "schema:rangeIncludes": [
         {
+          "@id": "nde:Dataset"
+        },
+        {
           "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
         }
       ]
     },
@@ -4095,7 +4122,8 @@
       "@type": "rdf:Property",
       "rdfs:comment": "Infectious agent(s) / pathogen(s) which are the focus of the dataset, resource/resource catalog or computational tool (e.g. SARS-CoV-2)",
       "rdfs:label": "infectiousAgent",
-      "schema:domainIncludes": [{
+      "schema:domainIncludes": [
+        {
           "@id": "nde:Dataset"
         },
         {
@@ -4105,19 +4133,22 @@
           "@id": "nde:ResourceCatalog"
         }
       ],
-      "schema:rangeIncludes": [{
+      "schema:rangeIncludes": [
+        {
         "@id": "schema:Text"
-      },
-      {
+        },
+        {
         "@id": "schema:DefinedTerm"
-      }]
+        }
+      ]
     },
     {
       "@id": "nde:healthCondition",
       "@type": "rdf:Property",
       "rdfs:comment": "The infectious disease(s) / health condition(s) which are the focus of the dataset, resource/resource catalog or computational tool (e.g. COVID-19, coronavirus)",
       "rdfs:label": "healthCondition",
-      "schema:domainIncludes": [{
+      "schema:domainIncludes": [
+        {
           "@id": "nde:Dataset"
         },
         {
@@ -4127,7 +4158,8 @@
           "@id": "nde:ResourceCatalog"
         }
       ],
-      "schema:rangeIncludes": [{
+      "schema:rangeIncludes": [
+      {
         "@id": "schema:Text"
       },
       {
@@ -4139,7 +4171,8 @@
       "@type": "rdf:Property",
       "rdfs:comment": "Funding that supports (sponsors) the collection of a dataset, resource/resource catalog or computational tool through some kind of financial contribution",
       "rdfs:label": "funding",
-      "schema:domainIncludes": [{
+      "schema:domainIncludes": [
+        {
           "@id": "nde:Dataset"
         },
         {
@@ -4162,7 +4195,8 @@
       "rdfs:comment": "Species(es) from which dataset has been collected, or is the focus of a resource/resource catalog, or for which the tool was designed or applied.",
       "rdfs:label": "species",
       "rdfs:subPropertyOf": "niaid:species",
-      "schema:domainIncludes": [{
+      "schema:domainIncludes": [
+        {
           "@id": "nde:Dataset"
         },
         {
