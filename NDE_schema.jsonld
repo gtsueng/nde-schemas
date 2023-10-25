@@ -3450,13 +3450,16 @@
             "oneOf": [
               {
                 "type": "string",
-                "enum": ["Database", "Knowledge base", "Web Portal", "Repository", "Collection", "Metadata Index", "Other"]
+                "enum": ["Database", "Knowledge base", "Web Portal", "Repository", "Collection", "Metadata Index", "Platform"]
               },
               {
                 "type": "string"
+              },
+              {
+                "$ref": "#/definitions/collectiontypes"
               }
             ],
-            "owl:cardinality": "many"
+            "owl:cardinality": "one"
           }
         },
         "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType"],
@@ -3838,7 +3841,16 @@
             "recommended": ["value"],
             "optional": ["maxValue","minValue"]
           },
-          
+          "collectiontypes": {
+            "description": "potential ontology-linked resource types",
+            "@type": "DefinedTerm",
+            "type": "string",
+            "vocabulary": {
+              "ontology": ["ncit"],
+              "children_of": ["http://purl.obolibrary.org/obo/NCIT_C16048"]
+            },
+            "strict": false
+          }
         }
       }
     },
