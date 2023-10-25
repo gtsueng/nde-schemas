@@ -3450,16 +3450,13 @@
             "oneOf": [
               {
                 "type": "string",
-                "enum": ["Database", "Knowledge base", "Web Portal", "Repository", "Collection", "Metadata Index", "Platform"]
-              },
-              {
-                "type": "string"
+                "enum": ["Database", "Knowledge Base", "Web Portal", "Repository", "Collection", "Metadata Index", "Platform"]
               },
               {
                   "$ref": "#/definitions/collectiontypes"
               }
             ],
-            "owl:cardinality": "many"
+            "owl:cardinality": "one"
           }
         },
         "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType"],
@@ -3467,7 +3464,7 @@
         "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship"],
         "definitions": {
           "citation": {
-            "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
+            "description": "A citation object for a publication which is cited by the resource catalog (ie- is a derivative of the resource catalog), related to the resource catalog, or from which the resource catalog was based on (ie- is derived from).",
             "@type": "ScholarlyArticle",
             "type": "object",
             "properties": {
@@ -3597,7 +3594,7 @@
                 ]
               },
               "includedInDataCatalog": {
-                "description": "Data or tool catalog which houses the work",
+                "description": "Data, resource or tool catalog which houses the work",
                 "oneOf": [
                   {
                     "$ref": "#/definitions/catalog"
@@ -3644,7 +3641,7 @@
                 "type": "string"
               },
               "curatedBy": {
-                "description": "The person, organization, or catalog that categorized the dataset",
+                "description": "The person, organization, or catalog that categorized the resource catalog",
                 "oneOf": [
                   {
                     "$ref": "#/definitions/person"
@@ -3672,15 +3669,15 @@
           },
           "catalog": {
             "@type": "DataCatalog",
-            "description": "Data or tool catalog",
+            "description": "Data, resource or tool catalog",
             "type": "object",
             "properties": {
               "name": {
-                "description": "Data or tool catalog name",
+                "description": "Data, resource or tool catalog name",
                 "type": "string"
               },
               "url": {
-                "description": "Link to data or tool catalog",
+                "description": "Link to data, resource or tool catalog",
                 "type": "string",
                 "format": "uri"
               },
@@ -3797,7 +3794,7 @@
                 "type": "string"
               },
               "role": {
-                "description": "Role the person played in creating the dataset",
+                "description": "Role the person played in creating the resource catalog",
                 "type": "string"
               },
               "title": {
