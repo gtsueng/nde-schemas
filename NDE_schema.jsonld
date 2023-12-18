@@ -3639,7 +3639,7 @@
           },
           "collectionType": {
             "description": "The type of resource/resource catalog that best describes the work",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "string",
                 "enum": ["Knowledge Base", "Ontology", "Terminology", "Database", "Dataset", "Metadata Catalog", "Archive", "Cloud Ecosystem", "Corpus", "Repository", "Controlled Vocabulary", "Registry", "Data Dictionary", "Data Mart", "Data Warehouse", "Data Store", "Data Collection", "Portal"]
