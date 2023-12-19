@@ -744,6 +744,7 @@
           },
           "inLanguage": {
             "description": "The language of the content of the dataset",
+            "owl:cardinality": "many",
             "oneOf": [
               {
                 "items": {
@@ -775,9 +776,8 @@
                 },
                 "required": ["name"],
                 "recommended": ["alternateName"]
-              },
-            ],
-            "owl:cardinality": "many"
+              }
+            ]
           },
           "interactionStatistic": {
             "description": "The number of interactions with the work, such as page views or tool downloads.",
@@ -2531,7 +2531,7 @@
                 },
                 "required": ["name"],
                 "recommended": ["alternateName"]
-              },
+              }
             ]
           },
           "interactionStatistic": {
@@ -3864,7 +3864,7 @@
                 },
                 "required": ["name"],
                 "recommended": ["alternateName"]
-              },
+              }
             ],
             "owl:cardinality": "many"
           },
