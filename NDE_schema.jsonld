@@ -22,7 +22,7 @@
         "properties": {
           "citedBy": {
             "description": "Publications, datasets, or computational tools that cite the work.",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -54,15 +54,18 @@
           "isRelatedTo": {
             "description": "Datasets which are related to the given dataset; often datasets involved in the same study. These linkages are created via human curation.",
             "abstract": "related datasets (via curation)",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -70,30 +73,36 @@
           "isSimilarTo": {
             "description": "Datasets or computational tools which are similar to the work, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
             "abstract": "similar datasets (auto-assigned)",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
           },
           "isBasisFor": {
             "description": "A dataset which reuses the dataset.",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -648,7 +657,7 @@
           },
           "author": {
             "description": "Author or creator of the work.",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -668,7 +677,7 @@
             "description": "A citation or reference to a publication, dataset, or computational tool which uses the dataset. Examples: a publication which describes the collection/analysis of the dataset, a publication which reuses the dataset in a secondary analysis, a dataset which extends the existing dataset, or a computational tool which relies on the dataset.",
             "abstract": "citation to the work",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -692,7 +701,7 @@
           },
           "creator": {
             "description": "The creator/author of this work; equivalent to author",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -729,15 +738,18 @@
           "hasPart": {
             "description": "Associated materials for the dataset, including data dictionaries and data limitation descriptions",
             "abstract": "data limitations or dictionaries",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -825,7 +837,7 @@
             "description": "A dataset, publication, or computational tool from which this work is derived, modified, or adapted.",
             "abstract": "dataset, publication, or tool used to create the work",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -844,7 +856,7 @@
             "description": "Indicates a broader study, project, or collection the work is part of.",
             "abstract": "study or project including the work",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -1574,7 +1586,7 @@
         "properties": {
           "citedBy": {
             "description": "Publications, datasets, or computational tools that cite the work.",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -1611,30 +1623,36 @@
           "isBasisFor": {
             "description": "A computational tool which reuses the computational tool",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ]
           },
           "isRelatedTo": {
             "description": "Computational tools which are related to the given computational tool. These linkages are created via human curation.",
             "abstract": "related records (via curation)",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -1642,15 +1660,18 @@
           "isSimilarTo": {
             "description": "Datasets or computational tools which are similar to the work, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
             "abstract": "similar records (auto-assigned)",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2371,7 +2392,7 @@
           },
           "author": {
             "description": "Author or creator of the work.",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -2390,7 +2411,7 @@
           "citation": {
             "description": "A citation or reference to a publication, dataset, or computational tool which uses the computational tool. Examples: a publication which describes the development of the computational tool, a publication which describes the extension or use of the computational tool, a dataset which was processed or analyzed using the tool, or a computational tool which relies on the given tool.",
             "abstract": "citation to the work",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -2438,7 +2459,7 @@
           },
           "creator": {
             "description": "The creator/author of this work; equivalent to author",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -2481,7 +2502,7 @@
           },
           "hasPart": {
             "description": "An item that is part of this computational tool",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -2579,7 +2600,7 @@
           "isBasedOn": {
             "description": "A dataset, publication, or computational tool from which this work is derived, modified, or adapted.",
             "abstract": "dataset, publication, or tool used to create the work",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -2598,7 +2619,7 @@
           "isPartOf": {
             "description": "Indicates a broader study, project, or collection the work is part of.",
             "abstract": "study or project including the work",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -3117,7 +3138,7 @@
         "properties": {
           "citedBy": {
             "description": "Publications, datasets, or computational tools that cite the work.",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -3149,15 +3170,18 @@
           "isRelatedTo": {
             "description": "Resources which are related to the given resource catalog. These linkages are created via human curation.",
             "abstract": "related datasets (via curation)",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3165,30 +3189,36 @@
           "isSimilarTo": {
             "description": "Resource catalogs which are similar to the work, based on terms in the names, descriptions, authors, measurementTechniques, infectiousAgents, healthConditions, etc.",
             "abstract": "similar datasets (auto-assigned)",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
           },
           "isBasisFor": {
             "description": "A resource catalog which uses the resource catalog.",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3219,7 +3249,7 @@
             "abstract": "infectious agent / pathogen",
             "oneOf": [
               {
-                "@type": "schema:DefinedTerm",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -3230,7 +3260,7 @@
               },
               {
                 "items": {
-                  "@type": "schema:DefinedTerm",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -3449,7 +3479,7 @@
             "abstract": "species/host organism",
             "oneOf": [
               {
-                "@type": "schema:DefinedTerm",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -3473,7 +3503,7 @@
               },
               {
                 "items": {
-                  "@type": "schema:DefinedTerm",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -3573,7 +3603,7 @@
             "abstract": "measurement technique used to collect the content of the resource catalog, if applicable. If not applicable, use \"any\".",
             "oneOf": [
               {
-                "@type": "schema:DefinedTerm",
+                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -3597,7 +3627,7 @@
               },
               {
                 "items": {
-                  "@type": "schema:DefinedTerm",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -3737,7 +3767,7 @@
           },
           "author": {
             "description": "Author or creator of the work.",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -3757,7 +3787,7 @@
             "description": "A citation or reference to a publication, dataset, or computational tool which uses the resource catalog. Examples: a publication which describes the creation of the resource catalog, a publication which uses information or content of the resource catalog for secondary analysis, or a computational tool which relies on the content of the resource catalog.",
             "abstract": "citation to the work",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -3781,7 +3811,7 @@
           },
           "creator": {
             "description": "The creator/author of this work; equivalent to author",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -3818,15 +3848,18 @@
           "hasPart": {
             "description": "Associated materials for the resource catalog, including data dictionaries and data limitation descriptions",
             "abstract": "data limitations or dictionaries",
-            "oneOf": [
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/citation"
+                }
+              },
               {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
-              },
-              {
-                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3914,7 +3947,7 @@
             "description": "A dataset, publication, or computational tool from which this work is derived, modified, or adapted.",
             "abstract": "dataset, publication, or tool used to create the work",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -3933,7 +3966,7 @@
             "description": "Indicates a broader study, project, or collection the work is part of.",
             "abstract": "study or project including the work",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -4300,6 +4333,9 @@
                 "items": {
                   "$ref": "#/definitions/propertyvalue"
                 }
+              },
+              {
+                "$ref": "#/definitions/propertyvalue"
               }
             ],
             "owl:cardinality": "many"             
@@ -4943,6 +4979,9 @@
       "schema:rangeIncludes": [
         {
           "@id": "schema:Text"
+        },
+        {
+          "@id": "schema:DefinedTerm"
         }
       ]
     },
