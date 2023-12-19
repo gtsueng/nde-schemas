@@ -60,6 +60,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -73,6 +76,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -85,6 +91,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -109,6 +118,9 @@
                 "items": {
                   "$ref": "#/definitions/topic"
                 }
+              },
+              {
+                "$ref": "#/definitions/topic"
               }
             ],
             "owl:cardinality": "many"
@@ -372,7 +384,7 @@
               },
               {
                 "items": {
-                  "@type": "CreativeWork",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -426,6 +438,27 @@
                   "type": "object"
                 },
                 "type": "array"
+              },
+              {
+                "@type": "DataDownload",
+                "description": "A dataset in downloadable form.",
+                "properties": {
+                  "contentUrl": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "encodingFormat": {
+                    "description": "file type (ex: XLSX)",
+                    "type": "string"
+                  },
+                  "dateModified": {
+                    "format": "date",
+                    "description": "date the file was modified",
+                    "type": "string"
+                  }
+                },
+                "required": ["dateModified", "contentUrl"],
+                "type": "object"
               }
             ],
             "owl:cardinality": "many"
@@ -506,10 +539,53 @@
             "description": "Variables measured within the dataset.",
             "oneOf": [
               {
-                "type": "array",
-                "items": {
-                  "type": "string"
+                "@type": "DefinedTerm",
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
+                  "ontology": ["efo", "cmo"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The variables measured in the dataset"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
                 }
+              },
+              {
+                "items": {
+                  "@type": "DefinedTerm",
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "strict": false,
+                  "type": "string",
+                  "vocabulary": {
+                    "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
+                    "ontology": ["efo", "cmo"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The variables measured in the dataset"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "type": "array"
               }
             ],
             "owl:cardinality": "many"
@@ -546,6 +622,26 @@
                   "recommended": ["ratingCount", "itemReviewed"]
                 },
                 "type": "array"
+              },
+              {
+                "@type": "AggregateRating",
+                "type": "object",
+                "properties": {
+                  "ratingCount": {
+                    "description": "Total number of ratings",
+                    "type": "string"
+                  },
+                  "ratingValue": {
+                    "description": "Average rating",
+                    "type": "string"
+                  },
+                  "itemReviewed": {
+                    "description": "What is being reviewed",
+                    "type": "string"
+                  }
+                },
+                "required": ["ratingValue"],
+                "recommended": ["ratingCount", "itemReviewed"]
               }
             ],
             "owl:cardinality": "many"
@@ -590,12 +686,8 @@
           "conditionsOfAccess": {
             "description": "Conditions that affect the availability of, or method(s) of access to, the work. Options include open (freely available), restricted (may include restrictions such as on use), closed (requires registration to access), or embargoed (unpublished).",
             "abstract": "accessibility of the work",
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": ["Closed", "Open", "Restricted", "Embargoed"]
-              }
-            ],
+            "type": "string",
+            "enum": ["Closed", "Open", "Restricted", "Embargoed"],
             "owl:cardinality": "one"
           },
           "creator": {
@@ -643,6 +735,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -666,7 +761,21 @@
                   "recommended": ["alternateName"]
                 },
                 "type": "array"
-              }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "language of the work"
+                  },
+                  "alternateName": {
+                    "type": "string"
+                  }
+                },
+                "required": ["name"],
+                "recommended": ["alternateName"]
+              },
             ],
             "owl:cardinality": "many"
           },
@@ -689,6 +798,19 @@
                   "required": ["interactionType", "userInteractionCount"]
                 },
                 "type": "array"
+              },
+              {
+                "@type": "InteractionCounter",
+                "type": "object",
+                "properties": {
+                  "interactionType": {
+                    "type": "string"
+                  },
+                  "userInteractionCount": {
+                    "type": "integer"
+                  }
+                },
+                "required": ["interactionType", "userInteractionCount"]
               }
             ],
             "owl:cardinality": "many"
@@ -746,6 +868,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              {
+                "type": "string"
               }
             ],
             "owl:cardinality": "many"
@@ -829,6 +954,56 @@
                   "type": "object"
                 },
                 "type": "array"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "description": "Location information",
+                "properties": {
+                  "administrativeType": {
+                    "description": "the type of administrative area, such as country, state, county, or city",
+                    "enum": ["province", "district", "chiefdom", "village", "city", "country", "prefecture", "sub-prefecture", "clan", "Federal Capital Territory", "state", "Local Government Area", "ward"],
+                    "type": "string"
+                  },
+                  "alternateName": {
+                    "description": "An alias for the location",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "identifier": {
+                    "description": "An identifier for the location, preferably a Wikidata ID",
+                    "type": "string"
+                  },
+                  "locationType": {
+                    "description": "Categorization of how the location relates to the dataset",
+                    "oneOf": [
+                      {
+                        "enum": ["residence", "exposure", "collection", "screening", "treatment", "study location", "other", "unknown"],
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "enum": ["residence", "exposure", "collection", "screening", "treatment", "study location", "other", "unknown"],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "description": "The name of the location",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
               }
             ],
             "owl:cardinality": "many"
@@ -880,6 +1055,47 @@
                   "type": "object"
                 },
                 "type": "array"
+              },
+              {
+                "@type": "TemporalInterval",
+                "description": "Temporal information",
+                "properties": {
+                  "duration": {
+                    "description": "A time interval in ISO 8601 duration format",
+                    "type": "string"
+                  },
+                  "endDate": {
+                    "description": "An end date",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "String describing the temporal interval",
+                    "type": "string"
+                  },
+                  "startDate": {
+                    "description": "A start date",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "temporalType": {
+                    "description": "Categorization of how the date/temporal interval relates to the dataset",
+                    "oneOf": [
+                      {
+                        "enum": ["exposure", "collection", "screening", "treatment", "study date", "other", "unknown"],
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "enum": ["exposure", "collection", "screening", "treatment", "study date", "other", "unknown"],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  }
+                },
+                "type": "object"
               }
             ],
             "owl:cardinality": "many"
@@ -893,6 +1109,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -948,6 +1167,10 @@
                   "format": "uri"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
               }
             ],
             "owl:cardinality": "many"
@@ -966,6 +1189,10 @@
                   "format": "uri"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
               }
             ],
             "owl:cardinality": "many"
@@ -1390,6 +1617,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -1402,6 +1632,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -1415,6 +1648,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -1429,6 +1665,9 @@
                 "items": {
                   "$ref": "#/definitions/topic"
                 }
+              },
+              {
+                "$ref": "#/definitions/topic"
               }
             ]
           },
@@ -1504,6 +1743,16 @@
                   }
                 },
                 "type": "array"
+              },
+              {
+                "@type": "DefinedTerm",
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
+                  "ontology": ["mondo"]
+                }
               }
             ],
             "owl:cardinality": "many"
@@ -1513,45 +1762,141 @@
             "abstract": "funding source (grant, contract, etc.)",
             "oneOf": [
               {
+                "type": "object",
+                "@type": "MonetaryGrant",
+                "description": "Funding that supports (sponsors) the development of this computational tool through some kind of financial contribution",
+                "properties": {
+                  "funder": {
+                    "description": "An organization associated with a creator or funder of a computational tool",
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "@type": "Organization",
+                        "description": "Information about a single funder",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "An organization associated with a creator or funder of a computational tool"
+                          },
+                          "parentOrganization": {
+                            "type": "string",
+                            "description": "name of the parent funding organization"
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ]
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "@type": "Organization",
+                          "description": "Information about a single funder",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "An organization associated with a creator or funder of a computational tool"
+                            },
+                            "parentOrganization": {
+                              "type": "string",
+                              "description": "name of the parent funding organization"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "description about the funding award / grant"
+                  },
+                  "url": {
+                    "type": "string",
+                    "description": "award / grant URL"
+                  },
+                  "identifier": {
+                    "type": "string",
+                    "description": "Unique identifier(s) for the grant(s) used to fund the development of this computational tool"
+                  }
+                },
+                "required": [
+                  "funder",
+                  "identifier"
+                ]
+              },
+              {
+                "type": "array",
                 "items": {
+                  "type": "object",
                   "@type": "MonetaryGrant",
                   "description": "Funding that supports (sponsors) the development of this computational tool through some kind of financial contribution",
                   "properties": {
-                    "description": {
-                      "description": "description of the funding award / grant",
-                      "type": "string"
-                    },
                     "funder": {
-                      "description": "An organization or person who funded the creation of the work",
+                      "description": "An organization associated with a creator or funder of a computational tool",
                       "oneOf": [
                         {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/definitions/person"
-                          }
+                          "type": "object",
+                          "@type": "Organization",
+                          "description": "Information about a single funder",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "An organization associated with a creator or funder of a computational tool"
+                            },
+                            "parentOrganization": {
+                              "type": "string",
+                              "description": "name of the parent funding organization"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ]
                         },
                         {
                           "type": "array",
                           "items": {
-                            "$ref": "#/definitions/organization"
+                            "type": "object",
+                            "@type": "Organization",
+                            "description": "Information about a single funder",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "An organization associated with a creator or funder of a computational tool"
+                              },
+                              "parentOrganization": {
+                                "type": "string",
+                                "description": "name of the parent funding organization"
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ]
                           }
                         }
                       ]
                     },
-                    "identifier": {
-                      "description": "Unique identifier(s) for the grant or contract used to fund the work",
-                      "type": "string"
+                    "description": {
+                      "type": "string",
+                      "description": "description about the funding award / grant"
                     },
                     "url": {
-                      "description": "award / grant URL",
                       "type": "string",
-                      "format": "uri"
+                      "description": "award / grant URL"
+                    },
+                    "identifier": {
+                      "type": "string",
+                      "description": "Unique identifier(s) for the grant(s) used to fund the development of this computational tool"
                     }
                   },
-                  "required": ["funder", "identifier"],
-                  "type": "object"
-                },
-                "type": "array"
+                  "required": [
+                    "funder",
+                    "identifier"
+                  ]
+                }
               }
             ],
             "owl:cardinality": "many"
@@ -1561,6 +1906,29 @@
             "abstract": "species/host organism",
             "oneOf": [
               {
+                "@type": "DefinedTerm",
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
+                  "ontology": ["ncbitaxon"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Species / host organism from which the dataset has been collected."
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              {
                 "items": {
                   "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
@@ -1568,7 +1936,20 @@
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                    "ontology": ["ncbitaxon"]
+                    "ontology": ["ncbitaxon"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Species / host organism from which the dataset has been collected."
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
                   }
                 },
                 "type": "array"
@@ -1964,6 +2345,26 @@
                   "recommended": ["ratingCount", "itemReviewed"]
                 },
                 "type": "array"
+              },
+              {
+                "@type": "AggregateRating",
+                "type": "object",
+                "properties": {
+                  "ratingCount": {
+                    "description": "Total number of ratings",
+                    "type": "string"
+                  },
+                  "ratingValue": {
+                    "description": "Average rating",
+                    "type": "string"
+                  },
+                  "itemReviewed": {
+                    "description": "What is being reviewed",
+                    "type": "string"
+                  }
+                },
+                "required": ["ratingValue"],
+                "recommended": ["ratingCount", "itemReviewed"]
               }
             ],
             "owl:cardinality": "many"
@@ -2105,7 +2506,8 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "language of the work"
                     },
                     "alternateName": {
                       "type": "string"
@@ -2115,7 +2517,21 @@
                   "recommended": ["alternateName"]
                 },
                 "type": "array"
-              }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "language of the work"
+                  },
+                  "alternateName": {
+                    "type": "string"
+                  }
+                },
+                "required": ["name"],
+                "recommended": ["alternateName"]
+              },
             ]
           },
           "interactionStatistic": {
@@ -2138,6 +2554,19 @@
                   "required": ["interactionType", "userInteractionCount"]
                 },
                 "type": "array"
+              },
+              {
+                "@type": "InteractionCounter",
+                "type": "object",
+                "properties": {
+                  "interactionType": {
+                    "type": "string"
+                  },
+                  "userInteractionCount": {
+                    "type": "integer"
+                  }
+                },
+                "required": ["interactionType", "userInteractionCount"]
               }
             ]
           },
@@ -2194,6 +2623,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              {
+                "type": "string"
               }
             ]
           },
@@ -2257,6 +2689,10 @@
                   "format": "uri"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
               }
             ]
           },
@@ -2275,6 +2711,10 @@
                   "format": "uri"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
               }
             ]
           },
@@ -2715,6 +3155,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2728,6 +3171,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2740,6 +3186,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2758,6 +3207,9 @@
                 "items": {
                   "$ref": "#/definitions/topic"
                 }
+              },
+              {
+                "$ref": "#/definitions/topic"
               }
             ],
             "owl:cardinality": "many"
@@ -3021,7 +3473,7 @@
               },
               {
                 "items": {
-                  "@type": "schema:CreativeWork",
+                  "@type": "schema:DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -3055,7 +3507,7 @@
               {
                 "items": {
                   "@type": "DataDownload",
-                  "description": "A dataset in downloadable form.",
+                  "description": "A downloadable form of the resource catalog.",
                   "properties": {
                     "contentUrl": {
                       "format": "uri",
@@ -3075,6 +3527,27 @@
                   "type": "object"
                 },
                 "type": "array"
+              },
+              {
+                "@type": "DataDownload",
+                "description": "A downloadable form of the resource catalog.",
+                "properties": {
+                  "contentUrl": {
+                    "format": "uri",
+                    "type": "string"
+                  },
+                  "encodingFormat": {
+                    "description": "file type (ex: XLSX)",
+                    "type": "string"
+                  },
+                  "dateModified": {
+                    "format": "date",
+                    "description": "date the file was modified",
+                    "type": "string"
+                  }
+                },
+                "required": ["dateModified", "contentUrl"],
+                "type": "object"
               }
             ],
             "owl:cardinality": "many"
@@ -3152,13 +3625,56 @@
             "owl:cardinality": "many"
           },
           "variableMeasured": {
-            "description": "Variables measured within the content of the resource catalog.",
+            "description": "Variables measured within the resource catalog.",
             "oneOf": [
               {
-                "type": "array",
-                "items": {
-                  "type": "string"
+                "@type": "DefinedTerm",
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
+                  "ontology": ["efo", "cmo"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The variables measured in the resource catalog"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
+                  }
                 }
+              },
+              {
+                "items": {
+                  "@type": "DefinedTerm",
+                  "description": "collection of vocabulary terms defined in ontologies",
+                  "strict": false,
+                  "type": "string",
+                  "vocabulary": {
+                    "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
+                    "ontology": ["efo", "cmo"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The variables measured in the resource catalog"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "type": "array"
               }
             ],
             "owl:cardinality": "many"
@@ -3195,6 +3711,26 @@
                   "recommended": ["ratingCount", "itemReviewed"]
                 },
                 "type": "array"
+              },
+              {
+                "@type": "AggregateRating",
+                "type": "object",
+                "properties": {
+                  "ratingCount": {
+                    "description": "Total number of ratings",
+                    "type": "string"
+                  },
+                  "ratingValue": {
+                    "description": "Average rating",
+                    "type": "string"
+                  },
+                  "itemReviewed": {
+                    "description": "What is being reviewed",
+                    "type": "string"
+                  }
+                },
+                "required": ["ratingValue"],
+                "recommended": ["ratingCount", "itemReviewed"]
               }
             ],
             "owl:cardinality": "many"
@@ -3239,12 +3775,8 @@
           "conditionsOfAccess": {
             "description": "Conditions that affect the availability of, or method(s) of access to, the work. Options include open (freely available), restricted (may include restrictions such as on use), closed (requires registration to access), or embargoed (unpublished).",
             "abstract": "accessibility of the work",
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": ["Closed", "Open", "Restricted", "Embargoed"]
-              }
-            ],
+            "type": "string",
+            "enum": ["Closed", "Open", "Restricted", "Embargoed"],
             "owl:cardinality": "one"
           },
           "creator": {
@@ -3292,6 +3824,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3315,7 +3850,21 @@
                   "recommended": ["alternateName"]
                 },
                 "type": "array"
-              }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "language of the work"
+                  },
+                  "alternateName": {
+                    "type": "string"
+                  }
+                },
+                "required": ["name"],
+                "recommended": ["alternateName"]
+              },
             ],
             "owl:cardinality": "many"
           },
@@ -3338,6 +3887,19 @@
                   "required": ["interactionType", "userInteractionCount"]
                 },
                 "type": "array"
+              },
+              {
+                "@type": "InteractionCounter",
+                "type": "object",
+                "properties": {
+                  "interactionType": {
+                    "type": "string"
+                  },
+                  "userInteractionCount": {
+                    "type": "integer"
+                  }
+                },
+                "required": ["interactionType", "userInteractionCount"]
               }
             ],
             "owl:cardinality": "many"
@@ -3395,6 +3957,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              {
+                "type": "string"
               }
             ],
             "owl:cardinality": "many"
@@ -3478,6 +4043,56 @@
                   "type": "object"
                 },
                 "type": "array"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "description": "Location information",
+                "properties": {
+                  "administrativeType": {
+                    "description": "the type of administrative area, such as country, state, county, or city",
+                    "enum": ["province", "district", "chiefdom", "village", "city", "country", "prefecture", "sub-prefecture", "clan", "Federal Capital Territory", "state", "Local Government Area", "ward"],
+                    "type": "string"
+                  },
+                  "alternateName": {
+                    "description": "An alias for the location",
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "identifier": {
+                    "description": "An identifier for the location, preferably a Wikidata ID",
+                    "type": "string"
+                  },
+                  "locationType": {
+                    "description": "Categorization of how the location relates to the dataset",
+                    "oneOf": [
+                      {
+                        "enum": ["residence", "exposure", "collection", "screening", "treatment", "study location", "other", "unknown"],
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "enum": ["residence", "exposure", "collection", "screening", "treatment", "study location", "other", "unknown"],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "name": {
+                    "description": "The name of the location",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
               }
             ],
             "owl:cardinality": "many"
@@ -3529,6 +4144,47 @@
                   "type": "object"
                 },
                 "type": "array"
+              },
+              {
+                "@type": "TemporalInterval",
+                "description": "Temporal information",
+                "properties": {
+                  "duration": {
+                    "description": "A time interval in ISO 8601 duration format",
+                    "type": "string"
+                  },
+                  "endDate": {
+                    "description": "An end date",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "String describing the temporal interval",
+                    "type": "string"
+                  },
+                  "startDate": {
+                    "description": "A start date",
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "temporalType": {
+                    "description": "Categorization of how the date/temporal interval relates to the dataset",
+                    "oneOf": [
+                      {
+                        "enum": ["exposure", "collection", "screening", "treatment", "study date", "other", "unknown"],
+                        "type": "string"
+                      },
+                      {
+                        "items": {
+                          "enum": ["exposure", "collection", "screening", "treatment", "study date", "other", "unknown"],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  }
+                },
+                "type": "object"
               }
             ],
             "owl:cardinality": "many"
@@ -3542,6 +4198,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3597,6 +4256,10 @@
                   "format": "uri"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
               }
             ],
             "owl:cardinality": "many"
@@ -3615,6 +4278,10 @@
                   "format": "uri"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
               }
             ],
             "owl:cardinality": "many"
