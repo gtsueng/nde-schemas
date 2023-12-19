@@ -193,7 +193,7 @@
               },
               {
                 "items": {
-                  "@type": "CreativeWork",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -3303,7 +3303,7 @@
               },
               {
                 "items": {
-                  "@type": "CreativeWork",
+                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -4764,7 +4764,10 @@
       ],
       "schema:rangeIncludes": [
         {
-          "@id": "schema:ScholarlyArticle"
+          "@id": "schema:CreativeWork"
+        },
+        {
+          "@id": "niaid:ScholarlyArticle"
         }
       ]
     },
@@ -4865,6 +4868,9 @@
         },
         {
           "@id": "schema:CreativeWork"
+        },
+        {
+          "@id": "niaid:ScholarlyArticle"
         }
       ]
     },
@@ -4896,6 +4902,9 @@
         },
         {
           "@id": "schema:CreativeWork"
+        },
+        {
+          "@id": "niaid:ScholarlyArticle"
         }
       ]
     },
@@ -4924,6 +4933,12 @@
         },
         {
           "@id": "nde:ResourceCatalog"
+        },
+        {
+          "@id": "schema:CreativeWork"
+        },
+        {
+          "@id": "niaid:ScholarlyArticle"
         }
       ]
     },
