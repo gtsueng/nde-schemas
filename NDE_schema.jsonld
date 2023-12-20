@@ -30,10 +30,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -62,10 +68,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -81,10 +93,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -99,10 +117,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -665,10 +689,16 @@
                 }
               },
               {
+                  "$ref": "#/definitions/person"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/organization"
                 }
+              },
+              {
+                  "$ref": "#/definitions/organization"
               }
             ],
             "owl:cardinality": "many"
@@ -685,10 +715,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -709,10 +745,16 @@
                 }
               },
               {
+                  "$ref": "#/definitions/person"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/organization"
                 }
+              },
+              {
+                  "$ref": "#/definitions/organization"
               }
             ],
             "owl:cardinality": "many"
@@ -746,10 +788,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -845,10 +893,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -864,10 +918,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -1594,10 +1654,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -1631,10 +1697,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -1649,10 +1721,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -1668,10 +1746,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2400,10 +2484,16 @@
                 }
               },
               {
+                  "$ref": "#/definitions/person"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/organization"
                 }
+              },
+              {
+                  "$ref": "#/definitions/organization"
               }
             ],
             "owl:cardinality": "many"
@@ -2419,10 +2509,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2467,10 +2563,16 @@
                 }
               },
               {
+                  "$ref": "#/definitions/person"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/organization"
                 }
+              },
+              {
+                  "$ref": "#/definitions/organization"
               }
             ],
             "owl:cardinality": "many"
@@ -2510,10 +2612,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2608,10 +2716,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -2627,10 +2741,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3146,10 +3266,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3178,10 +3304,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3197,10 +3329,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3215,10 +3353,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3775,10 +3919,16 @@
                 }
               },
               {
+                  "$ref": "#/definitions/person"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/organization"
                 }
+              },
+              {
+                  "$ref": "#/definitions/organization"
               }
             ],
             "owl:cardinality": "many"
@@ -3795,10 +3945,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -3819,10 +3975,16 @@
                 }
               },
               {
+                  "$ref": "#/definitions/person"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/organization"
                 }
+              },
+              {
+                  "$ref": "#/definitions/organization"
               }
             ],
             "owl:cardinality": "many"
@@ -3856,10 +4018,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ],
             "owl:cardinality": "many"
@@ -3955,10 +4123,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -3974,10 +4148,16 @@
                 }
               },
               {
+                "$ref": "#/definitions/citation"
+              },
+              {
                 "type": "array",
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                  "$ref": "#/definitions/creativework"
               }
             ]
           },
