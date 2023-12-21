@@ -644,14 +644,7 @@
                     },
                     "ratingValue": {
                       "description": "Average rating",
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "number"
-                        }
-                      ]
+                      "type": "string"
                     },
                     "itemReviewed": {
                       "description": "What is being reviewed",
@@ -672,15 +665,8 @@
                     "type": "integer"
                   },
                   "ratingValue": {
-                    "description": "Average rating",
-                    "oneOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ]
+                      "description": "Average rating",
+                      "type": "string"
                   },
                   "itemReviewed": {
                     "description": "What is being reviewed",
@@ -2465,14 +2451,7 @@
                     },
                     "ratingValue": {
                       "description": "Average rating",
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "number"
-                        }
-                      ]
+                      "type": "string"
                     },
                     "itemReviewed": {
                       "description": "What is being reviewed",
@@ -2493,15 +2472,8 @@
                     "type": "integer"
                   },
                   "ratingValue": {
-                    "description": "Average rating",
-                    "oneOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ]
+                      "description": "Average rating",
+                      "type": "string"
                   },
                   "itemReviewed": {
                     "description": "What is being reviewed",
@@ -3926,14 +3898,7 @@
                     },
                     "ratingValue": {
                       "description": "Average rating",
-                      "oneOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "number"
-                        }
-                      ]
+                      "type": "string"
                     },
                     "itemReviewed": {
                       "description": "What is being reviewed",
@@ -3954,15 +3919,8 @@
                     "type": "integer"
                   },
                   "ratingValue": {
-                    "description": "Average rating",
-                    "oneOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      }
-                    ]
+                      "description": "Average rating",
+                      "type": "string"
                   },
                   "itemReviewed": {
                     "description": "What is being reviewed",
