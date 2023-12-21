@@ -640,11 +640,18 @@
                   "properties": {
                     "ratingCount": {
                       "description": "Total number of ratings",
-                      "type": "string"
+                      "type": "integer"
                     },
                     "ratingValue": {
                       "description": "Average rating",
-                      "type": "string"
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
                     },
                     "itemReviewed": {
                       "description": "What is being reviewed",
@@ -662,11 +669,18 @@
                 "properties": {
                   "ratingCount": {
                     "description": "Total number of ratings",
-                    "type": "string"
+                    "type": "integer"
                   },
                   "ratingValue": {
                     "description": "Average rating",
-                    "type": "string"
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
                   },
                   "itemReviewed": {
                     "description": "What is being reviewed",
@@ -1287,7 +1301,7 @@
             "properties": {
               "author": {
                 "description": "Author(s) of the publication",
-                "oneOf": [
+                "anyOf": [
                   {
                     "type": "array",
                     "items": {
@@ -1295,10 +1309,16 @@
                     }
                   },
                   {
+                      "$ref": "#/definitions/person"
+                  },
+                  {
                     "type": "array",
                     "items": {
                       "$ref": "#/definitions/organization"
                     }
+                  },
+                  {
+                      "$ref": "#/definitions/organization"
                   }
                 ]
               },
@@ -1374,7 +1394,7 @@
             "properties": {
               "author": {
                 "description": "Author(s) of the referenced work",
-                "oneOf": [
+                "anyOf": [
                   {
                     "type": "array",
                     "items": {
@@ -1382,10 +1402,16 @@
                     }
                   },
                   {
+                      "$ref": "#/definitions/person"
+                  },
+                  {
                     "type": "array",
                     "items": {
                       "$ref": "#/definitions/organization"
                     }
+                  },
+                  {
+                      "$ref": "#/definitions/organization"
                   }
                 ]
               },
@@ -2435,11 +2461,18 @@
                   "properties": {
                     "ratingCount": {
                       "description": "Total number of ratings",
-                      "type": "string"
+                      "type": "integer"
                     },
                     "ratingValue": {
                       "description": "Average rating",
-                      "type": "string"
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
                     },
                     "itemReviewed": {
                       "description": "What is being reviewed",
@@ -2457,11 +2490,18 @@
                 "properties": {
                   "ratingCount": {
                     "description": "Total number of ratings",
-                    "type": "string"
+                    "type": "integer"
                   },
                   "ratingValue": {
                     "description": "Average rating",
-                    "type": "string"
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
                   },
                   "itemReviewed": {
                     "description": "What is being reviewed",
@@ -2877,7 +2917,7 @@
             "properties": {
               "author": {
                 "description": "Author(s) of the publication",
-                "oneOf": [
+                "anyOf": [
                   {
                     "type": "array",
                     "items": {
@@ -2885,10 +2925,16 @@
                     }
                   },
                   {
+                      "$ref": "#/definitions/person"
+                  },
+                  {
                     "type": "array",
                     "items": {
                       "$ref": "#/definitions/organization"
                     }
+                  },
+                  {
+                      "$ref": "#/definitions/organization"
                   }
                 ]
               },
@@ -2987,7 +3033,7 @@
             "properties": {
               "author": {
                 "description": "Author(s) of the referenced work",
-                "oneOf": [
+                "anyOf": [
                   {
                     "type": "array",
                     "items": {
@@ -2995,10 +3041,16 @@
                     }
                   },
                   {
+                      "$ref": "#/definitions/person"
+                  },
+                  {
                     "type": "array",
                     "items": {
                       "$ref": "#/definitions/organization"
                     }
+                  },
+                  {
+                      "$ref": "#/definitions/organization"
                   }
                 ]
               },
@@ -3870,11 +3922,18 @@
                   "properties": {
                     "ratingCount": {
                       "description": "Total number of ratings",
-                      "type": "string"
+                      "type": "integer"
                     },
                     "ratingValue": {
                       "description": "Average rating",
-                      "type": "string"
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
                     },
                     "itemReviewed": {
                       "description": "What is being reviewed",
@@ -3892,11 +3951,18 @@
                 "properties": {
                   "ratingCount": {
                     "description": "Total number of ratings",
-                    "type": "string"
+                    "type": "integer"
                   },
                   "ratingValue": {
                     "description": "Average rating",
-                    "type": "string"
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ]
                   },
                   "itemReviewed": {
                     "description": "What is being reviewed",
@@ -4545,7 +4611,7 @@
             "properties": {
               "author": {
                 "description": "Author(s) of the publication",
-                "oneOf": [
+                "anyOf": [
                   {
                     "type": "array",
                     "items": {
@@ -4553,10 +4619,16 @@
                     }
                   },
                   {
+                      "$ref": "#/definitions/person"
+                  },
+                  {
                     "type": "array",
                     "items": {
                       "$ref": "#/definitions/organization"
                     }
+                  },
+                  {
+                      "$ref": "#/definitions/organization"
                   }
                 ]
               },
@@ -4632,7 +4704,7 @@
             "properties": {
               "author": {
                 "description": "Author(s) of the referenced work",
-                "oneOf": [
+                "anyOf": [
                   {
                     "type": "array",
                     "items": {
@@ -4640,10 +4712,16 @@
                     }
                   },
                   {
+                      "$ref": "#/definitions/person"
+                  },
+                  {
                     "type": "array",
                     "items": {
                       "$ref": "#/definitions/organization"
                     }
+                  },
+                  {
+                      "$ref": "#/definitions/organization"
                   }
                 ]
               },
@@ -4894,15 +4972,15 @@
             "properties": {
               "value": {
                 "description": "A numeric value for the property",
-                "type": "integer"
+                "type": "number"
               },
               "maxValue": {
                 "description": "An estimated maximum numberic value if the actual value is not known. Ignore if actual numeric value is known.",
-                "type": "integer"
+                "type": "number"
               },
               "minValue": {
                 "description": "An estimated minumum numeric value if the actual value is not known. Ignore if actual numeric value is known.",
-                "type": "integer"
+                "type": "number"
               },
               "unitText": {
                 "description": "A unit associated with the value. E.g.- 'records' for the number of records in a database.",
