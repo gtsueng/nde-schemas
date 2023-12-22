@@ -5580,7 +5580,7 @@
       ],
       "schema:rangeIncludes": [
         {
-          "@id": "niaid:Person"
+          "@id": "schema:Person"
         },
         {
           "@id": "niaid:Organization"
