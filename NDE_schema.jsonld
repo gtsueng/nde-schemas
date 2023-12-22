@@ -1463,38 +1463,13 @@
           },
           "topic": {
             "description": "Topic assigned to the work.",
-            "type": "object",
-            "properties": {
-              "name": {
-                "description": "topic name",
-                "type": "string"
-              },
-              "curatedBy": {
-                "description": "The person, organization, or catalog that categorized the dataset",
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/person"
-                  },
-                  {
-                    "$ref": "#/definitions/organization"
-                  },
-                  {
-                    "$ref": "#/definitions/catalog"
-                  }
-                ]
-              },
-              "url": {
-                "description": "URL linking to the topic",
-                "type": "string",
-                "format": "uri"
-              },
-              "description": {
-                "description": "description of the topic",
-                "type": "string"
-              }
+            "@type": "DefinedTerm",
+            "type": "string",
+            "vocabulary": {
+              "ontology": ["edam"],
+              "children_of": ["http://edamontology.org/topic_0003"]
             },
-            "required": ["name", "url"],
-            "recommended": ["description", "curatedBy"]
+            "strict": true
           },
           "catalog": {
             "@type": "DataCatalog",
@@ -3110,38 +3085,13 @@
           },
           "topic": {
             "description": "Topic assigned to the work.",
-            "type": "object",
-            "properties": {
-              "name": {
-                "description": "topic name",
-                "type": "string"
-              },
-              "curatedBy": {
-                "description": "The person, organization, or catalog that categorized the computational tool",
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/person"
-                  },
-                  {
-                    "$ref": "#/definitions/organization"
-                  },
-                  {
-                    "$ref": "#/definitions/catalog"
-                  }
-                ]
-              },
-              "url": {
-                "description": "URL linking to the topic",
-                "type": "string",
-                "format": "uri"
-              },
-              "description": {
-                "description": "description of the topic",
-                "type": "string"
-              }
+            "@type": "DefinedTerm",
+            "type": "string",
+            "vocabulary": {
+              "ontology": ["edam"],
+              "children_of": ["http://edamontology.org/topic_0003"]
             },
-            "required": ["name", "url"],
-            "recommended": ["description", "curatedBy"]
+            "strict": true
           },
           "organization": {
             "@type": "Organization",
@@ -4745,38 +4695,13 @@
           },
           "topic": {
             "description": "Topic assigned to the work.",
-            "type": "object",
-            "properties": {
-              "name": {
-                "description": "topic name",
-                "type": "string"
-              },
-              "curatedBy": {
-                "description": "The person, organization, or catalog that categorized the resource catalog",
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/person"
-                  },
-                  {
-                    "$ref": "#/definitions/organization"
-                  },
-                  {
-                    "$ref": "#/definitions/catalog"
-                  }
-                ]
-              },
-              "url": {
-                "description": "URL linking to the topic",
-                "type": "string",
-                "format": "uri"
-              },
-              "description": {
-                "description": "description of the topic",
-                "type": "string"
-              }
+            "@type": "DefinedTerm",
+            "type": "string",
+            "vocabulary": {
+              "ontology": ["edam"],
+              "children_of": ["http://edamontology.org/topic_0003"]
             },
-            "required": ["name", "url"],
-            "recommended": ["description", "curatedBy"]
+            "strict": true
           },
           "catalog": {
             "@type": "DataCatalog",
@@ -4958,6 +4883,234 @@
               "children_of": ["http://purl.obolibrary.org/obo/NCIT_C16048"]
             },
             "strict": false
+          }
+        }
+      }
+    },
+    {
+      "@id": "nde:DefinedTerm",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "ResourceCatalogs (collections of scientific information or research outputs) contained in the NIAID Data Ecosystem. Resource catalogs include databases, repositories, knowledge bases, citation indices, software indices, browser-based data portals (web portals), etc. The NIAID Data Ecosystem is an environment to find and access and infectious and immune-mediated disease data, resources and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
+      "rdfs:label": "DefinedTerm",
+      "rdfs:subClassOf": {
+        "@id": "schema:DefinedTerm"
+      },
+      "$validation": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The name of the item.",
+            "owl:cardinality": "one",
+            "type": "string"
+          },
+          "identifier": {
+            "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",
+            "owl:cardinality": "one",
+            "type": "string"           
+          },
+          "url": {
+            "description": "URL of the item.",
+            "owl:cardinality": "one",
+            "type": "string",
+            "format": "uri"
+          },
+          "curatedBy": {
+            "description": "The person, organization, or catalog that curated this DefinedTerm for the metadata property",
+            "anyOf": [
+              {
+                "$ref": "#/definitions/person"
+              },
+              {
+                "$ref": "#/definitions/organization"
+              },
+              {
+                "$ref": "#/definitions/catalog"
+              }
+            ]
+          },
+          "termCode": {
+            "description": "A code that identifies this DefinedTerm within a DefinedTermSet.",
+            "type": "string"
+          },
+          "description": {
+            "description": "A description of the item.",
+            "type": "string"
+          },
+          "inDefinedTermSet": {
+            "description": "A DefinedTermSet that contains this term.",
+            "type": "string"
+          },
+          "originalName": {
+            "description": "The original name of the item, before any metadata standardization/normalization",
+            "type": "string"
+          },
+          "isCurated": {
+            "description": "A boolean indicator describing whether or not this DefinedTerm was curated as the value of a property.",
+            "type": "boolean"
+          }
+        },
+        "required": [],
+        "recommended": [
+          "description",
+          "curatedBy",
+          "isCurated"
+        ],
+        "optional": [
+          "termCode",
+          "inDefinedTermSet",
+          "originalName"
+        ],
+        "anyOf": [
+            {"required":["name"]},
+            {"required":["identifier"]},
+            {"required":["url"]}
+        ],
+        "definitions": {
+          "catalog": {
+            "@type": "DataCatalog",
+            "description": "Data, resource or tool catalog",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Data, resource or tool catalog name",
+                "type": "string"
+              },
+              "url": {
+                "description": "Link to data, resource or tool catalog",
+                "type": "string",
+                "format": "uri"
+              },
+              "versionDate": {
+                "description": "date the metadata was harvested from the catalog",
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": ["name", "url"],
+            "recommended": ["versionDate"]
+          },
+          "organization": {
+            "@type": "Organization",
+            "description": "Reusable organization definition",
+            "properties": {
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Name of the affiliation, such as a university",
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "description": "Alias for the affiliation",
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "URL of the affiliation",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": ["name"],
+                "optional": ["sameAs", "url"]
+              },
+              "alternateName": {
+                "description": "Alias of the name",
+                "type": "string"
+              },
+              "name": {
+                "description": "Name of the organization",
+                "type": "string"
+              },
+              "parentOrganization": {
+                "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
+                "type": "string"
+              },
+              "email": {
+                "description": "Email address of the organization",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "Unique identifier of the organization",
+                "type": "string"
+              },
+              "role": {
+                "description": "What role the organization played in creating the dataset",
+                "type": "string"
+              },
+              "url": {
+                "description": "Link to the organization",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": ["name"],
+            "recommended": ["identifier"],
+            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "title", "url"],
+            "type": "object"
+          },
+          "person": {
+            "@type": "Person",
+            "description": "Reusable person definition",
+            "properties": {
+              "affiliation": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Name of the affiliation, such as a university",
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "description": "Alias for the affiliation",
+                    "type": "string"
+                  },
+                  "url": {
+                    "description": "URL of the affiliation",
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": ["name"],
+                "optional": ["sameAs", "url"]
+              },
+              "name": {
+                "description": "Name of the person",
+                "type": "string"
+              },
+              "email": {
+                "description": "Email address of the person",
+                "type": "string"
+              },
+              "familyName": {
+                "description": "Family name (surname) of the person",
+                "type": "string"
+              },
+              "givenName": {
+                "description": "Given (first) name of the person",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "Unique identifier of the person, like an ORCID ID",
+                "type": "string"
+              },
+              "role": {
+                "description": "Role the person played in creating the resource catalog",
+                "type": "string"
+              },
+              "title": {
+                "description": "Title of the person",
+                "type": "string"
+              },
+              "url": {
+                "description": "Link to the homepage or other web content describing the person",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": ["name"],
+            "recommended": ["familyName", "givenName ", "identifier "],
+            "optional": ["affiliation", "email", "role", "title", "url"],
+            "type": "object"
           }
         }
       }
@@ -5212,7 +5365,7 @@
           "@id": "schema:Text"
         },
         {
-          "@id": "schema:DefinedTerm"
+          "@id": "nde:DefinedTerm"
         }
       ]
     },
@@ -5231,7 +5384,7 @@
           "@id": "schema:Text"
         },
         {
-          "@id": "schema:DefinedTerm"
+          "@id": "nde:DefinedTerm"
         }
       ]
     },
@@ -5272,7 +5425,7 @@
         "@id": "schema:Text"
         },
         {
-        "@id": "schema:DefinedTerm"
+        "@id": "nde:DefinedTerm"
         }
       ]
     },
@@ -5297,7 +5450,7 @@
         "@id": "schema:Text"
       },
       {
-        "@id": "schema:DefinedTerm"
+        "@id": "nde:DefinedTerm"
       }]
     },
     {
@@ -5361,7 +5514,7 @@
         "@id": "schema:Text"
         },
         {
-        "@id": "schema:DefinedTerm"
+        "@id": "nde:DefinedTerm"
         }
       ]
     },
@@ -5386,7 +5539,7 @@
         "@id": "schema:Text"
         },
         {
-        "@id": "schema:DefinedTerm"
+        "@id": "nde:DefinedTerm"
         }
       ]
     },
@@ -5411,9 +5564,66 @@
         "@id": "schema:Text"
         },
         {
-        "@id": "schema:DefinedTerm"
+        "@id": "nde:DefinedTerm"
         }
       ]
-    }    
+    },
+    {
+      "@id": "nde:curatedBy",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The curator who generated the metadata annotation.",
+      "rdfs:label": "curatedBy",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:DefinedTerm"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "niaid:Person"
+        },
+        {
+          "@id": "niaid:Organization"
+        },
+        {
+          "@id": "schema:DataCatalog"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        }
+      ]
+    },
+    {
+      "@id": "nde:originalName",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The original name or term that was provided in the metadata.",
+      "rdfs:label": "originalName",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:DefinedTerm"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Text"
+        }
+      ]
+    },
+    {
+      "@id": "nde:isCurated",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A boolean indicating whether or not a Defined Term was curated by an annotator (true) or programmatically generated (false).",
+      "rdfs:label": "isCurated",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:DefinedTerm"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Boolean"
+        }
+      ]
+    }
   ]
 }
