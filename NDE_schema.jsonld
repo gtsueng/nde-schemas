@@ -145,7 +145,7 @@
           "topicCategory": {
             "description": "Topic of the work. This topic may be assigned by a human curator or through automated algorithms.",
             "abstract": "topic",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -154,6 +154,15 @@
               },
               {
                 "$ref": "#/definitions/topic"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -161,9 +170,8 @@
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the work (like SARS-CoV-2).",
             "abstract": "infectious agent / pathogen",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -174,7 +182,6 @@
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -184,6 +191,15 @@
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -191,55 +207,42 @@
           "healthCondition": {
             "description": "The health condition(s) /infectious disease(s) which are the focus of the work (like COVID-19, coronavirus).",
             "abstract": "health condition/disease",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
-                  "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                  "ontology": ["mondo"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "The health condition(s) /infectious disease(s) which are the focus of the work (ex: COVID-19)"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001",
+                                  "http://purl.obolibrary.org/obo/DOID_4",
+                                  "http://purl.obolibrary.org/obo/HP_0000001",
+                                  "http://purl.obolibrary.org/obo/NCIT_C7057"],
+                  "ontology": ["mondo","hpo","doid","ncit"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
-                    "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                    "ontology": ["mondo"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The health condition(s) /infectious disease(s) which are the focus of the work (ex: COVID-19)"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001",
+                                    "http://purl.obolibrary.org/obo/DOID_4",
+                                    "http://purl.obolibrary.org/obo/HP_0000001",
+                                    "http://purl.obolibrary.org/obo/NCIT_C7057"],
+                    "ontology": ["mondo","hpo","doid","ncit"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -391,55 +394,36 @@
           "species": {
             "description": "Species / host organism from which the dataset has been collected.",
             "abstract": "species/host organism",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                  "ontology": ["ncbitaxon"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Species / host organism from which the dataset has been collected."
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "ontology": ["ncbitaxon"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                    "ontology": ["ncbitaxon"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Species / host organism from which the dataset has been collected."
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "ontology": ["ncbitaxon"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -515,55 +499,42 @@
           "measurementTechnique": {
             "description": "A technique or technology used in a  dataset corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured). For example, if variableMeasured is molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".",
             "abstract": "measurement technique used to collect the dataset",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
-                  "children_of": ["http://edamontology.org/topic_3361", "http://purl.obolibrary.org/obo/NCIT_C20368"],
-                  "ontology": ["edam", "ncit"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Technique used to collect the dataset"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "children_of": ["http://edamontology.org/topic_3361", 
+                                  "http://purl.obolibrary.org/obo/NCIT_C20368",
+                                  "http://purl.obolibrary.org/obo/MMO_0000000",
+                                  "http://www.ebi.ac.uk/efo/EFO_0000001"],
+                  "ontology": ["edam", "ncit", "mmo","efo"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
-                    "children_of": ["http://edamontology.org/topic_3361", "http://purl.obolibrary.org/obo/NCIT_C20368"],
-                    "ontology": ["edam", "ncit"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Technique used to collect the dataset"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "children_of": ["http://edamontology.org/topic_3361", 
+                                    "http://purl.obolibrary.org/obo/NCIT_C20368",
+                                    "http://purl.obolibrary.org/obo/MMO_0000000",
+                                    "http://www.ebi.ac.uk/efo/EFO_0000001"],
+                    "ontology": ["edam", "ncit", "mmo","efo"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -572,53 +543,38 @@
             "description": "Variables measured within the dataset.",
             "oneOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
-                  "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
-                  "ontology": ["efo", "cmo"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "The variables measured in the dataset"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
+                                  "http://purl.obolibrary.org/obo/CMO_0000000",
+                                  "http://purl.obolibrary.org/obo/NCIT_C25209"],
+                  "ontology": ["efo", "cmo","ncit"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
-                    "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
-                    "ontology": ["efo", "cmo"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The variables measured in the dataset"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
+                                    "http://purl.obolibrary.org/obo/CMO_0000000",
+                                    "http://purl.obolibrary.org/obo/NCIT_C25209"],
+                    "ontology": ["efo", "cmo","ncit"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -1463,7 +1419,6 @@
           },
           "topic": {
             "description": "Topic assigned to the work.",
-            "@type": "DefinedTerm",
             "type": "string",
             "vocabulary": {
               "ontology": ["edam"],
@@ -1615,6 +1570,63 @@
             "recommended": ["familyName", "givenName ", "identifier "],
             "optional": ["affiliation", "email", "role", "title", "url"],
             "type": "object"
+          },
+          "definedterm": {
+            "@type": "DefinedTerm",
+            "type": "object",
+            "property": {
+              "name": {
+                "description": "The name of the item.",
+                "owl:cardinality": "one",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",
+                "owl:cardinality": "one",
+                "type": "string"           
+              },
+              "url": {
+                "description": "URL of the item.",
+                "owl:cardinality": "one",
+                "type": "string",
+                "format": "uri"
+              },
+              "curatedBy": {
+                "description": "The person, organization, or catalog that curated this DefinedTerm for the metadata property",
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/person"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  },
+                  {
+                    "$ref": "#/definitions/catalog"
+                  }
+                ]
+              },
+              "termCode": {
+                "description": "A code that identifies this DefinedTerm within a DefinedTermSet.",
+                "type": "string"
+              },
+              "description": {
+                "description": "A description of the item.",
+                "type": "string"
+              },
+              "inDefinedTermSet": {
+                "description": "A DefinedTermSet that contains this term.",
+                "type": "string"
+              },
+              "originalName": {
+                "description": "The original name of the item, before any metadata standardization/normalization",
+                "type": "string"
+              },
+              "isCurated": {
+                "description": "A boolean indicator describing whether or not this DefinedTerm was curated as the value of a property.",
+                "type": "boolean"
+              }
+            },
+            "required": []  
           }
         }
       }
@@ -1750,8 +1762,7 @@
           "topicCategory": {
             "description": "Topic of the work. This topic may be assigned by a human curator or through automated algorithms.",
             "abstract": "topic",
-            "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -1760,61 +1771,52 @@
               },
               {
                 "$ref": "#/definitions/topic"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
-            ]
+            ],
+            "owl:cardinality": "many"
           },
           "infectiousAgent": {
             "description": "Infectious agent(s) / pathogen(s) which are the focus of the work (like SARS-CoV-2).",
             "abstract": "infectious agent / pathogen",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_10239", "http://purl.obolibrary.org/obo/NCBITaxon_2"],
-                  "ontology": ["ncbitaxon"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "infectious agent / pathogen"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "ontology": ["ncbitaxon"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_10239", "http://purl.obolibrary.org/obo/NCBITaxon_2"],
-                    "ontology": ["ncbitaxon"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "infectious agent / pathogen"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "ontology": ["ncbitaxon"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -1822,29 +1824,42 @@
           "healthCondition": {
             "description": "The health condition(s) /infectious disease(s) which are the focus of the work (like COVID-19, coronavirus).",
             "abstract": "health condition/disease",
-            "oneOf": [
+            "anyOf": [
+              {
+                "description": "collection of vocabulary terms defined in ontologies",
+                "strict": false,
+                "type": "string",
+                "vocabulary": {
+                  "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001",
+                                  "http://purl.obolibrary.org/obo/DOID_4",
+                                  "http://purl.obolibrary.org/obo/HP_0000001",
+                                  "http://purl.obolibrary.org/obo/NCIT_C7057"],
+                  "ontology": ["mondo","hpo","doid","ncit"]
+                }
+              },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
-                    "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                    "ontology": ["mondo"]
+                    "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001",
+                                    "http://purl.obolibrary.org/obo/DOID_4",
+                                    "http://purl.obolibrary.org/obo/HP_0000001",
+                                    "http://purl.obolibrary.org/obo/NCIT_C7057"],
+                    "ontology": ["mondo","hpo","doid","ncit"]
                   }
                 },
                 "type": "array"
               },
               {
-                "@type": "DefinedTerm",
-                "description": "collection of vocabulary terms defined in ontologies",
-                "strict": false,
-                "type": "string",
-                "vocabulary": {
-                  "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                  "ontology": ["mondo"]
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
                 }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -1994,57 +2009,38 @@
             "owl:cardinality": "many"
           },
           "species": {
-            "description": "Species / host organism from which the computational tool was designed or applied.",
+            "description": "Species / host organism from which the dataset has been collected.",
             "abstract": "species/host organism",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                  "ontology": ["ncbitaxon"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Species / host organism from which the dataset has been collected."
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "ontology": ["ncbitaxon"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                    "ontology": ["ncbitaxon"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Species / host organism from which the dataset has been collected."
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "ontology": ["ncbitaxon"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -3085,7 +3081,6 @@
           },
           "topic": {
             "description": "Topic assigned to the work.",
-            "@type": "DefinedTerm",
             "type": "string",
             "vocabulary": {
               "ontology": ["edam"],
@@ -3214,6 +3209,63 @@
             "recommended": ["familyName", "givenName ", "identifier "],
             "optional": ["affiliation", "email", "role", "title", "url"],
             "type": "object"
+          },
+          "definedterm": {
+            "@type": "DefinedTerm",
+            "type": "object",
+            "property": {
+              "name": {
+                "description": "The name of the item.",
+                "owl:cardinality": "one",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",
+                "owl:cardinality": "one",
+                "type": "string"           
+              },
+              "url": {
+                "description": "URL of the item.",
+                "owl:cardinality": "one",
+                "type": "string",
+                "format": "uri"
+              },
+              "curatedBy": {
+                "description": "The person, organization, or catalog that curated this DefinedTerm for the metadata property",
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/person"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  },
+                  {
+                    "$ref": "#/definitions/catalog"
+                  }
+                ]
+              },
+              "termCode": {
+                "description": "A code that identifies this DefinedTerm within a DefinedTermSet.",
+                "type": "string"
+              },
+              "description": {
+                "description": "A description of the item.",
+                "type": "string"
+              },
+              "inDefinedTermSet": {
+                "description": "A DefinedTermSet that contains this term.",
+                "type": "string"
+              },
+              "originalName": {
+                "description": "The original name of the item, before any metadata standardization/normalization",
+                "type": "string"
+              },
+              "isCurated": {
+                "description": "A boolean indicator describing whether or not this DefinedTerm was curated as the value of a property.",
+                "type": "boolean"
+              }
+            },
+            "required": []  
           }
         }
       }
@@ -3349,7 +3401,7 @@
           "topicCategory": {
             "description": "Topic of the work. This topic may be assigned by a human curator or through automated algorithms.",
             "abstract": "topic",
-            "oneOf": [
+            "anyOf": [
               {
                 "type": "array",
                 "items": {
@@ -3358,16 +3410,24 @@
               },
               {
                 "$ref": "#/definitions/topic"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
           },
           "infectiousAgent": {
-            "description": "Infectious agent(s) / pathogen(s) which are the focus of the resource catalog (like SARS-CoV-2), whenever applicable",
+            "description": "Infectious agent(s) / pathogen(s) which are the focus of the work (like SARS-CoV-2).",
             "abstract": "infectious agent / pathogen",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
@@ -3378,7 +3438,6 @@
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
@@ -3388,62 +3447,58 @@
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
           },
           "healthCondition": {
-            "description": "The health condition(s) /infectious disease(s) which are the focus of the resource catalog (like COVID-19, coronavirus), whenever applicable",
+            "description": "The health condition(s) /infectious disease(s) which are the focus of the work (like COVID-19, coronavirus).",
             "abstract": "health condition/disease",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
-                  "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                  "ontology": ["mondo"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "The health condition(s) /infectious disease(s) which are the focus of the work (ex: COVID-19)"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001",
+                                  "http://purl.obolibrary.org/obo/DOID_4",
+                                  "http://purl.obolibrary.org/obo/HP_0000001",
+                                  "http://purl.obolibrary.org/obo/NCIT_C7057"],
+                  "ontology": ["mondo","hpo","doid","ncit"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
-                    "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001"],
-                    "ontology": ["mondo"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The health condition(s) /infectious disease(s) which are the focus of the work (ex: COVID-19)"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "children_of": ["http://purl.obolibrary.org/obo/MONDO_0000001",
+                                    "http://purl.obolibrary.org/obo/DOID_4",
+                                    "http://purl.obolibrary.org/obo/HP_0000001",
+                                    "http://purl.obolibrary.org/obo/NCIT_C7057"],
+                    "ontology": ["mondo","hpo","doid","ncit"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -3593,57 +3648,38 @@
             "owl:cardinality": "many"
           },
           "species": {
-            "description": "Species / host organism which is the focus of the resource catalog (whenever applicable).",
+            "description": "Species / host organism from which the dataset has been collected.",
             "abstract": "species/host organism",
-            "oneOf": [
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
                   "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                  "ontology": ["ncbitaxon"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Species / host organism from which the dataset has been collected."
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "ontology": ["ncbitaxon"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
                     "children_of": ["http://purl.obolibrary.org/obo/NCBITaxon_131567", "http://purl.obolibrary.org/obo/NCBITaxon_10239"],
-                    "ontology": ["ncbitaxon"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Species / host organism from which the dataset has been collected."
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "ontology": ["ncbitaxon"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -3717,112 +3753,84 @@
             "owl:cardinality": "one"
           },
           "measurementTechnique": {
-            "description": "A technique or technology used to generate the data or information in the resource catalog corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured). For example, if the resource catalog provides raw sequence reads (the variableMeasured), the measurementTechnique could be: \"biopolymer sequencing\" or \"protein sequencing\" or \"whole genome sequencing\" etc. If a resource allows data or information collected through any means or methods, use the term, \"any\".",
-            "abstract": "measurement technique used to collect the content of the resource catalog, if applicable. If not applicable, use \"any\".",
-            "oneOf": [
+            "description": "A technique or technology used in a  dataset corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured). For example, if variableMeasured is molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\".",
+            "abstract": "measurement technique used to collect the dataset",
+            "anyOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
-                  "children_of": ["http://edamontology.org/topic_3361", "http://purl.obolibrary.org/obo/NCIT_C20368"],
-                  "ontology": ["edam", "ncit"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "The name of the measurement technique used"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "children_of": ["http://edamontology.org/topic_3361", 
+                                  "http://purl.obolibrary.org/obo/NCIT_C20368",
+                                  "http://purl.obolibrary.org/obo/MMO_0000000",
+                                  "http://www.ebi.ac.uk/efo/EFO_0000001"],
+                  "ontology": ["edam", "ncit", "mmo","efo"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
-                    "children_of": ["http://edamontology.org/topic_3361", "http://purl.obolibrary.org/obo/NCIT_C20368"],
-                    "ontology": ["edam", "ncit"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the measurement technique used"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "children_of": ["http://edamontology.org/topic_3361", 
+                                    "http://purl.obolibrary.org/obo/NCIT_C20368",
+                                    "http://purl.obolibrary.org/obo/MMO_0000000",
+                                    "http://www.ebi.ac.uk/efo/EFO_0000001"],
+                    "ontology": ["edam", "ncit", "mmo","efo"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
           },
           "variableMeasured": {
-            "description": "Variables measured within the resource catalog.",
+            "description": "Variables measured within the dataset.",
             "oneOf": [
               {
-                "@type": "DefinedTerm",
                 "description": "collection of vocabulary terms defined in ontologies",
                 "strict": false,
                 "type": "string",
                 "vocabulary": {
-                  "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
-                  "ontology": ["efo", "cmo"],
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "The variables measured in the resource catalog"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
-                    }
-                  }
+                  "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
+                                  "http://purl.obolibrary.org/obo/CMO_0000000",
+                                  "http://purl.obolibrary.org/obo/NCIT_C25209"],
+                  "ontology": ["efo", "cmo","ncit"]
                 }
               },
               {
                 "items": {
-                  "@type": "DefinedTerm",
                   "description": "collection of vocabulary terms defined in ontologies",
                   "strict": false,
                   "type": "string",
                   "vocabulary": {
-                    "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", "http://purl.obolibrary.org/obo/CMO_0000000"],
-                    "ontology": ["efo", "cmo"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The variables measured in the resource catalog"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
-                    }
+                    "children_of": ["http://www.ebi.ac.uk/efo/EFO_0000001", 
+                                    "http://purl.obolibrary.org/obo/CMO_0000000",
+                                    "http://purl.obolibrary.org/obo/NCIT_C25209"],
+                    "ontology": ["efo", "cmo","ncit"]
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -3979,6 +3987,19 @@
             "description": "Date the work was first published",
             "format": "date",
             "type": "string",
+            "owl:cardinality": "one"
+          },
+          "hasAPI": {
+            "description": "The resource has an API through which important content may be accessed.",
+            "abstract": "API availability",
+            "type": "boolean",
+            "owl:cardinality": "one"
+          },
+          "hasDownload": {
+            "description": "The resource provides downloads of its contents. Options: All content (e.g. entire data builds, tools, etc.), Partial content (just data, or just tools, etc.), Record-level (individual records, or selections of records), no downloads (information is viewable but easily downloaded, users must resort to copy/paste, screenshots, etc.)",
+            "abstract": "Download availability",
+            "type": "string",
+            "enum": ["All content", "Partial content", "Record-level", "no downloads"],
             "owl:cardinality": "one"
           },
           "hasPart": {
@@ -4509,7 +4530,7 @@
           }
         },
         "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType"],
-        "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize"],
+        "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize", "hasAPI", "hasDownload"],
         "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship"],
         "definitions": {
           "citation": {
@@ -4695,7 +4716,6 @@
           },
           "topic": {
             "description": "Topic assigned to the work.",
-            "@type": "DefinedTerm",
             "type": "string",
             "vocabulary": {
               "ontology": ["edam"],
@@ -4883,6 +4903,63 @@
               "children_of": ["http://purl.obolibrary.org/obo/NCIT_C16048"]
             },
             "strict": false
+          },
+          "definedterm": {
+            "@type": "DefinedTerm",
+            "type": "object",
+            "property": {
+              "name": {
+                "description": "The name of the item.",
+                "owl:cardinality": "one",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.",
+                "owl:cardinality": "one",
+                "type": "string"           
+              },
+              "url": {
+                "description": "URL of the item.",
+                "owl:cardinality": "one",
+                "type": "string",
+                "format": "uri"
+              },
+              "curatedBy": {
+                "description": "The person, organization, or catalog that curated this DefinedTerm for the metadata property",
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/person"
+                  },
+                  {
+                    "$ref": "#/definitions/organization"
+                  },
+                  {
+                    "$ref": "#/definitions/catalog"
+                  }
+                ]
+              },
+              "termCode": {
+                "description": "A code that identifies this DefinedTerm within a DefinedTermSet.",
+                "type": "string"
+              },
+              "description": {
+                "description": "A description of the item.",
+                "type": "string"
+              },
+              "inDefinedTermSet": {
+                "description": "A DefinedTermSet that contains this term.",
+                "type": "string"
+              },
+              "originalName": {
+                "description": "The original name of the item, before any metadata standardization/normalization",
+                "type": "string"
+              },
+              "isCurated": {
+                "description": "A boolean indicator describing whether or not this DefinedTerm was curated as the value of a property.",
+                "type": "boolean"
+              }
+            },
+            "required": []  
           }
         }
       }
@@ -5401,6 +5478,41 @@
       "schema:rangeIncludes": [
         {
           "@id": "schema:PropertyValue"
+        }
+      ]
+    },
+    {
+      "@id": "nde:hasDownload",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The resource/resource catalog provides download access to its content. Options: All content (e.g. entire data builds, tools, etc.), Partial content (just data, or just tools, etc.), Record-level (individual records, or selections of records), no downloads (information is viewable but easily downloaded, users must resort to copy/paste, screenshots, etc.)",
+      "rdfs:label": "collectionType",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:ResourceCatalog"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Text"
+        },
+        {
+          "@id": "schema:Enumeration"
+        }
+      ]
+    },
+    {
+      "@id": "nde:hasAPI",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The resource/resource catalog provides API access to its content.",
+      "rdfs:label": "collectionType",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:ResourceCatalog"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Boolean"
         }
       ]
     },
