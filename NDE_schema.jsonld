@@ -1574,7 +1574,7 @@
           "definedterm": {
             "@type": "DefinedTerm",
             "type": "object",
-            "property": {
+            "properties": {
               "name": {
                 "description": "The name of the item.",
                 "owl:cardinality": "one",
@@ -3213,7 +3213,7 @@
           "definedterm": {
             "@type": "DefinedTerm",
             "type": "object",
-            "property": {
+            "properties": {
               "name": {
                 "description": "The name of the item.",
                 "owl:cardinality": "one",
@@ -4907,7 +4907,7 @@
           "definedterm": {
             "@type": "DefinedTerm",
             "type": "object",
-            "property": {
+            "properties": {
               "name": {
                 "description": "The name of the item.",
                 "owl:cardinality": "one",
