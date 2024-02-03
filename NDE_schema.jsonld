@@ -5485,7 +5485,7 @@
       "@id": "nde:hasDownload",
       "@type": "rdf:Property",
       "rdfs:comment": "The resource/resource catalog provides download access to its content. Options: All content (e.g. entire data builds, tools, etc.), Partial content (just data, or just tools, etc.), Record-level (individual records, or selections of records), no downloads (information is viewable but easily downloaded, users must resort to copy/paste, screenshots, etc.)",
-      "rdfs:label": "collectionType",
+      "rdfs:label": "hasDownload",
       "schema:domainIncludes": [
         {
           "@id": "nde:ResourceCatalog"
@@ -5504,7 +5504,7 @@
       "@id": "nde:hasAPI",
       "@type": "rdf:Property",
       "rdfs:comment": "The resource/resource catalog provides API access to its content.",
-      "rdfs:label": "collectionType",
+      "rdfs:label": "hasAPI",
       "schema:domainIncludes": [
         {
           "@id": "nde:ResourceCatalog"
