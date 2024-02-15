@@ -12,6 +12,7 @@
       "@id": "nde:Dataset",
       "@type": "rdfs:Class",
       "rdfs:comment": "Datasets contained in the NIAID Data Ecosystem. A dataset is a collection of data of a particular experimental type. The NIAID Data Ecosystem is an environment to find and access and infectious and immune-mediated disease data and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
+      "abstract": "Datasets contained in the NIAID Data Ecosystem. A dataset is a collection of data of a particular experimental type.",
       "rdfs:label": "Dataset",
       "rdfs:subClassOf": {
         "@id": "niaid:Dataset"
@@ -3274,6 +3275,7 @@
       "@id": "nde:ResourceCatalog",
       "@type": "rdfs:Class",
       "rdfs:comment": "ResourceCatalogs (collections of scientific information or research outputs) contained in the NIAID Data Ecosystem. Resource catalogs include databases, repositories, knowledge bases, citation indices, software indices, browser-based data portals (web portals), etc. The NIAID Data Ecosystem is an environment to find and access and infectious and immune-mediated disease data, resources and computational tools to speed the development of diagnostics, therapeutics, and vaccines. The NIAID Data Ecosystem Discovery Portal harvests metadata from dataset repository and harmonizes them to this schema to enable easy cross-platform dataset searching and filtering.",
+      "abstract": "ResourceCatalogs (collections of scientific information or research outputs) contained in the NIAID Data Ecosystem. Resource catalogs include databases, repositories, knowledge bases, citation indices, software indices, browser-based data portals (web portals), etc.",
       "rdfs:label": "ResourceCatalog",
       "rdfs:subClassOf": {
         "@id": "schema:Collection"
