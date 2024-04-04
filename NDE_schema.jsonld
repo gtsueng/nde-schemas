@@ -637,7 +637,7 @@
             "owl:cardinality": "many"
           },
           "author": {
-            "description": "Author or creator of the work.",
+            "description": "Author or creator of the work. The default field for the author or creator of the work.",
             "anyOf": [
               {
                 "type": "array",
@@ -693,7 +693,7 @@
             "owl:cardinality": "one"
           },
           "creator": {
-            "description": "The creator/author of this work; equivalent to author",
+            "description": "The creator/author of this work; equivalent to author. Please use author by default. Use creator if author/creator in a record of this work submitted elsewhere differs from the author/creator entered into the author field.",
             "anyOf": [
               {
                 "type": "array",
@@ -717,25 +717,25 @@
             "owl:cardinality": "many"
           },
           "dateCreated": {
-            "description": "Date the work was created",
+            "description": "Date the work was created.",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
           },
           "dateModified": {
-            "description": "Date the work was modified",
+            "description": "Date the work was modified.",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
           },
           "datePublished": {
-            "description": "Date the work was first published",
+            "description": "Date the work was first published.",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
           },
           "hasPart": {
-            "description": "Associated materials for the dataset, including data dictionaries and data limitation descriptions",
+            "description": "Associated materials for the dataset, including data dictionaries and data limitation descriptions.",
             "abstract": "data limitations or dictionaries",
             "anyOf": [
               {
@@ -760,7 +760,7 @@
             "owl:cardinality": "many"
           },
           "inLanguage": {
-            "description": "The language of the content of the dataset",
+            "description": "The language of the content of the dataset.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -912,7 +912,7 @@
             "type": "string"
           },
           "sdPublisher": {
-            "description": "Original publisher of the dataset metadata (like GenBank, ImmPort, etc.)",
+            "description": "Original publisher of the dataset metadata (like GenBank, ImmPort, etc.).",
             "abstract": "original metadata source",
             "oneOf": [
               {
@@ -928,7 +928,7 @@
             "owl:cardinality": "many"
           },
           "spatialCoverage": {
-            "description": "The place(s) which are the focus of the dataset",
+            "description": "The place(s) which are the focus of the dataset.",
             "abstract": "geographic focus of the work",
             "oneOf": [
               {
@@ -1166,7 +1166,7 @@
             "owl:cardinality": "many"
           },
           "description": {
-            "description": "A description of the dataset",
+            "description": "A description of the dataset.",
             "owl:cardinality": "one",
             "type": "string"
           },
@@ -1205,7 +1205,7 @@
             "owl:cardinality": "many"
           },
           "name": {
-            "description": "Dataset name",
+            "description": "Dataset name.",
             "owl:cardinality": "one",
             "type": "string"
           },
@@ -1227,7 +1227,7 @@
             "owl:cardinality": "many"
           },
           "url": {
-            "description": "URL of the work",
+            "description": "URL of the work.",
             "type": "string",
             "format": "uri",
             "owl:cardinality": "one"
@@ -1676,7 +1676,7 @@
             "type": "string"
           },
           "doi": {
-            "description": "Digital object identifier (DOI) for the work, not any associated publications",
+            "description": "Digital object identifier (DOI) for the work, not any associated publications.",
             "abstract": "digital object identifier",
             "owl:cardinality": "one",
             "type": "string"
@@ -1687,7 +1687,7 @@
             "$ref": "#/definitions/catalog"
           },
           "isBasisFor": {
-            "description": "A computational tool which reuses the computational tool",
+            "description": "A computational tool which reuses the computational tool.",
             "owl:cardinality": "many",
             "anyOf": [
               {
@@ -2047,7 +2047,7 @@
             "owl:cardinality": "many"
           },
           "availableOnDevice": {
-            "description": "Device or platform required to run the application, such as Bioconda, Docker, or Singularity",
+            "description": "Device or platform required to run the application, such as Bioconda, Docker, or Singularity.",
             "abstract": "platform to run the application",
             "owl:cardinality": "many",
             "oneOf": [
@@ -2060,7 +2060,7 @@
             ]
           },
           "codeRepository": {
-            "description": "Link to the source code repository of the tool such as GitHub",
+            "description": "Link to the source code repository of the tool such as GitHub.",
             "abstract": "source code link",
             "oneOf": [
               {
@@ -2078,7 +2078,7 @@
             "owl:cardinality": "many"
           },
           "programmingLanguage": {
-            "description": "The main programming language(s) used to build or execute the tool",
+            "description": "The main programming language(s) used to build or execute the tool.",
             "abstract": "programming language",
             "oneOf": [
               {
@@ -2094,7 +2094,7 @@
             "owl:cardinality": "many"
           },
           "input": {
-            "description": "software input, such as a file or parameter",
+            "description": "software input, such as a file or parameter.",
             "abstract": "input file/parameter",
             "owl:cardinality": "many",
             "oneOf": [
@@ -2124,7 +2124,7 @@
             ]
           },
           "output": {
-            "description": "Output of the computational tool",
+            "description": "Output of the computational tool.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -2176,7 +2176,7 @@
             "owl:cardinality": "many"
           },
           "applicationSubCategory": {
-            "description": "Subcategory of the computational tool, like gene regulation",
+            "description": "Subcategory of the computational tool, like gene regulation.",
             "abstract": "software subcategory",
             "oneOf": [
               {
@@ -2243,7 +2243,7 @@
             ]
           },
           "downloadUrl": {
-            "description": "URL to download the computational tool",
+            "description": "URL to download the computational tool.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -2350,7 +2350,7 @@
             ]
           },
           "softwareAddOn": {
-            "description": "Additional content for a software application",
+            "description": "Additional content for a software application.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -2362,7 +2362,7 @@
             ]
           },
           "softwareHelp": {
-            "description": "URL to access software application help",
+            "description": "URL to access software application help.",
             "oneOf": [
               {
                 "@type": "CreativeWork",
@@ -2404,7 +2404,7 @@
             ]
           },
           "softwareVersion": {
-            "description": "Software version",
+            "description": "Software version.",
             "type": "string",
             "owl:cardinality": "one"
           },
@@ -2459,7 +2459,7 @@
             "owl:cardinality": "many"
           },
           "author": {
-            "description": "Author or creator of the work.",
+            "description": "Author or creator of the work. The default field for the author or creator of the work.",
             "anyOf": [
               {
                 "type": "array",
@@ -2519,7 +2519,7 @@
             ]
           },
           "contributor": {
-            "description": "A secondary contributor to the developement or maintenance of the computational tool",
+            "description": "A secondary contributor to the developement or maintenance of the computational tool.",
             "abstract": "contributor to development or maintenance",
             "oneOf": [
               {
@@ -2538,7 +2538,7 @@
             "owl:cardinality": "many"
           },
           "creator": {
-            "description": "The creator/author of this work; equivalent to author",
+            "description": "The creator/author of this work; equivalent to author. Please use author by default. Use creator if author/creator in a record of this work submitted elsewhere differs from the author/creator entered into the author field.",
             "anyOf": [
               {
                 "type": "array",
@@ -2562,19 +2562,19 @@
             "owl:cardinality": "many"
           },
           "dateCreated": {
-            "description": "Date the work was created",
+            "description": "Date the work was created.",
             "owl:cardinality": "one",
             "format": "date",
             "type": "string"
           },
           "dateModified": {
-            "description": "Date the work was modified",
+            "description": "Date the work was modified.",
             "format": "date",
             "owl:cardinality": "one",
             "type": "string"
           },
           "datePublished": {
-            "description": "Date the work was first published",
+            "description": "Date the work was first published.",
             "owl:cardinality": "one",
             "format": "date",
             "type": "string"
@@ -2587,7 +2587,7 @@
             "format": "uri"
           },
           "hasPart": {
-            "description": "An item that is part of this computational tool",
+            "description": "An item that is part of this computational tool.",
             "anyOf": [
               {
                 "type": "array",
@@ -2611,7 +2611,7 @@
             "owl:cardinality": "many"
           },
           "inLanguage": {
-            "description": "The language of the computational tool (not programming language)",
+            "description": "The language of the computational tool (not programming language).",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -2762,7 +2762,7 @@
             "type": "string"
           },
           "sdPublisher": {
-            "description": "Original publisher of the computational tool metadata (like GitHub, Dockstore, etc.)",
+            "description": "Original publisher of the computational tool metadata (like GitHub, Dockstore, etc.).",
             "abstract": "original metadata source",
             "oneOf": [
               {
@@ -2778,18 +2778,18 @@
             "owl:cardinality": "many"
           },
           "thumbnailUrl": {
-            "description": "A thumbnail image of the computational tool",
+            "description": "A thumbnail image of the computational tool.",
             "owl:cardinality": "many",
             "type": "string",
             "format": "uri"
           },
           "description": {
-            "description": "A description of the computational tool",
+            "description": "A description of the computational tool.",
             "owl:cardinality": "one",
             "type": "string"
           },
           "identifier": {
-            "description": "Identifier for the computational tool",
+            "description": "Identifier for the computational tool.",
             "owl:cardinality": "many",
             "oneOf": [
               {
@@ -2822,7 +2822,7 @@
             ]
           },
           "name": {
-            "description": "Computational tool name",
+            "description": "Computational tool name.",
             "owl:cardinality": "one",
             "type": "string"
           },
@@ -3894,7 +3894,8 @@
             "owl:cardinality": "many"
           },
           "author": {
-            "description": "Author or creator of the work.",
+            "description": "Author or creator of the work. The default field for the author or creator of the work.",
+            "abstract": "Author or creator of the work",
             "anyOf": [
               {
                 "type": "array",
@@ -3957,7 +3958,8 @@
             "owl:cardinality": "one"
           },
           "creator": {
-            "description": "The creator/author of this work; equivalent to author",
+            "description": "The creator/author of this work; equivalent to author. Please use author by default. Use creator if author/creator in a record of this work submitted elsewhere differs from the author/creator entered into the author field.",
+            "abstract": "The creator/author of this work; equivalent to author",
             "anyOf": [
               {
                 "type": "array",
@@ -3981,7 +3983,7 @@
             "owl:cardinality": "many"
           },
           "dateCreated": {
-            "description": "Date the work was created",
+            "description": "Date the work was created.",
             "format": "date",
             "type": "string",
             "owl:cardinality": "one"
@@ -4005,10 +4007,10 @@
             "owl:cardinality": "one"
           },
           "hasDownload": {
-            "description": "The resource provides downloads of its contents. Options: All content (e.g. entire data builds, tools, etc.), Partial content (just data, or just tools, etc.), Record-level (individual records, or selections of records), no downloads (information is viewable but easily downloaded, users must resort to copy/paste, screenshots, etc.)",
+            "description": "The resource provides downloads of its contents. Options: All content (e.g. entire data builds, tools, etc.), Partial content (just data, or just tools, etc.), Record-level (individual records, or selections of records), No downloads (information is viewable but not downloadable, users must resort to copy/paste, screenshots, etc.), Prohibited (downloading, copy/pasting, screenshotting the data is prohibited).",
             "abstract": "Download availability",
             "type": "string",
-            "enum": ["All content", "Partial content", "Record-level", "no downloads"],
+            "enum": ["All content", "Partial content", "Record-level", "No downloads", "Prohibited"],
             "owl:cardinality": "one"
           },
           "hasPart": {
@@ -4037,7 +4039,7 @@
             "owl:cardinality": "many"
           },
           "inLanguage": {
-            "description": "The language of the content of the resource catalog",
+            "description": "The language of the content of the resource catalog.",
             "oneOf": [
               {
                 "items": {
@@ -4189,7 +4191,7 @@
             "type": "string"
           },
           "sdPublisher": {
-            "description": "Original publisher of the resource catalog metadata (like GenBank, ImmPort, etc.)",
+            "description": "Original publisher of the resource catalog metadata (like GenBank, ImmPort, etc.).",
             "abstract": "original metadata source",
             "oneOf": [
               {
@@ -4205,7 +4207,7 @@
             "owl:cardinality": "many"
           },
           "spatialCoverage": {
-            "description": "The place(s) which are the focus of the resource catalog",
+            "description": "The place(s) which are the focus of the resource catalog.",
             "abstract": "geographic focus of the work",
             "oneOf": [
               {
@@ -4443,7 +4445,7 @@
             "owl:cardinality": "many"
           },
           "description": {
-            "description": "A description of the resource catalog",
+            "description": "A description of the resource catalog.",
             "owl:cardinality": "one",
             "type": "string"
           },
@@ -4482,7 +4484,7 @@
             "owl:cardinality": "many"
           },
           "name": {
-            "description": "Resource catalog name",
+            "description": "Resource catalog name.",
             "owl:cardinality": "one",
             "type": "string"
           },
@@ -4504,7 +4506,7 @@
             "owl:cardinality": "many"
           },
           "url": {
-            "description": "URL of the work",
+            "description": "URL of the work.",
             "type": "string",
             "format": "uri",
             "owl:cardinality": "one"
@@ -4525,7 +4527,7 @@
             "owl:cardinality": "many"             
           },
           "collectionType": {
-            "description": "The type of resource/resource catalog that best describes the work",
+            "description": "The type of resource/resource catalog that best describes the work.",
             "anyOf": [
               {
                 "type": "string",
@@ -5204,7 +5206,7 @@
     {
       "@id": "nde:citedBy",
       "@type": "rdf:Property",
-      "rdfs:comment": "Publications that cite the dataset, resource/resource catalog or computational tool",
+      "rdfs:comment": "Publications that cite the dataset, resource/resource catalog or computational tool.",
       "rdfs:label": "citedBy",
       "schema:domainIncludes": [
         {
@@ -5251,7 +5253,7 @@
     {
       "@id": "nde:doi",
       "@type": "rdf:Property",
-      "rdfs:comment": "Digital object identifier (DOI) for the dataset, resource/resource catalog or computational tool",
+      "rdfs:comment": "Digital object identifier (DOI) for the dataset, resource/resource catalog or computational tool.",
       "rdfs:label": "doi",
       "schema:domainIncludes": [
         {
@@ -5273,7 +5275,7 @@
     {
       "@id": "nde:includedInDataCatalog",
       "@type": "rdf:Property",
-      "rdfs:comment": "Repository or source which contains the dataset, resource/resource catalog or computational tool",
+      "rdfs:comment": "Repository or source which contains the dataset, resource/resource catalog or computational tool.",
       "rdfs:label": "includedInDataCatalog",
       "schema:domainIncludes": [
         {
@@ -5298,7 +5300,7 @@
     {
       "@id": "nde:isBasisFor",
       "@type": "rdf:Property",
-      "rdfs:comment": "Dataset, resource/resource catalog or computational tool which incorporate this dataset, resource/resource catalog or computational tool",
+      "rdfs:comment": "Dataset, resource/resource catalog or computational tool which incorporate this dataset, resource/resource catalog or computational tool.",
       "rdfs:label": "isBasisFor",
       "schema:domainIncludes": [
         {
@@ -5332,7 +5334,7 @@
     {
       "@id": "nde:isRelatedTo",
       "@type": "rdf:Property",
-      "rdfs:comment": "Dataset, resource/resource catalog or computational tool which are related to the given dataset, resource/resource catalog or computational tool",
+      "rdfs:comment": "Dataset, resource/resource catalog or computational tool which are related to the given dataset, resource/resource catalog or computational tool.",
       "rdfs:label": "isRelatedTo",
       "schema:domainIncludes": [
         {
@@ -5400,7 +5402,7 @@
     {
       "@id": "nde:nctid",
       "@type": "rdf:Property",
-      "rdfs:comment": "ClinicalTrials.gov identifier associated with the Dataset",
+      "rdfs:comment": "ClinicalTrials.gov identifier associated with the Dataset.",
       "rdfs:label": "nctid",
       "schema:domainIncludes": {
         "@id": "nde:Dataset"
@@ -5414,7 +5416,7 @@
     {
       "@id": "nde:relationship",
       "@type": "rdf:Property",
-      "rdfs:comment": "How an associated work is related to the dataset, resource/resource catalog",
+      "rdfs:comment": "How an associated work is related to the dataset, resource/resource catalog.",
       "rdfs:label": "relationship",
       "schema:domainIncludes": [
         {
@@ -5477,7 +5479,7 @@
     {
       "@id": "nde:collectionSize",
       "@type": "rdf:Property",
-      "rdfs:comment": "The number of records, datasets, tools, items, pages, etc. in the resource/resource catalog",
+      "rdfs:comment": "The number of records, datasets, tools, items, pages, etc. in the resource/resource catalog.",
       "rdfs:label": "collectionSize",
       "schema:domainIncludes": [
         {
@@ -5493,7 +5495,7 @@
     {
       "@id": "nde:hasDownload",
       "@type": "rdf:Property",
-      "rdfs:comment": "The resource/resource catalog provides download access to its content. Options: All content (e.g. entire data builds, tools, etc.), Partial content (just data, or just tools, etc.), Record-level (individual records, or selections of records), no downloads (information is viewable but easily downloaded, users must resort to copy/paste, screenshots, etc.)",
+      "rdfs:comment": "The resource/resource catalog provides download access to its content. Options: All content (e.g. entire data builds, tools, etc.), Partial content (just data, or just tools, etc.), Record-level (individual records, or selections of records), No downloads (information is viewable but not downloadable, users must resort to copy/paste, screenshots, etc.), Prohibited (downloading, copy/pasting, screenshotting the data is prohibited).",
       "rdfs:label": "hasDownload",
       "schema:domainIncludes": [
         {
@@ -5528,7 +5530,7 @@
     {
       "@id": "nde:infectiousAgent",
       "@type": "rdf:Property",
-      "rdfs:comment": "Infectious agent(s) / pathogen(s) which are the focus of the dataset, resource/resource catalog or computational tool (e.g. SARS-CoV-2)",
+      "rdfs:comment": "Infectious agent(s) / pathogen(s) which are the focus of the dataset, resource/resource catalog or computational tool (e.g. SARS-CoV-2).",
       "rdfs:label": "infectiousAgent",
       "schema:domainIncludes": [
         {
@@ -5553,7 +5555,7 @@
     {
       "@id": "nde:healthCondition",
       "@type": "rdf:Property",
-      "rdfs:comment": "The infectious disease(s) / health condition(s) which are the focus of the dataset, resource/resource catalog or computational tool (e.g. COVID-19, coronavirus)",
+      "rdfs:comment": "The infectious disease(s) / health condition(s) which are the focus of the dataset, resource/resource catalog or computational tool (e.g. COVID-19, coronavirus).",
       "rdfs:label": "healthCondition",
       "schema:domainIncludes": [
         {
@@ -5577,7 +5579,7 @@
     {
       "@id": "nde:funding",
       "@type": "rdf:Property",
-      "rdfs:comment": "Funding that supports (sponsors) the collection of a dataset, resource/resource catalog or computational tool through some kind of financial contribution",
+      "rdfs:comment": "Funding that supports (sponsors) the collection of a dataset, resource/resource catalog or computational tool through some kind of financial contribution.",
       "rdfs:label": "funding",
       "schema:domainIncludes": [
         {
