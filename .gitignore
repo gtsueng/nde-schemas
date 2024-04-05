@@ -1,2 +1,3 @@
-
+check_compatibility.ipynb
 .DS_Store
+**/*.ipynb_checkpoints/
