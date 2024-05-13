@@ -3947,7 +3947,7 @@
             "description": "Whether the resource is IID domain specific or generalist.",
             "abstract": "Whether the work is IID domain specific or generalist",
             "type": "string",
-            "enum": ["IID", "Generalist"],
+            "enum": ["IID", "Generalist", "Basic science", "Biomedical", "Other", "Metadata"],
             "owl:cardinality": "one"
           },
           "conditionsOfAccess": {
