@@ -1231,11 +1231,35 @@
             "type": "string",
             "format": "uri",
             "owl:cardinality": "one"
+          },
+          "sourceOrganization": {
+            "description": "The organization, research project, working group, or funded program on whose behalf the author/creator was working.",
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/researchproject"
+                }
+              },
+              {
+                  "$ref": "#/definitions/researchproject"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
+              },
+              {
+                  "$ref": "#/definitions/organization"
+              }
+            ],
+            "owl:cardinality": "many"
           }
         },
         "required": ["date", "funding", "distribution", "includedInDataCatalog", "measurementTechnique", "author", "description", "name", "url"],
         "recommended": ["citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory"],
-        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "nctid", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship"],
+        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "nctid", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship","sourceOrganization"],
         "definitions": {
           "citation": {
             "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
@@ -1476,7 +1500,17 @@
               },
               "alternateName": {
                 "description": "Alias of the name",
-                "type": "string"
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               },
               "name": {
                 "description": "Name of the organization",
@@ -1506,7 +1540,52 @@
             },
             "required": ["name"],
             "recommended": ["identifier"],
-            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "title", "url"],
+            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "url"],
+            "type": "object"
+          },
+          "researchproject": {
+            "@type": "ResearchProject",
+            "description": "a type of organization definition",
+            "properties": {
+              "alternateName": {
+                "description": "Alias of the name",
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "name": {
+                "description": "Name of the organization",
+                "type": "string"
+              },
+              "parentOrganization": {
+                "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
+                "type": "string"
+              },
+              "email": {
+                "description": "Email address of the organization",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "Unique identifier of the organization",
+                "type": "string"
+              },
+              "url": {
+                "description": "Link to the organization",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": ["name"],
+            "recommended": ["identifier", "url", "parentOrganization"],
+            "optional": ["alternateName", "email", "role"],
             "type": "object"
           },
           "person": {
@@ -1603,6 +1682,12 @@
                   },
                   {
                     "$ref": "#/definitions/catalog"
+                  },
+                  {
+                    "$ref": "#/definitions/researchproject"
+                  },
+                  {
+                    "$ref": "#/definitions/softwareapplication"
                   }
                 ]
               },
@@ -1628,6 +1713,19 @@
               }
             },
             "required": []  
+          },
+          "softwareapplication": {
+            "@type": "SoftwareApplication",
+            "description": "Reusable software or algorithm definition",
+            "properties": {
+              "name": "name of the software, computational tool, or algorithm.",
+              "dateModified": "date the software, computational tool, or algorithm was run",
+              "url": "url of the software, computational tool, or algorithm"
+            },
+            "required": ["name"],
+            "recommended": ["url"],
+            "optional": ["dateModified"],
+            "type": "object"
           }
         }
       }
@@ -2848,6 +2946,30 @@
             "format": "uri",
             "owl:cardinality": "one",
             "type": "string"
+          },
+          "sourceOrganization": {
+            "description": "The organization, research project, working group, or funded program on whose behalf the author/creator was working.",
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/researchproject"
+                }
+              },
+              {
+                  "$ref": "#/definitions/researchproject"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
+              },
+              {
+                  "$ref": "#/definitions/organization"
+              }
+            ],
+            "owl:cardinality": "many"
           }
         },
         "required": ["date", "includedInDataCatalog", "funding", "author", "description", "name"],
@@ -3115,7 +3237,17 @@
               },
               "alternateName": {
                 "description": "Alias of the name",
-                "type": "string"
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               },
               "name": {
                 "description": "Name of the organization",
@@ -3134,7 +3266,7 @@
                 "type": "string"
               },
               "role": {
-                "description": "What role the organization played in creating the computational tool",
+                "description": "What role the organization played in creating the dataset",
                 "type": "string"
               },
               "url": {
@@ -3145,7 +3277,52 @@
             },
             "required": ["name"],
             "recommended": ["identifier"],
-            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "title", "url"],
+            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "url"],
+            "type": "object"
+          },
+          "researchproject": {
+            "@type": "ResearchProject",
+            "description": "a type of organization definition",
+            "properties": {
+              "alternateName": {
+                "description": "Alias of the name",
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "name": {
+                "description": "Name of the organization",
+                "type": "string"
+              },
+              "parentOrganization": {
+                "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
+                "type": "string"
+              },
+              "email": {
+                "description": "Email address of the organization",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "Unique identifier of the organization",
+                "type": "string"
+              },
+              "url": {
+                "description": "Link to the organization",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": ["name"],
+            "recommended": ["identifier", "url", "parentOrganization"],
+            "optional": ["alternateName", "email", "role"],
             "type": "object"
           },
           "person": {
@@ -3242,6 +3419,12 @@
                   },
                   {
                     "$ref": "#/definitions/catalog"
+                  },
+                  {
+                    "$ref": "#/definitions/researchproject"
+                  },
+                  {
+                    "$ref": "#/definitions/softwareapplication"
                   }
                 ]
               },
@@ -3267,6 +3450,19 @@
               }
             },
             "required": []  
+          },
+          "softwareapplication": {
+            "@type": "SoftwareApplication",
+            "description": "Reusable software or algorithm definition",
+            "properties": {
+              "name": "name of the software, computational tool, or algorithm.",
+              "dateModified": "date the software, computational tool, or algorithm was run",
+              "url": "url of the software, computational tool, or algorithm"
+            },
+            "required": ["name"],
+            "recommended": ["url"],
+            "optional": ["dateModified"],
+            "type": "object"
           }
         }
       }
@@ -4538,6 +4734,30 @@
               }
             ],
             "owl:cardinality": "one"
+          },
+          "sourceOrganization": {
+            "description": "The organization, research project, working group, or funded program on whose behalf the author/creator was working.",
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/researchproject"
+                }
+              },
+              {
+                  "$ref": "#/definitions/researchproject"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/organization"
+                }
+              },
+              {
+                  "$ref": "#/definitions/organization"
+              }
+            ],
+            "owl:cardinality": "many"
           }
         },
         "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType", "genre"],
@@ -4783,7 +5003,17 @@
               },
               "alternateName": {
                 "description": "Alias of the name",
-                "type": "string"
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               },
               "name": {
                 "description": "Name of the organization",
@@ -4813,7 +5043,52 @@
             },
             "required": ["name"],
             "recommended": ["identifier"],
-            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "title", "url"],
+            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "url"],
+            "type": "object"
+          },
+          "researchproject": {
+            "@type": "ResearchProject",
+            "description": "a type of organization definition",
+            "properties": {
+              "alternateName": {
+                "description": "Alias of the name",
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "name": {
+                "description": "Name of the organization",
+                "type": "string"
+              },
+              "parentOrganization": {
+                "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
+                "type": "string"
+              },
+              "email": {
+                "description": "Email address of the organization",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "Unique identifier of the organization",
+                "type": "string"
+              },
+              "url": {
+                "description": "Link to the organization",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": ["name"],
+            "recommended": ["identifier", "url", "parentOrganization"],
+            "optional": ["alternateName", "email", "role"],
             "type": "object"
           },
           "person": {
@@ -4946,6 +5221,12 @@
                   },
                   {
                     "$ref": "#/definitions/catalog"
+                  },
+                  {
+                    "$ref": "#/definitions/researchproject"
+                  },
+                  {
+                    "$ref": "#/definitions/softwareapplication"
                   }
                 ]
               },
@@ -4971,6 +5252,19 @@
               }
             },
             "required": []  
+          },
+          "softwareapplication": {
+            "@type": "SoftwareApplication",
+            "description": "Reusable software or algorithm definition",
+            "properties": {
+              "name": "name of the software, computational tool, or algorithm.",
+              "dateModified": "date the software, computational tool, or algorithm was run",
+              "url": "url of the software, computational tool, or algorithm"
+            },
+            "required": ["name"],
+            "recommended": ["url"],
+            "optional": ["dateModified"],
+            "type": "object"
           }
         }
       }
@@ -5014,6 +5308,12 @@
               },
               {
                 "$ref": "#/definitions/catalog"
+              },
+              {
+                "$ref": "#/definitions/researchproject"
+              },
+              {
+                "$ref": "#/definitions/softwareapplication"
               }
             ]
           },
@@ -5104,7 +5404,17 @@
               },
               "alternateName": {
                 "description": "Alias of the name",
-                "type": "string"
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
               },
               "name": {
                 "description": "Name of the organization",
@@ -5134,7 +5444,52 @@
             },
             "required": ["name"],
             "recommended": ["identifier"],
-            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "title", "url"],
+            "optional": ["affiliation", "alternateName", "email", "parentOrganization", "role", "url"],
+            "type": "object"
+          },
+          "researchproject": {
+            "@type": "ResearchProject",
+            "description": "a type of organization definition",
+            "properties": {
+              "alternateName": {
+                "description": "Alias of the name",
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "name": {
+                "description": "Name of the organization",
+                "type": "string"
+              },
+              "parentOrganization": {
+                "description": "Name of the parent organization. For instance, the parentOrganization of NIAID is the National Institutes of health (NIH)",
+                "type": "string"
+              },
+              "email": {
+                "description": "Email address of the organization",
+                "type": "string"
+              },
+              "identifier": {
+                "description": "Unique identifier of the organization",
+                "type": "string"
+              },
+              "url": {
+                "description": "Link to the organization",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": ["name"],
+            "recommended": ["identifier", "url", "parentOrganization"],
+            "optional": ["alternateName", "email", "role"],
             "type": "object"
           },
           "person": {
@@ -5198,6 +5553,19 @@
             "required": ["name"],
             "recommended": ["familyName", "givenName ", "identifier "],
             "optional": ["affiliation", "email", "role", "title", "url"],
+            "type": "object"
+          },
+          "softwareapplication": {
+            "@type": "SoftwareApplication",
+            "description": "Reusable software or algorithm definition",
+            "properties": {
+              "name": "name of the software, computational tool, or algorithm.",
+              "dateModified": "date the software, computational tool, or algorithm was run",
+              "url": "url of the software, computational tool, or algorithm"
+            },
+            "required": ["name"],
+            "recommended": ["url"],
+            "optional": ["dateModified"],
             "type": "object"
           }
         }
@@ -5745,6 +6113,31 @@
       "schema:rangeIncludes": [
         {
           "@id": "schema:Boolean"
+        }
+      ]
+    },
+    {
+      "@id": "nde:sourceOrganization",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The organization, research project, working group, or funded program on whose behalf the author/creator was working.",
+      "rdfs:label": "sourceOrganization",
+      "schema:domainIncludes": [
+        {
+          "@id": "nde:Dataset"
+        },
+        {
+          "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:ResearchProject"
+        },
+        {
+          "@id": "niaid:Organization"
         }
       ]
     }
