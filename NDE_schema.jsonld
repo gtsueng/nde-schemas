@@ -1469,10 +1469,26 @@
                 "description": "date the metadata was harvested from the catalog",
                 "type": "string",
                 "format": "date"
+              },
+              "dataset": {
+                "description": "Link to a dataset record",
+                "oneOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                ]
               }
             },
             "required": ["name", "url"],
-            "recommended": ["versionDate"]
+            "recommended": ["versionDate", "dataset"]
           },
           "organization": {
             "@type": "Organization",
@@ -3098,10 +3114,26 @@
                 "description": "date the metadata was harvested from the catalog",
                 "type": "string",
                 "format": "date"
+              },
+              "dataset": {
+                "description": "Link to a dataset record",
+                "oneOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                ]
               }
             },
             "required": ["name", "url"],
-            "recommended": ["versionDate"]
+            "recommended": ["versionDate", "dataset"]
           },
           "creativework": {
             "description": "A resource",
@@ -4780,11 +4812,28 @@
               }
             ],
             "owl:cardinality": "many"
+          },
+          "dataset": {
+            "description": "URL(s) to one or more dataset(s) contained in this resource",
+            "oneOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
+              }
+            ],
+            "owl:cardinality": "many"
           }
         },
         "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType", "genre"],
         "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize", "hasAPI", "hasDownload"],
-        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship","sourceOrganization"],
+        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship", "sourceOrganization", "dataset"],
         "definitions": {
           "citation": {
             "description": "A citation object for a publication which is cited by the resource catalog (ie- is a derivative of the resource catalog), related to the resource catalog, or from which the resource catalog was based on (ie- is derived from).",
@@ -4994,10 +5043,26 @@
                 "description": "date the metadata was harvested from the catalog",
                 "type": "string",
                 "format": "date"
+              },
+              "dataset": {
+                "description": "Link to a dataset record",
+                "oneOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                ]
               }
             },
             "required": ["name", "url"],
-            "recommended": ["versionDate"]
+            "recommended": ["versionDate", "dataset"]
           },
           "organization": {
             "@type": "Organization",
@@ -5406,10 +5471,26 @@
                 "description": "date the metadata was harvested from the catalog",
                 "type": "string",
                 "format": "date"
+              },
+              "dataset": {
+                "description": "Link to a dataset record",
+                "oneOf": [
+                  {
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                ]
               }
             },
             "required": ["name", "url"],
-            "recommended": ["versionDate"]
+            "recommended": ["versionDate", "dataset"]
           },
           "organization": {
             "@type": "Organization",
@@ -6191,6 +6272,25 @@
         },
         {
           "@id": "niaid:Organization"
+        }
+      ]
+    },
+    {
+      "@id": "nde:dataset",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A dataset contained in this catalog.",
+      "rdfs:label": "dataset",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:DataCatalog"
+        },
+        {
+          "@id": "nde:ResourceCatalog"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "nde:Dataset"
         }
       ]
     }
