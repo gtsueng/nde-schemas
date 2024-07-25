@@ -2974,7 +2974,7 @@
         },
         "required": ["date", "includedInDataCatalog", "funding", "author", "description", "name"],
         "recommended": ["citedBy", "doi", "topicCategory", "codeRepository", "programmingLanguage", "applicationCategory", "applicationSubCategory", "softwareRequirements", "softwareVersion", "citation", "conditionsOfAccess", "dateModified", "interactionStatistic", "license", "identifier", "url"],
-        "optional": ["isBasisFor", "isRelatedTo", "isSimilarTo", "infectiousAgent", "healthCondition", "species", "input", "output", "applicationSuite", "availableOnDevice", "downloadUrl", "featureList", "operatingSystem", "processorRequirements", "softwareAddOn", "softwareHelp", "aggregateRating", "contributor", "creator", "dateCreated", "datePublished", "discussionUrl", "hasPart", "inLanguage", "isAccessibleForFree", "isBasedOn", "isPartOf", "keywords", "provider", "sdPublisher", "thumbnailUrl", "mainEntityOfPage", "sameAs"],
+        "optional": ["isBasisFor", "isRelatedTo", "isSimilarTo", "infectiousAgent", "healthCondition", "species", "input", "output", "applicationSuite", "availableOnDevice", "downloadUrl", "featureList", "operatingSystem", "processorRequirements", "softwareAddOn", "softwareHelp", "aggregateRating", "contributor", "creator", "dateCreated", "datePublished", "discussionUrl", "hasPart", "inLanguage", "isAccessibleForFree", "isBasedOn", "isPartOf", "keywords", "provider", "sdPublisher", "thumbnailUrl", "mainEntityOfPage", "sameAs","sourceOrganization"],
         "definitions": {
           "citation": {
             "description": "A citation object for a resource which is cited by the dataset (ie- is a derivative of the dataset) , related to the dataset, or from which the dataset was based on (ie- is derived from).",
@@ -4762,7 +4762,7 @@
         },
         "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType", "genre"],
         "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize", "hasAPI", "hasDownload"],
-        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship"],
+        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship","sourceOrganization"],
         "definitions": {
           "citation": {
             "description": "A citation object for a publication which is cited by the resource catalog (ie- is a derivative of the resource catalog), related to the resource catalog, or from which the resource catalog was based on (ie- is derived from).",
