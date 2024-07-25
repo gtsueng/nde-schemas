@@ -1718,9 +1718,20 @@
             "@type": "SoftwareApplication",
             "description": "Reusable software or algorithm definition",
             "properties": {
-              "name": "name of the software, computational tool, or algorithm.",
-              "dateModified": "date the software, computational tool, or algorithm was run",
-              "url": "url of the software, computational tool, or algorithm"
+              "name": {
+                "description": "name of the software, computational tool, or algorithm.",
+                "type": "string"
+              },
+              "dateModified": {
+                "description": "date the software, computational tool, or algorithm was run",
+                "type": "string",
+                "format": "date"
+              },
+              "url": {
+                "description": "url of the software, computational tool, or algorithm",
+                "type": "string",
+                "format": "uri"
+              }
             },
             "required": ["name"],
             "recommended": ["url"],
@@ -3455,9 +3466,20 @@
             "@type": "SoftwareApplication",
             "description": "Reusable software or algorithm definition",
             "properties": {
-              "name": "name of the software, computational tool, or algorithm.",
-              "dateModified": "date the software, computational tool, or algorithm was run",
-              "url": "url of the software, computational tool, or algorithm"
+              "name": {
+                "description": "name of the software, computational tool, or algorithm.",
+                "type": "string"
+              },
+              "dateModified": {
+                "description": "date the software, computational tool, or algorithm was run",
+                "type": "string",
+                "format": "date"
+              },
+              "url": {
+                "description": "url of the software, computational tool, or algorithm",
+                "type": "string",
+                "format": "uri"
+              }
             },
             "required": ["name"],
             "recommended": ["url"],
@@ -5257,9 +5279,20 @@
             "@type": "SoftwareApplication",
             "description": "Reusable software or algorithm definition",
             "properties": {
-              "name": "name of the software, computational tool, or algorithm.",
-              "dateModified": "date the software, computational tool, or algorithm was run",
-              "url": "url of the software, computational tool, or algorithm"
+              "name": {
+                "description": "name of the software, computational tool, or algorithm.",
+                "type": "string"
+              },
+              "dateModified": {
+                "description": "date the software, computational tool, or algorithm was run",
+                "type": "string",
+                "format": "date"
+              },
+              "url": {
+                "description": "url of the software, computational tool, or algorithm",
+                "type": "string",
+                "format": "uri"
+              }
             },
             "required": ["name"],
             "recommended": ["url"],
@@ -5559,9 +5592,20 @@
             "@type": "SoftwareApplication",
             "description": "Reusable software or algorithm definition",
             "properties": {
-              "name": "name of the software, computational tool, or algorithm.",
-              "dateModified": "date the software, computational tool, or algorithm was run",
-              "url": "url of the software, computational tool, or algorithm"
+              "name": {
+                "description": "name of the software, computational tool, or algorithm.",
+                "type": "string"
+              },
+              "dateModified": {
+                "description": "date the software, computational tool, or algorithm was run",
+                "type": "string",
+                "format": "date"
+              },
+              "url": {
+                "description": "url of the software, computational tool, or algorithm",
+                "type": "string",
+                "format": "uri"
+              }
             },
             "required": ["name"],
             "recommended": ["url"],
@@ -6081,6 +6125,15 @@
         },
         {
           "@id": "nde:ResourceCatalog"
+        },
+        {
+          "@id": "schema:SoftwareApplication"
+        },
+        {
+          "@id": "nde:ComputationalTool"
+        },
+        {
+          "@id": "schema:ResearchProject"
         }
       ]
     },
