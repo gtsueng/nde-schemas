@@ -2227,47 +2227,13 @@
             "owl:cardinality": "many",
             "anyOf": [
               {
-                "@type": "FormalParameter",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the software input"
-                  },
-                  "description": {
-                    "type": "string",
-                    "description": "Description of the software input"
-                  },
-                  "encodingFormat": {
-                    "type": "string",
-                    "description": "File type of the software input"
-                  }
-                },
-                "required": ["name"],
-                "recommended": ["encodingFormat"]
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/formalparameter"
+                }
               },
               {
-                "items": {
-                  "@type": "FormalParameter",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "Name of the software input"
-                    },
-                    "description": {
-                      "type": "string",
-                      "description": "Description of the software input"
-                    },
-                    "encodingFormat": {
-                      "type": "string",
-                      "description": "File type of the software input"
-                    }
-                  },
-                  "required": ["name"],
-                  "recommended": ["encodingFormat"]
-                },
-                "type": "array"
+                "$ref": "#/definitions/formalparameter"
               },
               {
                 "type": "array",
@@ -2285,39 +2251,13 @@
             "owl:cardinality": "many",
             "anyOf": [
               {
-                "@type": "FormalParameter",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "name of the tool's output"
-                  },
-                  "encodingFormat": {
-                    "type": "string",
-                    "description": "file type of the tool's output"
-                  }
-                },
-                "required": ["name"],
-                "recommended": ["encodingFormat"]
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/formalparameter"
+                }
               },
               {
-                "items": {
-                  "@type": "FormalParameter",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "name of the tool's output"
-                    },
-                    "encodingFormat": {
-                      "type": "string",
-                      "description": "file type of the tool's output"
-                    }
-                  },
-                  "required": ["name"],
-                  "recommended": ["encodingFormat"]
-                },
-                "type": "array"
+                "$ref": "#/definitions/formalparameter"
               },
               {
                 "type": "array",
@@ -3600,6 +3540,70 @@
             "recommended": ["url"],
             "optional": ["dateModified"],
             "type": "object"
+          },
+          "formalparameter": {
+            "@type": "FormalParameter",
+            "description": "Reusable input or output parameter definition",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the software input"
+              },
+              "identifier": {
+                "description": "An ontology identifier or url of the software input our output",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                ]
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the software input or output"
+              },
+              "encodingFormat": {
+                "description": "File type of the software input our output",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/definedterm"
+                    }
+                  },
+                  {
+                    "$ref": "#/definitions/definedterm"
+                  }
+                ]
+              }
+            },
+            "required": ["name"],
+            "recommended": ["encodingFormat"]
           }
         }
       }
