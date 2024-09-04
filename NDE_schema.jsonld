@@ -2341,15 +2341,13 @@
                 "type": "array"
               },
               {
-                "format": "uri",
-                "type": "string"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
               },
               {
-                "items": {
-                  "format": "uri",
-                  "type": "string"
-                },
-                "type": "array"
+                "$ref": "#/definitions/definedterm"
               }
             ],
             "owl:cardinality": "many"
@@ -2436,6 +2434,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              {
+                "type": "string"
               }
             ]
           },
@@ -2560,6 +2561,9 @@
                 "items": {
                   "$ref": "#/definitions/creativework"
                 }
+              },
+              {
+                "$ref": "#/definitions/creativework"
               }
             ]
           },
@@ -2602,6 +2606,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              {
+                "type": "string"
               }
             ]
           },
