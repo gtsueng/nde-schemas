@@ -2181,6 +2181,9 @@
                   "type": "string"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string"
               }
             ]
           },
@@ -2719,13 +2722,9 @@
           "conditionsOfAccess": {
             "description": "Conditions that affect the availability of, or method(s) of access to, the work. Options include open (freely available), restricted (may include restrictions such as on use), closed (requires registration to access), or embargoed (unpublished).",
             "abstract": "accessibility of the work",
-            "owl:cardinality": "many",
-            "oneOf": [
-              {
-                "type": "string",
-                "enum": ["Closed", "Open", "Restricted", "Embargoed"]
-              }
-            ]
+            "owl:cardinality": "one",
+            "type": "string",
+            "enum": ["Closed", "Open", "Restricted", "Embargoed"]
           },
           "contributor": {
             "description": "A secondary contributor to the developement or maintenance of the computational tool.",
