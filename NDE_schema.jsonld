@@ -2360,18 +2360,23 @@
             "anyOf": [
               {
                 "@type": "DefinedTerm",
+                "strict": false,
                 "type": "object",
-                "property": {
-                  "identifier": {
-                    "type": "string"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "Subcategory of the tool (ex: gene regulation)"
-                  },
-                  "url": {
-                    "format": "uri",
-                    "type": "string"
+                "vocabulary": {
+                  "children_of": ["http://edamontology.org/topic_3361"],
+                  "ontology": ["edam"],
+                  "property": {
+                    "identifier": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Subcategory of the tool (ex: cytometry)"
+                    },
+                    "url": {
+                      "format": "uri",
+                      "type": "string"
+                    }
                   }
                 }
               },
@@ -2380,21 +2385,43 @@
                   "@type": "DefinedTerm",
                   "strict": false,
                   "type": "object",
-                  "property": {
-                    "identifier": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string",
-                      "description": "Subcategory of the tool (ex: gene regulation)"
-                    },
-                    "url": {
-                      "format": "uri",
-                      "type": "string"
+                  "vocabulary": {
+                    "children_of": ["http://edamontology.org/topic_3361"],
+                    "ontology": ["edam"],
+                    "property": {
+                      "identifier": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Subcategory of the tool (ex: cytometry)"
+                      },
+                      "url": {
+                        "format": "uri",
+                        "type": "string"
+                      }
                     }
                   }
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             ],
             "owl:cardinality": "many"
