@@ -2222,7 +2222,27 @@
             "description": "software input, such as a file or parameter.",
             "abstract": "input file/parameter",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
+              {
+                "@type": "FormalParameter",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the software input"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the software input"
+                  },
+                  "encodingFormat": {
+                    "type": "string",
+                    "description": "File type of the software input"
+                  }
+                },
+                "required": ["name"],
+                "recommended": ["encodingFormat"]
+              },
               {
                 "items": {
                   "@type": "FormalParameter",
@@ -2245,13 +2265,38 @@
                   "recommended": ["encodingFormat"]
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ]
           },
           "output": {
             "description": "Output of the computational tool.",
             "owl:cardinality": "many",
-            "oneOf": [
+            "anyOf": [
+              {
+                "@type": "FormalParameter",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "name of the tool's output"
+                  },
+                  "encodingFormat": {
+                    "type": "string",
+                    "description": "file type of the tool's output"
+                  }
+                },
+                "required": ["name"],
+                "recommended": ["encodingFormat"]
+              },
               {
                 "items": {
                   "@type": "FormalParameter",
@@ -2270,11 +2315,20 @@
                   "recommended": ["encodingFormat"]
                 },
                 "type": "array"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
               }
             ]
           },
           "applicationCategory": {
-            "description": "Type of software application, e.g. 'Game, Multimedia'.",
+            "description": "Type of software application, e.g. 'Command-line tool', 'Database portal', 'Desktop application', 'Library', 'Ontology', 'Plug-in', 'Script', 'SPARQL endpoint', 'Suite', 'Web application', 'Web API', 'Web service', 'Workbench', 'Workflow'.",
             "abstract": "type of software application",
             "anyOf": [
               {
@@ -2301,16 +2355,31 @@
             "owl:cardinality": "many"
           },
           "applicationSubCategory": {
-            "description": "Subcategory of the computational tool, like gene regulation.",
+            "description": "A subcategory of the computational tool, like gene regulation.",
             "abstract": "software subcategory",
-            "oneOf": [
+            "anyOf": [
               {
                 "@type": "DefinedTerm",
-                "strict": false,
                 "type": "object",
-                "vocabulary": {
-                  "children_of": ["http://edamontology.org/topic_0003"],
-                  "ontology": ["edam"],
+                "property": {
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Subcategory of the tool (ex: gene regulation)"
+                  },
+                  "url": {
+                    "format": "uri",
+                    "type": "string"
+                  }
+                }
+              },
+              {
+                "items": {
+                  "@type": "DefinedTerm",
+                  "strict": false,
+                  "type": "object",
                   "property": {
                     "identifier": {
                       "type": "string"
@@ -2322,30 +2391,6 @@
                     "url": {
                       "format": "uri",
                       "type": "string"
-                    }
-                  }
-                }
-              },
-              {
-                "items": {
-                  "@type": "DefinedTerm",
-                  "strict": false,
-                  "type": "object",
-                  "vocabulary": {
-                    "children_of": ["http://edamontology.org/topic_0003"],
-                    "ontology": ["edam"],
-                    "property": {
-                      "identifier": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Subcategory of the tool (ex: gene regulation)"
-                      },
-                      "url": {
-                        "format": "uri",
-                        "type": "string"
-                      }
                     }
                   }
                 },
@@ -2373,9 +2418,14 @@
             "oneOf": [
               {
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "format": "uri"
                 },
                 "type": "array"
+              },
+              {
+                "type": "string",
+                "format": "uri"
               }
             ]
           },
