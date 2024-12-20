@@ -3622,6 +3622,20 @@
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
+          "about": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/definedterm"
+                }
+              },
+              {
+                "$ref": "#/definitions/definedterm"
+              }
+            ],
+            "owl:cardinality": "many"    
+          },
           "citedBy": {
             "description": "Publications, datasets, or computational tools that cite the work.",
             "anyOf": [
@@ -4919,8 +4933,8 @@
             "owl:cardinality": "many"
           }
         },
-        "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "collectionType", "genre"],
-        "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize", "hasAPI", "hasDownload"],
+        "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "about","genre"],
+        "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize", "hasAPI", "hasDownload", "collectionType"],
         "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship", "sourceOrganization", "dataset"],
         "definitions": {
           "citation": {
