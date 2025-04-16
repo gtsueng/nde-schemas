@@ -3,7 +3,7 @@
     "schema": "http://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "bioschemas": "https://discovery.biothings.io/view/bioschemas/",
+    "bioschemas": "https://discovery.biothings.io/ns/bioschemas/",
     "niaid": "https://discovery.biothings.io/view/niaid/",
     "nde": "https://discovery.biothings.io/view/nde/"
   },
@@ -4933,9 +4933,9 @@
             "owl:cardinality": "many"
           }
         },
-        "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "about","genre"],
+        "required": ["date", "funding", "measurementTechnique", "description", "name", "url", "about","genre", "includedInDataCatalog"],
         "recommended": ["author", "citedBy", "doi", "infectiousAgent", "healthCondition", "species", "variableMeasured", "citation", "conditionsOfAccess", "dateCreated", "dateModified", "datePublished", "interactionStatistic", "isBasedOn", "keywords", "license", "sdPublisher", "spatialCoverage", "temporalCoverage", "usageInfo", "identifier", "topicCategory", "collectionSize", "hasAPI", "hasDownload", "collectionType"],
-        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "includedInDataCatalog", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship", "sourceOrganization", "dataset"],
+        "optional": ["isRelatedTo", "isSimilarTo", "isBasisFor", "distribution", "abstract", "aggregateRating", "creator", "hasPart", "inLanguage", "isAccessibleForFree", "isPartOf", "version", "alternateName", "mainEntityOfPage", "sameAs", "relationship", "sourceOrganization", "dataset"],
         "definitions": {
           "citation": {
             "description": "A citation object for a publication which is cited by the resource catalog (ie- is a derivative of the resource catalog), related to the resource catalog, or from which the resource catalog was based on (ie- is derived from).",
