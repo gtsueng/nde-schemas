@@ -3,9 +3,10 @@
     "schema": "http://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
     "bioschemas": "https://discovery.biothings.io/ns/bioschemas/",
-    "niaid": "https://discovery.biothings.io/view/niaid/",
-    "nde": "https://discovery.biothings.io/view/nde/"
+    "niaid": "http://discovery.biothings.io/ns/niaid/",
+    "nde": "https://discovery.biothings.io/ns/nde/"
   },
   "@graph": [
     {
@@ -17,12 +18,14 @@
       "rdfs:subClassOf": {
         "@id": "niaid:Dataset"
       },
+      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v1.6 - 2025.05.09"],
+      "dct:provenance":"Changes since previous version: Fix context url namespaces, add version and change info to class. Update descriptions of 'citedBy' and 'citation'.",
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "citedBy": {
-            "description": "Publications, datasets, or computational tools that cite the work.",
+            "description": "Publications, datasets, or computational tools that cite the work. Examples: a publication which reuses the dataset in a secondary analysis, a dataset which extends the existing dataset, or a computational tool which relies on the dataset.",
             "anyOf": [
               {
                 "type": "array",
@@ -661,7 +664,7 @@
             "owl:cardinality": "many"
           },
           "citation": {
-            "description": "A citation or reference to a publication, dataset, or computational tool which uses the dataset. Examples: a publication which describes the collection/analysis of the dataset, a publication which reuses the dataset in a secondary analysis, a dataset which extends the existing dataset, or a computational tool which relies on the dataset.",
+            "description": "A citation or reference to a publication, dataset, or computational tool which uses the dataset. Examples: a publication which describes the creation/collection/analysis of the dataset.",
             "abstract": "citation to the work",
             "owl:cardinality": "many",
             "anyOf": [
@@ -1766,12 +1769,14 @@
       "rdfs:subClassOf": {
         "@id": "niaid:ComputationalTool"
       },
+      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v1.7 - 2025.05.09"],
+      "dct:provenance":"Changes since previous version: Fix context url namespaces, add version and change info to class. Update descriptions of 'citedBy' and 'citation'.",
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "citedBy": {
-            "description": "Publications, datasets, or computational tools that cite the work.",
+            "description": "Publications, datasets, or computational tools that cite the work. Examples: a publication which reuses the dataset in a secondary analysis, a dataset which extends the existing dataset, or a computational tool which relies on the dataset.",
             "anyOf": [
               {
                 "type": "array",
@@ -3618,6 +3623,8 @@
       "rdfs:subClassOf": {
         "@id": "schema:Collection"
       },
+      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v1.7 - 2025.05.09"],
+      "dct:provenance":"Changes since previous version: Fix context url namespaces, add version and change info to class. Update descriptions of 'citedBy' and 'citation'.",
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -3637,7 +3644,7 @@
             "owl:cardinality": "many"    
           },
           "citedBy": {
-            "description": "Publications, datasets, or computational tools that cite the work.",
+            "description": "Publications, datasets, or computational tools that cite the work. Examples: a publication which uses information or content of the resource catalog for secondary analysis, or a computational tool which relies on the content of the resource catalog",
             "anyOf": [
               {
                 "type": "array",
@@ -4271,7 +4278,7 @@
             "owl:cardinality": "many"
           },
           "citation": {
-            "description": "A citation or reference to a publication, dataset, or computational tool which uses the resource catalog. Examples: a publication which describes the creation of the resource catalog, a publication which uses information or content of the resource catalog for secondary analysis, or a computational tool which relies on the content of the resource catalog.",
+            "description": "A citation or reference to a publication, dataset, or computational tool which uses the resource catalog. Examples: a publication which describes the creation of the resource catalog.",
             "abstract": "citation to the work",
             "owl:cardinality": "many",
             "anyOf": [
@@ -5477,6 +5484,8 @@
       "rdfs:subClassOf": {
         "@id": "schema:DefinedTerm"
       },
+      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v1.1 - 2025.05.09"],
+      "dct:provenance":"Changes since previous version: Fix context url namespaces, add version and change info to class.",
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -5801,7 +5810,7 @@
     {
       "@id": "nde:citedBy",
       "@type": "rdf:Property",
-      "rdfs:comment": "Publications that cite the dataset, resource/resource catalog or computational tool.",
+      "rdfs:comment": "Publications that cite the dataset, resource/resource catalog or computational tool. Examples: a publication which reuses the dataset in a secondary analysis, a dataset which extends the existing dataset, or a computational tool which relies on the dataset.",
       "rdfs:label": "citedBy",
       "schema:domainIncludes": [
         {
