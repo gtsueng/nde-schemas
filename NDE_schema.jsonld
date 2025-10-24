@@ -6003,8 +6003,8 @@
           "@id": "nde:ResourceCatalog"
         }
       ],
-      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v0.1 - 2025.09.03"],
-      "dct:provenance":"First draft.",
+      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v0.2 - 2025.10.24"],
+      "dct:provenance":"Update developmentalStage to include QuantiativeValue as an expected type.",
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -6846,6 +6846,15 @@
               },
               {
                 "$ref": "#/definitions/definedterm"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/quantitativevalue"
+                }
+              },
+              {
+                "$ref": "#/definitions/quantitativevalue"
               }
             ],
             "owl:cardinality": "many"
@@ -8521,8 +8530,8 @@
           "@id": "nde:ResourceCatalog"
         }
       ],
-      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v0.1 - 2025.09.10"],
-      "dct:provenance":"First draft.",
+      "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v0.2 - 2025.10.24"],
+      "dct:provenance":"Update developmentalStage to include QuantiativeValue as an expected type.",
       "$validation": {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
@@ -9364,6 +9373,15 @@
               },
               {
                 "$ref": "#/definitions/definedterm"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/quantitativevalue"
+                }
+              },
+              {
+                "$ref": "#/definitions/quantitativevalue"
               }
             ],
             "owl:cardinality": "many"
