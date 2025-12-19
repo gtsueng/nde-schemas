@@ -6439,6 +6439,9 @@
       "rdfs:subClassOf": [
         {
           "@id": "bioschemastypesdrafts:BioSample"
+        },
+        {
+          "@id": "schema:CreativeWork"
         }
       ],
       "schema:schemaVersion":["https://schema.org/docs/releases.html#v18.0","v0.3 - 2025.12.17"],
